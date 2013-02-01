@@ -20,13 +20,95 @@
 \newcommand{\br}{\vspace{2mm}}
 
 \begin{document}
-\maketitle
-\setcounter{section}{4}
 
+\maketitle
+
+\abstract{
+eCommerce CMS is a software solution for small business customers looking for
+an initial online presence.  The eCommerce CMS application will offer both a
+web service for HTTP requests and sets of internet-accessible web pages served
+by that web service.
+
+This Software Requirements Specification is intended to outline the necessary
+outcomes and performance specifications required for eCommerce CMS to be
+considered fully functional and deployable.
+}
+
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\listoffigures
+
+\pagebreak
+\listoftables
+
+\setcounter{section}{4}
 \section{Software Requirements Specification}
+
 \subsection{Introduction}
+
+\subsubsection{Identification}
+
+This Software Requirements Specification (SRS) documents the requirements for
+the small business utility web service and web site, called eCommerce CMS.
+
+\subsubsection{System Overview}
+
+The eCommerce CMS application will offer a Java-based web service which will
+allow for HTTP requests to qualified users.  The Java-based service will also
+serve two sets of front-end web pages.  Through the first set, small business
+users of the application can implement and manage an online business management
+and sales solution. Through the second set, customers of the small business will
+be able to interact with the small business either through making purchases on
+an eCommerce web site or through committing information required for generation
+of a proposal.
+
+\subsubsection{Document Overview}
+
+This SRS is a minimized form of a typical SRS due to time constraints.  In the
+following sections there will be a section dedicated to Functional Requirements,
+Performance Requirements, and finally Environmental Requirements.  Following these
+Requirements sections there will be an appendix.
+
+Table~\ref{terms} defines key terms that are used within this document.
+
+\begin{table}
+\begin{tabular}{|l|l|}\hline
+Term & Definition \\\hline\hline
+Shall & A contractual obligation without which this software shall be considered incomplete. \\\hline
+Should & An optional provision offering guidance for functional requirements. \\\hline
+Will & An optional provision offering guidance for design requirements. \\\hline
+User & Small business owner, or agent thereof, intending to deploy a web service
+and corresponding web sites. \\\hline
+Customer & A customer of the small business owner who intends to use the web service
+or one of the web sites deployed by the user. \\\hline
+Back-End & The web service offering HTTP endpoints and serving web sites \\\hline
+Front-End & The collection of web sites that offer functionality to both the user
+and the customers. \\\hline
+\end{tabular}
+\caption{Definitions used in this SRS.}
+\label{terms}
+\end{table}
+
 \subsection{Functional Requirements}
+
+%    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
+%    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
 \subsubsection{Functional Requirement 1}
+
+The web service will provide a URI contract with a set of HTTP endpoints
+to access web service functions for all functions offered by the web service
+when hit by an HTTP request.
+
+\subsubsection{Functional Requirement 2}
+
+The web service will provide a persistent data store with saved input data from
+the user and from customers to offer invoice, proposal, and report generation
+by both the user and by customers.
+
+\subsubsection{Functional Requirement 3}
+
 \subsection{Performance Requirements}
 \subsubsection{Performance Requirement 1}
 \subsection{Environment Requirements}
