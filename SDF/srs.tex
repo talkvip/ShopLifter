@@ -71,24 +71,24 @@ Requirements sections there will be an appendix.
 Table~\ref{terms} defines key terms that are used within this document.
 
 \begin{table}
-\begin{tabular}{|l|p{11cm}|}\hline
-Term & Definition \\\hline\hline
-Shall & A contractual obligation without which this software shall be considered incomplete. \\\hline
-Should & An optional provision offering guidance for functional requirements. \\\hline
-Will & An optional provision offering guidance for design requirements. \\\hline
-User & Small business owner, or agent thereof, intending to deploy a web service
-and corresponding web sites. \\\hline
-Customer & A customer of the small business owner who intends to use the web service
-or one of the web sites deployed by the user. \\\hline
-Application & The eCommerce CMS software suite outlined in this SRS. \\\hline
-Back-End & The web service offering HTTP endpoints and serving web sites \\\hline
-User Front-End & The collection of web sites that offer creation and management
-functionality to the user. \\\hline
-Customer Front-End & The collection of web sites customized by the user displaying
-a web store or data entry fields for proposal generation.\\\hline
-\end{tabular}
-\caption{Definitions used in this SRS.}
-\label{terms}
+    \begin{tabular}{|l|p{11cm}|}\hline
+        Term & Definition \\\hline\hline
+        Shall & A contractual obligation without which this software shall be considered incomplete. \\\hline
+        Should & An optional provision offering guidance for functional requirements. \\\hline
+        Will & An optional provision offering guidance for design requirements. \\\hline
+        User & Small business owner, or agent thereof, intending to deploy a web service
+        and corresponding web sites. \\\hline
+        Customer & A customer of the small business owner who intends to use the web service
+        or one of the web sites deployed by the user. \\\hline
+        Application & The eCommerce CMS software suite outlined in this SRS. \\\hline
+        Back-End & The web service offering HTTP endpoints and serving web sites \\\hline
+        User Front-End & The collection of web sites that offer creation and management
+        functionality to the user. \\\hline
+        Customer Front-End & The collection of web sites customized by the user displaying
+        a web store or data entry fields for proposal generation.\\\hline
+    \end{tabular}
+    \caption{Definitions used in this SRS.}
+    \label{terms}
 \end{table}
 
 The application is the Computer Software Configuration Item (CSCI) and consists
@@ -100,11 +100,11 @@ intended in table~\ref{software-hierarchy}, but this list shall in no way bind
 or limit the number of CSU's that will be developed within eCommerce CMS.
 
 \begin{table}
-\begin{tabular}{|c|c|c|}\hline
-eCommerce CMS & Back-End & \\\hline
-\end{tabular}
-\caption{CSCI, CSC, and CSU Hierarchy}
-\label{software-hierarchy}
+    \begin{tabular}{|c|c|c|}\hline
+        eCommerce CMS & Back-End & \\\hline
+    \end{tabular}
+    \caption{CSCI, CSC, and CSU Hierarchy}
+    \label{software-hierarchy}
 \end{table}
 
 \subsection{Functional Requirements}
@@ -159,33 +159,40 @@ Maven, Java
 
 The back-end is served from a web server or from a hosting solution provider and is
 required to have the minimum specifications outlined in table~\ref{server}.  The
-front-end is served as web pages within supported web browsers, as listed in
-table~\ref{browsers}.
+server itself requires minimum hardware support, but does require an always-on
+network connection through which to serve the service and web pages.  A Java
+Development Kit (JDK) of version 1.5 or newer is required to compile and package
+the Maven repository that will be used.
+
+The front-end is served as web pages within supported web browsers, as listed in
+table~\ref{browsers}.  This does not constitue a complete list of supported web
+browsers, but is a brief list of web browsers that are guaranteed to be supported
+by the web sites.
 
 \begin{table}
-\centering
-\begin{tabular}{|c|c|}\hline
-Category & Requirement \\\hline\hline
-JDK & 1.5+ \\\hline
-Hard Drive Space & 250mb \\\hline
-Operating System & No requirement \\\hline
-RAM & 512mb \\\hline
-\end{tabular}
-\caption{Server Requirements}
-\label{server}
+    \centering
+    \begin{tabular}{|c|c|}\hline
+        Category & Requirement \\\hline\hline
+        JDK & 1.5+ \\\hline
+        Hard Drive Space & 250mb \\\hline
+        Operating System & No requirement \\\hline
+        RAM & 512mb \\\hline
+    \end{tabular}
+    \caption{Server Requirements}
+    \label{server}
 \end{table}
 
 \begin{table}
-\centering
-\begin{tabular}{|c|c|}\hline
-Browser & Version \\\hline\hline
-Google Chrome & All versions  \\\hline
-Microsoft Internet Explorer & 7.x+ \\\hline
-Mozilla Firefox & 3.7+ \\\hline
-Apple Safari & 5.x+ \\\hline
-\end{tabular}
-\caption{Supported Browsers}
-\label{browsers}
+    \centering
+    \begin{tabular}{|c|c|}\hline
+        Browser & Version \\\hline\hline
+        Google Chrome & All versions  \\\hline
+        Microsoft Internet Explorer & 7.x+ \\\hline
+        Mozilla Firefox & 3.7+ \\\hline
+        Apple Safari & 5.x+ \\\hline
+    \end{tabular}
+    \caption{Supported Browsers}
+    \label{browsers}
 \end{table}
 
 \end{document}
