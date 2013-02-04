@@ -36,13 +36,10 @@ considered fully functional and deployable.
 
 \pagebreak
 \tableofcontents
-
-\pagebreak
 \listoffigures
-
-\pagebreak
 \listoftables
 
+\pagebreak
 \setcounter{section}{4}
 \section{Software Requirements Specification}
 
@@ -74,7 +71,7 @@ Requirements sections there will be an appendix.
 Table~\ref{terms} defines key terms that are used within this document.
 
 \begin{table}
-\begin{tabular}{|l|l|}\hline
+\begin{tabular}{|l|p{11cm}|}\hline
 Term & Definition \\\hline\hline
 Shall & A contractual obligation without which this software shall be considered incomplete. \\\hline
 Should & An optional provision offering guidance for functional requirements. \\\hline
@@ -83,31 +80,73 @@ User & Small business owner, or agent thereof, intending to deploy a web service
 and corresponding web sites. \\\hline
 Customer & A customer of the small business owner who intends to use the web service
 or one of the web sites deployed by the user. \\\hline
+Application & The eCommerce CMS software suite outlined in this SRS. \\\hline
 Back-End & The web service offering HTTP endpoints and serving web sites \\\hline
-Front-End & The collection of web sites that offer functionality to both the user
-and the customers. \\\hline
+User Front-End & The collection of web sites that offer creation and management
+functionality to the user. \\\hline
+Customer Front-End & The collection of web sites customized by the user displaying
+a web store or data entry fields for proposal generation.\\\hline
 \end{tabular}
 \caption{Definitions used in this SRS.}
 \label{terms}
 \end{table}
 
+The application is the Computer Software Configuration Item (CSCI) and consists
+of three major Computer Software Components (CSC).  The CSCI is broken down
+into the back-end CSC, the user front-end CSC, and the customer front-end
+CSC.  Each respective CSC can further be broken down to several Computer
+Software Units (CSU).  This document will specify some of the CSU's that are
+intended in table~\ref{software-hierarchy}, but this list shall in no way bind
+or limit the number of CSU's that will be developed within eCommerce CMS.
+
+\begin{table}
+\begin{tabular}{|c|c|c|}\hline
+eCommerce CMS & Back-End & \\\hline
+\end{tabular}
+\caption{CSCI, CSC, and CSU Hierarchy}
+\label{software-hierarchy}
+\end{table}
+
 \subsection{Functional Requirements}
 
-%    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
-%    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
-\subsubsection{Functional Requirement 1}
+The Functional Requirements section is segmented into subsections consisting of
+one functional requirement each.  These subsections flow sequentially from
+back-end, to user front-end, and finally to customer front-end.
 
-The web service will provide a URI contract with a set of HTTP endpoints
+\subsubsection{Functional Back-End Requirement 1}
+\label{func-back-end-1}
+
+The back-end shall provide a URI contract with a set of HTTP endpoints
 to access web service functions for all functions offered by the web service
 when hit by an HTTP request.
 
-\subsubsection{Functional Requirement 2}
+\subsubsection{Functional Back-End Requirement 2}
+\label{func-back-end-2}
 
-The web service will provide a persistent data store with saved input data from
-the user and from customers to offer invoice, proposal, and report generation
-by both the user and by customers.
+The back-end shall respond to all front-end page requests through HTTP endpoints
+within 2 seconds in accordance with functional back-end
+requirement~\ref{func-back-end-1}.
 
-\subsubsection{Functional Requirement 3}
+\subsubsection{Functional Back-End Requirement 3}
+\label{func-back-end-3}
+
+The back-end shall provide a persistent data store with saved input data from
+the user and from customers to offer invoice, proposal, report, and web store
+content generation by the user.
+
+\subsubsection{Functional Back-End Requirement 4}
+\label{func-back-end-4}
+%    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
+%    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
+The back-end shall provide an endpoint that generates
+
+\subsubsection{Functional User Front-End Requirement 1}
+\label{func-user-front-end-1}
+
+
+\subsubsection{Functional Customer Front-End Requirement 1}
+\label{func-cust-front-end-1}
+
 
 \subsection{Performance Requirements}
 \subsubsection{Performance Requirement 1}
