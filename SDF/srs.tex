@@ -71,7 +71,7 @@ in no way bind or limit the number of CSU's that will be developed within
 eCommerce CMS.
 
 \begin{table}
-    \begin{tabular}{|c|c|c|}\hline
+    \begin{tabular}{|c|l|p{8.5cm}|}\hline
         CSCI & CSC & CSU \\\hline\hline
         \multirow{12}{*}{eCommerce CMS}
          & Back-End & Persistent Data Store (Section~\ref{func-back-end-2}) \\\cline{2-3}
@@ -82,10 +82,9 @@ eCommerce CMS.
          & User Front-End & Web Page Template Editor (Section~\ref{func-user-front-end-4}) \\\cline{2-3}
          & User Front-End & Inventory Input/Edit Form (Section~\ref{func-user-front-end-5}) \\\cline{2-3}
          & User Front-End & Report/Proposal Requestor (Sections~\ref{func-user-front-end-6} and~\ref{func-user-front-end-7}) \\\cline{2-3}
-         & Customer Front-End & Proposal Specification Form \\\cline{2-3}
-         & Customer Front-End & Web Store \\\cline{2-3}
-         & Customer Front-End & Purchasing/Transaction System \\\cline{2-3}
-         & Customer Front-End & Product Browser \\\hline
+         & Customer Front-End & Proposal Specification Form (Section~\ref{func-cust-front-end-2}) \\\cline{2-3}
+         & Customer Front-End & Web Store (Sections~\ref{func-cust-front-end-3} and~\ref{func-cust-front-end-4}) \\\cline{2-3}
+         & Customer Front-End & Purchasing/Transaction System (Sections~\ref{func-cust-front-end-5},~\ref{func-cust-front-end-6}, and~\ref{func-cust-front-end-7}) \\\hline
     \end{tabular}
     \caption{CSCI, CSC, and CSU Hierarchy}
     \label{software-hierarchy}
@@ -122,6 +121,7 @@ Table~\ref{terms} defines key terms that are used within this document.
     \label{terms}
 \end{table}
 
+\pagebreak
 \subsection{Functional Requirements}
 
 The application will serve eCommerce web pages allowing inventory data to be
@@ -230,17 +230,73 @@ The user front-end shall provide a document proposal generator that will take
 products or services in the inventory and aggregate them into a document
 template when requested by a user through a request page.
 
-% TODO: HERE
-%    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
-%    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
-
-
 \subsubsection{Functional Customer Front-End Requirement 1}
 \label{func-cust-front-end-1}
 
 The customer front-end shall provide all web pages in HTML to interact with the
 back-end and conduct transactions when opened in a browser by a customer.
 
+\subsubsection{Functional Customer Front-End Requirement 2}
+\label{func-cust-front-end-2}
+
+The customer front-end shall provide a proposal data submission form to transmit
+data that will be used in proposal generation by the user when a customer
+opens the form web page and submits the data by a form submission button.
+
+\subsubsection{Functional Customer Front-End Requirement 3}
+\label{func-cust-front-end-3}
+
+The customer front-end shall provide a web store with a product browsing page
+that will show key details about products while a customer is on a product
+browsing web page.
+
+\subsubsection{Functional Customer Front-End Requirement 4}
+\label{func-cust-front-end-4}
+
+The customer front-end shall provide a web store with a product detail viewing
+page that will show specific details about a single product while a customer is
+on that product's viewing page.
+
+\subsubsection{Functional Customer Front-End Requirement 5}
+\label{func-cust-front-end-5}
+
+The customer front-end shall provide an ``Add to shopping cart'' button on pages
+where products or services are displayed, see
+sections~\ref{func-cust-front-end-3} and~\ref{func-cust-front-end-4} for adding
+products to a shopping cart when the button is pushed.
+
+\subsubsection{Functional Customer Front-End Requirement 6}
+\label{func-cust-front-end-6}
+
+The customer front-end shall provide a persistent shopping cart where items
+added by the method described in section~\ref{func-cust-front-end-6} will be
+stored and displayed when the customer goes to a checkout section.
+
+\subsubsection{Functional Customer Front-End Requirement 7}
+\label{func-cust-front-end-7}
+
+The customer front-end shall provide a ``Checkout'' button and web page
+dedicated to transacting sales of products in the shopping cart, see
+sections~\ref{func-cust-front-end-3} and~\ref{func-cust-front-end-4}, that
+will be displayed when a customer presses a button navigating to the ``Checkout''
+page.
+
+\subsubsection{Functional Customer Front-End Requirement 8}
+\label{func-cust-front-end-8}
+
+The customer front-end shall be displayed in the format specified by the user
+either through template selection or through customization through a WYSIWYG,
+see sections~\ref{func-user-front-end-2} and~\ref{func-user-front-end-4}, upon
+navigation to the customer front-end pages.
+
+
+% TODO: HERE
+%    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
+%    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
+
+
+
+\pagebreak
 \subsection{Performance Requirements}
 
 \subsubsection{Performance Requirement 1}
@@ -250,7 +306,9 @@ The back-end shall respond to all front-end page requests through HTTP endpoints
 within 2 seconds in accordance with functional back-end
 requirement~\ref{func-back-end-1}.
 
+\pagebreak
 \subsection{Environment Requirements}
+
 \subsubsection{Development Environment Requirements}
 
 The application is developed with Java 1.6+ with packages provided by
