@@ -61,13 +61,13 @@ be able to interact with the small business either through making purchases on
 an eCommerce web site or through committing information required for generation
 of a proposal.
 
-The eCommerce CMS application is the Computer Software Configuration Item 
-(CSCI) and consists of three major Computer Software Components (CSC).  The 
-CSCI is broken down into the back-end CSC, the user front-end CSC, and the 
-customer front-end CSC.  Each respective CSC can further be broken down to 
-several Computer Software Units (CSU).  This document will specify some of the 
-CSU's that are intended in table~\ref{software-hierarchy}, but this list shall 
-in no way bind or limit the number of CSU's that will be developed within 
+The eCommerce CMS application is the Computer Software Configuration Item
+(CSCI) and consists of three major Computer Software Components (CSC).  The
+CSCI is broken down into the back-end CSC, the user front-end CSC, and the
+customer front-end CSC.  Each respective CSC can further be broken down to
+several Computer Software Units (CSU).  This document will specify some of the
+CSU's that are intended in table~\ref{software-hierarchy}, but this list shall
+in no way bind or limit the number of CSU's that will be developed within
 eCommerce CMS.
 
 \begin{table}
@@ -79,9 +79,9 @@ eCommerce CMS.
          & Back-End & Front-End Generator (Sections~\ref{func-back-end-4} and~\ref{func-back-end-5}) \\\cline{2-3}
          & Back-End & Transaction Processor (Sections~\ref{func-back-end-6} and~\ref{func-back-end-7}) \\\cline{2-3}
          & User Front-End & Visual Web Page Editor (Section~\ref{func-user-front-end-2}) \\\cline{2-3}
-         & User Front-End & Web Page Template Editor \\\cline{2-3}
-         & User Front-End & Inventory Input/Edit Form \\\cline{2-3}
-         & User Front-End & Report/Proposal Requester \\\cline{2-3}
+         & User Front-End & Web Page Template Editor (Section~\ref{func-user-front-end-4}) \\\cline{2-3}
+         & User Front-End & Inventory Input/Edit Form (Section~\ref{func-user-front-end-5}) \\\cline{2-3}
+         & User Front-End & Report/Proposal Requestor (Sections~\ref{func-user-front-end-6} and~\ref{func-user-front-end-7}) \\\cline{2-3}
          & Customer Front-End & Proposal Specification Form \\\cline{2-3}
          & Customer Front-End & Web Store \\\cline{2-3}
          & Customer Front-End & Purchasing/Transaction System \\\cline{2-3}
@@ -94,8 +94,8 @@ eCommerce CMS.
 \subsubsection{Document Overview}
 
 This SRS is a minimized form of a typical SRS due to time constraints.  The
-remainder of this document is structured as follows.  Section 5.2 contains 
-Functional Requirements, Section 5.3 contains Performance Requirements, and 
+remainder of this document is structured as follows.  Section 5.2 contains
+Functional Requirements, Section 5.3 contains Performance Requirements, and
 finally Section 5.4 contains Environmental Requirements.  Following these
 Requirements sections there will be an appendix.
 
@@ -171,7 +171,7 @@ user input when deployed by HTTP endpoint.
 \subsubsection{Functional Back-End Requirement 6}
 \label{func-back-end-6}
 
-The back-end shall provide a transaction processor, or connection to a 
+The back-end shall provide a transaction processor, or connection to a
 third-party transaction processor, to accept purchasing by customers
 when a customer completes a check-out process.
 
@@ -186,7 +186,7 @@ is conducted.
 \subsubsection{Functional User Front-End Requirement 1}
 \label{func-user-front-end-1}
 
-The user front-end shall provide a web page in HTML to interact with the
+The user front-end shall provide all web pages in HTML to interact with the
 back-end when opened in a browser by a user.
 
 \subsubsection{Functional User Front-End Requirement 2}
@@ -194,7 +194,7 @@ back-end when opened in a browser by a user.
 
 The user front-end shall provide a What-You-See-Is-What-You-Get (WYSIWYG) style
 editor to edit the layout and appearance of the customer front-end when saved
-and the customer front-end is re-deployed by the user, per 
+and the customer front-end is re-deployed by the user, per
 Section~\ref{func-user-front-end-3}.
 
 \subsubsection{Functional User Front-End Requirement 3}
@@ -206,7 +206,29 @@ adhering to saved customizations when clicked by the user.
 \subsubsection{Functional User Front-End Requirement 4}
 \label{func-user-front-end-4}
 
+The user front-end shall provide a set of templates that can be deployed to
+full-scale customer front-ends with minimal input from the user when an option
+is chosen from the user front-end initial home screen.
 
+\subsubsection{Functional User Front-End Requirement 5}
+\label{func-user-front-end-5}
+
+The user front-end shall provide an inventory management form where inventory
+data can be input or edited as necessary when the user inputs information and
+clicks a submit button.
+
+\subsubsection{Functional User Front-End Requirement 6}
+\label{func-user-front-end-6}
+
+The user front-end shall provide a history of transaction details in the form
+of a customizable report when the user requests a report through a request page.
+
+\subsubsection{Functional User Front-End Requirement 7}
+\label{func-user-front-end-7}
+
+The user front-end shall provide a document proposal generator that will take
+products or services in the inventory and aggregate them into a document
+template when requested by a user through a request page.
 
 % TODO: HERE
 %    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
@@ -216,7 +238,7 @@ adhering to saved customizations when clicked by the user.
 \subsubsection{Functional Customer Front-End Requirement 1}
 \label{func-cust-front-end-1}
 
-The customer front-end shall provide a web page in HTML to interact with the
+The customer front-end shall provide all web pages in HTML to interact with the
 back-end and conduct transactions when opened in a browser by a customer.
 
 \subsection{Performance Requirements}
@@ -231,7 +253,7 @@ requirement~\ref{func-back-end-1}.
 \subsection{Environment Requirements}
 \subsubsection{Development Environment Requirements}
 
-The application is developed with Java 1.6+ with packages provided by 
+The application is developed with Java 1.6+ with packages provided by
 Maven.  There are no specific system requirements for the development of
 the application besides the ability to use Java and the packages provided
 by Maven.
