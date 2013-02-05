@@ -289,13 +289,6 @@ either through template selection or through customization through a WYSIWYG,
 see sections~\ref{func-user-front-end-2} and~\ref{func-user-front-end-4}, upon
 navigation to the customer front-end pages.
 
-
-% TODO: HERE
-%    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
-%    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
-
-
-
 \pagebreak
 \subsection{Performance Requirements}
 
@@ -306,6 +299,32 @@ The back-end shall respond to all front-end page requests through HTTP endpoints
 within 2 seconds in accordance with functional back-end
 requirement~\ref{func-back-end-1}.
 
+\subsubsection{Performance Requirement 2}
+\label{perf-back-end-2}
+
+The back-end shall respond to requests for reports or proposals through HTTP
+endpoints within 10 seconds in accordance with functional back-end
+requirement~\ref{func-back-end-3} when a user triggers the process through the
+methods described in requirements~\ref{func-user-front-end-6}
+and~\ref{func-user-front-end-7}.
+
+\subsubsection{Performance Requirement 3}
+\label{perf-back-end-3}
+
+The back-end's front-end generator shall respond to a re-deploy request by a
+user within 15 seconds in accordance with functional back-end
+requirement~\ref{func-back-end-5} when a user triggers the process through the
+methods described in requirement~\ref{func-user-front-end-3}.
+
+\subsubsection{Performance Requirement 4}
+\label{perf-back-end-4}
+
+The back-end shall respond to requests to complete transactions within 5 seconds
+plus any additional time required by third-party vendors in accordance with
+functional back-end requirement~\ref{func-back-end-6} and completing logging of
+the transaction detailed in requirement~\ref{func-back-end-7}.
+
+% TODO
 \pagebreak
 \subsection{Environment Requirements}
 
