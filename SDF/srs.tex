@@ -37,7 +37,6 @@ considered fully functional and deployable.
 
 \pagebreak
 \tableofcontents
-\listoffigures
 \listoftables
 
 \pagebreak
@@ -79,7 +78,7 @@ eCommerce CMS.
          & Back-End & Report/Proposal Generator (Section~\ref{func-back-end-3}) \\\cline{2-3}
          & Back-End & Front-End Generator (Sections~\ref{func-back-end-4} and~\ref{func-back-end-5}) \\\cline{2-3}
          & Back-End & Transaction Processor (Sections~\ref{func-back-end-6} and~\ref{func-back-end-7}) \\\cline{2-3}
-         & User Front-End & Visual Web Page Editor \\\cline{2-3}
+         & User Front-End & Visual Web Page Editor (Section~\ref{func-user-front-end-2}) \\\cline{2-3}
          & User Front-End & Web Page Template Editor \\\cline{2-3}
          & User Front-End & Inventory Input/Edit Form \\\cline{2-3}
          & User Front-End & Report/Proposal Requester \\\cline{2-3}
@@ -187,12 +186,38 @@ is conducted.
 \subsubsection{Functional User Front-End Requirement 1}
 \label{func-user-front-end-1}
 
+The user front-end shall provide a web page in HTML to interact with the
+back-end when opened in a browser by a user.
+
+\subsubsection{Functional User Front-End Requirement 2}
+\label{func-user-front-end-2}
+
+The user front-end shall provide a What-You-See-Is-What-You-Get (WYSIWYG) style
+editor to edit the layout and appearance of the customer front-end when saved
+and the customer front-end is re-deployed by the user, per 
+Section~\ref{func-user-front-end-3}.
+
+\subsubsection{Functional User Front-End Requirement 3}
+\label{func-user-front-end-3}
+
+The user front-end shall provide a button to re-deploy the customer front-end
+adhering to saved customizations when clicked by the user.
+
+\subsubsection{Functional User Front-End Requirement 4}
+\label{func-user-front-end-4}
+
+
+
+% TODO: HERE
 %    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
 %    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
+
 
 \subsubsection{Functional Customer Front-End Requirement 1}
 \label{func-cust-front-end-1}
 
+The customer front-end shall provide a web page in HTML to interact with the
+back-end and conduct transactions when opened in a browser by a customer.
 
 \subsection{Performance Requirements}
 
@@ -206,7 +231,10 @@ requirement~\ref{func-back-end-1}.
 \subsection{Environment Requirements}
 \subsubsection{Development Environment Requirements}
 
-Maven, Java
+The application is developed with Java 1.6+ with packages provided by 
+Maven.  There are no specific system requirements for the development of
+the application besides the ability to use Java and the packages provided
+by Maven.
 
 \subsubsection{Execution Environment Requirements}
 
