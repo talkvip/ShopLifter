@@ -11,6 +11,7 @@
 \usepackage{doc}
 \usepackage{geometry}
 \usepackage{amsmath}
+\usepackage{multirow}
 \geometry{letterpaper}
 
 \title{eCommerce CMS Software Requirements Specification}
@@ -61,11 +62,42 @@ be able to interact with the small business either through making purchases on
 an eCommerce web site or through committing information required for generation
 of a proposal.
 
+The eCommerce CMS application is the Computer Software Configuration Item 
+(CSCI) and consists of three major Computer Software Components (CSC).  The 
+CSCI is broken down into the back-end CSC, the user front-end CSC, and the 
+customer front-end CSC.  Each respective CSC can further be broken down to 
+several Computer Software Units (CSU).  This document will specify some of the 
+CSU's that are intended in table~\ref{software-hierarchy}, but this list shall 
+in no way bind or limit the number of CSU's that will be developed within 
+eCommerce CMS.
+
+\begin{table}
+    \begin{tabular}{|c|c|c|}\hline
+        CSCI & CSC & CSU \\\hline\hline
+        \multirow{12}{*}{eCommerce CMS}
+         & Back-End & Persistent Data Store (Section~\ref{func-back-end-2}) \\\cline{2-3}
+         & Back-End & Report/Proposal Generator (Section~\ref{func-back-end-3}) \\\cline{2-3}
+         & Back-End & Front-End Generator \\\cline{2-3}
+         & Back-End & Transaction Processor \\\cline{2-3}
+         & User Front-End & Visual Web Page Editor \\\cline{2-3}
+         & User Front-End & Web Page Template Editor \\\cline{2-3}
+         & User Front-End & Inventory Input/Edit Form \\\cline{2-3}
+         & User Front-End & Report/Proposal Requester \\\cline{2-3}
+         & Customer Front-End & Proposal Specification Form \\\cline{2-3}
+         & Customer Front-End & Web Store \\\cline{2-3}
+         & Customer Front-End & Purchasing/Transaction System \\\cline{2-3}
+         & Customer Front-End & Product Browser \\\hline
+    \end{tabular}
+    \caption{CSCI, CSC, and CSU Hierarchy}
+    \label{software-hierarchy}
+\end{table}
+
 \subsubsection{Document Overview}
 
-This SRS is a minimized form of a typical SRS due to time constraints.  In the
-following sections there will be a section dedicated to Functional Requirements,
-Performance Requirements, and finally Environmental Requirements.  Following these
+This SRS is a minimized form of a typical SRS due to time constraints.  The
+remainder of this document is structured as follows.  Section 5.2 contains 
+Functional Requirements, Section 5.3 contains Performance Requirements, and 
+finally Section 5.4 contains Environmental Requirements.  Following these
 Requirements sections there will be an appendix.
 
 Table~\ref{terms} defines key terms that are used within this document.
@@ -91,23 +123,12 @@ Table~\ref{terms} defines key terms that are used within this document.
     \label{terms}
 \end{table}
 
-The application is the Computer Software Configuration Item (CSCI) and consists
-of three major Computer Software Components (CSC).  The CSCI is broken down
-into the back-end CSC, the user front-end CSC, and the customer front-end
-CSC.  Each respective CSC can further be broken down to several Computer
-Software Units (CSU).  This document will specify some of the CSU's that are
-intended in table~\ref{software-hierarchy}, but this list shall in no way bind
-or limit the number of CSU's that will be developed within eCommerce CMS.
-
-\begin{table}
-    \begin{tabular}{|c|c|c|}\hline
-        eCommerce CMS & Back-End & \\\hline
-    \end{tabular}
-    \caption{CSCI, CSC, and CSU Hierarchy}
-    \label{software-hierarchy}
-\end{table}
-
 \subsection{Functional Requirements}
+
+The application will serve eCommerce web pages allowing inventory data to be
+manipulated and transacted with by the user and customer's, respectively.  The
+user will have the ability to also manipulate the display of the customer's
+front-end.
 
 The Functional Requirements section is segmented into subsections consisting of
 one functional requirement each.  These subsections flow sequentially from
@@ -123,33 +144,45 @@ when hit by an HTTP request.
 \subsubsection{Functional Back-End Requirement 2}
 \label{func-back-end-2}
 
-The back-end shall respond to all front-end page requests through HTTP endpoints
-within 2 seconds in accordance with functional back-end
-requirement~\ref{func-back-end-1}.
-
-\subsubsection{Functional Back-End Requirement 3}
-\label{func-back-end-3}
-
 The back-end shall provide a persistent data store with saved input data from
 the user and from customers to offer invoice, proposal, report, and web store
 content generation by the user.
 
+\subsubsection{Functional Back-End Requirement 3}
+\label{func-back-end-3}
+
+The back-end shall provide an endpoint that generates either a report or a
+proposal based off of the selection and fields provided by the user in the
+body of the request.
+
 \subsubsection{Functional Back-End Requirement 4}
 \label{func-back-end-4}
-%    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
-%    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
-The back-end shall provide an endpoint that generates
+
+
+
+\subsubsection{Functional Back-End Requirement 5}
+\label{func-back-end-5}
+
 
 \subsubsection{Functional User Front-End Requirement 1}
 \label{func-user-front-end-1}
 
+%    [agent] shall <perform> [FUNCTION] with [Performance] <parameter(s)> while
+%    [CONDITIONS] <upon input(s)> in accordance with [INTERFACES].
 
 \subsubsection{Functional Customer Front-End Requirement 1}
 \label{func-cust-front-end-1}
 
 
 \subsection{Performance Requirements}
+
 \subsubsection{Performance Requirement 1}
+\label{perf-back-end-1}
+
+The back-end shall respond to all front-end page requests through HTTP endpoints
+within 2 seconds in accordance with functional back-end
+requirement~\ref{func-back-end-1}.
+
 \subsection{Environment Requirements}
 \subsubsection{Development Environment Requirements}
 
