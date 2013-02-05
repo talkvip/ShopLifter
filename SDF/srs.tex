@@ -77,8 +77,8 @@ eCommerce CMS.
         \multirow{12}{*}{eCommerce CMS}
          & Back-End & Persistent Data Store (Section~\ref{func-back-end-2}) \\\cline{2-3}
          & Back-End & Report/Proposal Generator (Section~\ref{func-back-end-3}) \\\cline{2-3}
-         & Back-End & Front-End Generator \\\cline{2-3}
-         & Back-End & Transaction Processor \\\cline{2-3}
+         & Back-End & Front-End Generator (Sections~\ref{func-back-end-4} and~\ref{func-back-end-5}) \\\cline{2-3}
+         & Back-End & Transaction Processor (Sections~\ref{func-back-end-6} and~\ref{func-back-end-7}) \\\cline{2-3}
          & User Front-End & Visual Web Page Editor \\\cline{2-3}
          & User Front-End & Web Page Template Editor \\\cline{2-3}
          & User Front-End & Inventory Input/Edit Form \\\cline{2-3}
@@ -158,11 +158,31 @@ body of the request.
 \subsubsection{Functional Back-End Requirement 4}
 \label{func-back-end-4}
 
-
+The back-end shall provide a user front-end generator that deploys a set of
+documents written in standard HTML and allowing for management of the eCommerce
+site when deployed by the user.
 
 \subsubsection{Functional Back-End Requirement 5}
 \label{func-back-end-5}
 
+The back-end shall provide a customer front-end generator that deploys a set of
+documents written in standard HTML with customization based on past
+user input when deployed by HTTP endpoint.
+
+\subsubsection{Functional Back-End Requirement 6}
+\label{func-back-end-6}
+
+The back-end shall provide a transaction processor, or connection to a 
+third-party transaction processor, to accept purchasing by customers
+when a customer completes a check-out process.
+
+\subsubsection{Functional Back-End Requirement 7}
+\label{func-back-end-7}
+
+The back-end shall provide a transaction processor that logs data pertaining
+to either a sale of inventory or a generation of a proposal for use in report
+generation, as outlined in section~\ref{func-back-end-3}, when a transaction
+is conducted.
 
 \subsubsection{Functional User Front-End Requirement 1}
 \label{func-user-front-end-1}
