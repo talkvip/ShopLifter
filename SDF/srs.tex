@@ -74,17 +74,17 @@ eCommerce CMS.
     \begin{tabular}{|c|l|p{8.5cm}|}\hline
         CSCI & CSC & CSU \\\hline\hline
         \multirow{12}{*}{eCommerce CMS}
-         & Back-End & Persistent Data Store (Section~\ref{func-back-end-2}) \\\cline{2-3}
-         & Back-End & Report/Proposal Generator (Section~\ref{func-back-end-3}) \\\cline{2-3}
-         & Back-End & Front-End Generator (Sections~\ref{func-back-end-4} and~\ref{func-back-end-5}) \\\cline{2-3}
-         & Back-End & Transaction Processor (Sections~\ref{func-back-end-6} and~\ref{func-back-end-7}) \\\cline{2-3}
+         & Back-End & Persistent Data Store (Sections~\ref{func-back-end-2} and~\ref{func-back-end-3}) \\\cline{2-3}
+         & Back-End & Report/Proposal Generator (Sections~\ref{func-back-end-4} and~\ref{func-back-end-5}) \\\cline{2-3}
+         & Back-End & Front-End Generator (Sections~\ref{func-back-end-6} and~\ref{func-back-end-7}) \\\cline{2-3}
+         & Back-End & Transaction Processor (Sections~\ref{func-back-end-8} and~\ref{func-back-end-9}) \\\cline{2-3}
          & User Front-End & Visual Web Page Editor (Section~\ref{func-user-front-end-2}) \\\cline{2-3}
          & User Front-End & Web Page Template Editor (Section~\ref{func-user-front-end-4}) \\\cline{2-3}
          & User Front-End & Inventory Input/Edit Form (Section~\ref{func-user-front-end-5}) \\\cline{2-3}
          & User Front-End & Report/Proposal Requestor (Sections~\ref{func-user-front-end-6} and~\ref{func-user-front-end-7}) \\\cline{2-3}
-         & Customer Front-End & Proposal Specification Form (Section~\ref{func-cust-front-end-2}) \\\cline{2-3}
-         & Customer Front-End & Web Store (Sections~\ref{func-cust-front-end-3} and~\ref{func-cust-front-end-4}) \\\cline{2-3}
-         & Customer Front-End & Purchasing/Transaction System (Sections~\ref{func-cust-front-end-5},~\ref{func-cust-front-end-6}, and~\ref{func-cust-front-end-7}) \\\hline
+         & Customer Front-End & Proposal Specification Form (Section~\ref{func-cust-front-end-3}) \\\cline{2-3}
+         & Customer Front-End & Web Store (Sections~\ref{func-cust-front-end-4} and~\ref{func-cust-front-end-5}) \\\cline{2-3}
+         & Customer Front-End & Purchasing/Transaction System (Sections~\ref{func-cust-front-end-6},~\ref{func-cust-front-end-7},~\ref{func-cust-front-end-8},~\ref{func-cust-front-end-9}, and~\ref{func-cust-front-end-10}) \\\hline
     \end{tabular}
     \caption{CSCI, CSC, and CSU Hierarchy}
     \label{software-hierarchy}
@@ -140,44 +140,64 @@ when hit by an HTTP request.
 \subsubsection{FBE Requirement 2}
 \label{func-back-end-2}
 
-The back-end shall provide a persistent data store with saved input data from
-the user and from customers to offer invoice, proposal, report, and web store
-content generation by the user.
+The back-end shall provide a persistent data store.
 
 \subsubsection{FBE Requirement 3}
 \label{func-back-end-3}
 
-The back-end shall provide an endpoint that generates either a report or a
-proposal based off of the selection and fields provided by the user in the
-body of the request.
+The back-end persistent data store shall hold any data input by either the
+user or by customers.
+
+The back-end persistent data store will offer invoice, proposal, report, and web
+store content generation by the user.
 
 \subsubsection{FBE Requirement 4}
 \label{func-back-end-4}
 
-The back-end shall provide a user front-end generator that deploys a set of
-documents written in standard HTML and allowing for management of the eCommerce
-site when deployed by the user.
+The back-end shall provide an endpoint that generates a report based on the
+selection and fields provided by the user in the body of the request through
+the method outlined in section~\ref{func-user-front-end-8}.
 
 \subsubsection{FBE Requirement 5}
 \label{func-back-end-5}
 
-The back-end shall provide a customer front-end generator that deploys a set of
-documents written in standard HTML with customization based on past
-user input when deployed by HTTP endpoint.
+The back-end shall provide an endpoint that generates a proposal based on the
+selection and fields provided by the user in the body of the request through
+the method outlined in section~\ref{func-user-front-end-8}.
 
 \subsubsection{FBE Requirement 6}
 \label{func-back-end-6}
+
+The back-end shall provide a user front-end generator that deploys a set of
+documents written in standard HTML.
+
+The front-end deployed by the back-end will allow for management of the
+eCommerce site when deployed by the user.
+
+\subsubsection{FBE Requirement 7}
+\label{func-back-end-7}
+
+The back-end shall provide a customer front-end generator.
+
+The customer front-end generator will deploy a set of documents written in
+standard HTML with customization based on past user input when deployed by
+HTTP endpoint.
+
+\subsubsection{FBE Requirement 8}
+\label{func-back-end-8}
 
 The back-end shall provide a transaction processor, or connection to a
 third-party transaction processor, to accept purchasing by customers
 when a customer completes a check-out process.
 
-\subsubsection{FBE Requirement 7}
-\label{func-back-end-7}
+\subsubsection{FBE Requirement 9}
+\label{func-back-end-9}
 
-The back-end shall provide a transaction processor that logs data pertaining
-to either a sale of inventory or a generation of a proposal for use in report
-generation, as outlined in section~\ref{func-back-end-3}, when a transaction
+The back-end shall provide a transaction processor.
+
+The transaction processor will log data pertaining to either a sale of inventory
+or a generation of a proposal for use in report generation, as outlined in
+sections~\ref{func-back-end-4} and~\ref{func-back-end-5}, when a transaction
 is conducted.
 
 \pagebreak
@@ -197,16 +217,20 @@ subsections consisting of one functional user front-end requirement each.
 \subsubsection{FUFE Requirement 1}
 \label{func-user-front-end-1}
 
-The user front-end shall provide all web pages in HTML to interact with the
-back-end when opened in a browser by a user.
+The user front-end shall provide all web pages in HTML.
+
+The user front-end will allow users to interact with the back-end when opened in
+a browser by a user.
 
 \subsubsection{FUFE Requirement 2}
 \label{func-user-front-end-2}
 
 The user front-end shall provide a What-You-See-Is-What-You-Get (WYSIWYG) style
-editor to edit the layout and appearance of the customer front-end when saved
-and the customer front-end is re-deployed by the user, per
-Section~\ref{func-user-front-end-3}.
+editor.
+
+The WYSIWYG style editor will allow a user to edit the layout and appearance of
+the customer front-end when the customer front-end is re-deployed by the user,
+per Section~\ref{func-user-front-end-3}.
 
 \subsubsection{FUFE Requirement 3}
 \label{func-user-front-end-3}
@@ -224,22 +248,33 @@ is chosen from the user front-end initial home screen.
 \subsubsection{FUFE Requirement 5}
 \label{func-user-front-end-5}
 
-The user front-end shall provide an inventory management form where inventory
-data can be input or edited as necessary when the user inputs information and
-clicks a submit button.
+The user front-end shall provide an inventory management form.
+
+The inventory management form will allow users to input or edit inventory data
+as necessary when the user inputs information and clicks a submit button.
 
 \subsubsection{FUFE Requirement 6}
 \label{func-user-front-end-6}
 
-The user front-end shall provide a history of transaction details in the form
-of a customizable report when the user requests a report through a request page.
+The user front-end shall provide a history of transaction details when the user
+requests a report through a request page.
+
+The history of transaction details will be in the form of a customizable report.
 
 \subsubsection{FUFE Requirement 7}
 \label{func-user-front-end-7}
 
-The user front-end shall provide a document proposal generator that will take
-products or services in the inventory and aggregate them into a document
-template when requested by a user through a request page.
+The user front-end shall provide a document proposal generator.
+
+The document proposal generator will take products or services in the inventory
+and aggregate them into a document template when requested by a user through a
+request page.
+
+\subsubsection{FUFE Requirement 8}
+\label{func-user-front-end-8}
+
+The user front-end document proposal generator shall provide user selection to
+select output generation
 
 \pagebreak
 \subsection{Functional Customer Front-End (FCFE) Requirements}
@@ -255,61 +290,85 @@ subsections consisting of one functional customer front-end requirement each.
 \subsubsection{FCFE Requirement 1}
 \label{func-cust-front-end-1}
 
-The customer front-end shall provide all web pages in HTML to interact with the
-back-end and conduct transactions when opened in a browser by a customer.
+The customer front-end shall provide all web pages in HTML.
 
 \subsubsection{FCFE Requirement 2}
 \label{func-cust-front-end-2}
 
-The customer front-end shall provide a proposal data submission form to transmit
-data that will be used in proposal generation by the user when a customer
-opens the form web page and submits the data by a form submission button.
+The customer front-end shall allow customers to interact with the
+back-end and conduct transactions when opened in a browser by a customer.
 
 \subsubsection{FCFE Requirement 3}
 \label{func-cust-front-end-3}
 
-The customer front-end shall provide a web store with a product browsing page
-that will show key details about products while a customer is on a product
-browsing web page.
+The customer front-end shall provide a proposal data submission form.
+
+The data submission form will transmit data that will be used in proposal
+generation by the user when a customer opens the form web page and submits the
+data by a form submission button.
 
 \subsubsection{FCFE Requirement 4}
 \label{func-cust-front-end-4}
 
-The customer front-end shall provide a web store with a product detail viewing
-page that will show specific details about a single product while a customer is
-on that product's viewing page.
+The customer front-end shall provide a web store with a product browsing page.
+
+The product browsing page(s) will show key details about products.
 
 \subsubsection{FCFE Requirement 5}
 \label{func-cust-front-end-5}
 
-The customer front-end shall provide an ``Add to shopping cart'' button on pages
-where products or services are displayed, see
-sections~\ref{func-cust-front-end-3} and~\ref{func-cust-front-end-4} for adding
-products to a shopping cart when the button is pushed.
+The customer front-end shall provide a web store with a set of product detail
+viewing pages.
+
+Any one product detail viewing page will show specific details about a single
+product while a customer is on that page.
 
 \subsubsection{FCFE Requirement 6}
 \label{func-cust-front-end-6}
 
-The customer front-end shall provide a persistent shopping cart where items
-added by the method described in section~\ref{func-cust-front-end-6} will be
-stored and displayed when the customer goes to a checkout section.
+The customer front-end shall provide an ``Add to shopping cart'' button on pages
+where products or services are displayed, see
+sections~\ref{func-cust-front-end-4} and~\ref{func-cust-front-end-5}.
 
 \subsubsection{FCFE Requirement 7}
 \label{func-cust-front-end-7}
 
-The customer front-end shall provide a ``Checkout'' button and web page
-dedicated to transacting sales of products in the shopping cart, see
-sections~\ref{func-cust-front-end-3} and~\ref{func-cust-front-end-4}, that
-will be displayed when a customer presses a button navigating to the ``Checkout''
-page.
+The customer front-end shall provide a persistent shopping cart.
 
 \subsubsection{FCFE Requirement 8}
 \label{func-cust-front-end-8}
 
-The customer front-end shall be displayed in the format specified by the user
-either through template selection or through customization through a WYSIWYG,
-see sections~\ref{func-user-front-end-2} and~\ref{func-user-front-end-4}, upon
-navigation to the customer front-end pages.
+The customer front-end's persistent shopping cart shall take items added by the
+method described in section~\ref{func-cust-front-end-6}.
+
+The persistent shopping cart will store added items and display them when the
+customer goes to a checkout section.
+
+\subsubsection{FCFE Requirement 9}
+\label{func-cust-front-end-9}
+
+The customer front-end shall provide a ``Checkout'' button that takes customers
+to a web page dedicated to transacting sales of prodcuts; see
+section~\ref{func-cust-front-end-10}
+
+\subsubsection{FCFE Requirement 10}
+\label{func-cust-front-end-10}
+
+The customer front-end shall provide a web page dedicated to transacting sales
+of products in the shopping cart; see section~\ref{func-cust-front-end-8}.
+
+The customer front-end's page dedicated to transacting sales of products will be
+displayed when a customer presses a button navigating to the ``Checkout'' page,
+by the method specified in section~\ref{func-cust-front-end-9}.
+
+\subsubsection{FCFE Requirement 11}
+\label{func-cust-front-end-11}
+
+The customer front-end shall be displayed in the format specified by the user.
+
+The user will specify the format of the customer front-end either through
+template selection or through customization through a WYSIWYG,
+see sections~\ref{func-user-front-end-2} and~\ref{func-user-front-end-4}.
 
 \pagebreak
 \subsection{Performance Requirements}
@@ -326,16 +385,16 @@ requirement~\ref{func-back-end-1}.
 
 The back-end shall respond to requests for reports or proposals through HTTP
 endpoints within 10 seconds in accordance with functional back-end
-requirement~\ref{func-back-end-3} when a user triggers the process through the
-methods described in requirements~\ref{func-user-front-end-6}
-and~\ref{func-user-front-end-7}.
+requirements~\ref{func-back-end-4} and~\ref{func-back-end-5} when a user
+triggers the process through the methods described in
+requirements~\ref{func-user-front-end-6} and~\ref{func-user-front-end-7}.
 
 \subsubsection{Performance Requirement 3}
 \label{perf-back-end-3}
 
 The back-end's front-end generator shall respond to a re-deploy request by a
 user within 15 seconds in accordance with functional back-end
-requirement~\ref{func-back-end-5} when a user triggers the process through the
+requirement~\ref{func-back-end-7} when a user triggers the process through the
 methods described in requirement~\ref{func-user-front-end-3}.
 
 \subsubsection{Performance Requirement 4}
@@ -343,8 +402,8 @@ methods described in requirement~\ref{func-user-front-end-3}.
 
 The back-end shall respond to requests to complete transactions within 5 seconds
 plus any additional time required by third-party vendors in accordance with
-functional back-end requirement~\ref{func-back-end-6} and completing logging of
-the transaction detailed in requirement~\ref{func-back-end-7}.
+functional back-end requirement~\ref{func-back-end-8} and completing logging of
+the transaction detailed in requirement~\ref{func-back-end-9}.
 
 \subsubsection{Performance Requirement 5}
 \label{perf-back-end-5}
