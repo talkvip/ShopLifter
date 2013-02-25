@@ -23,7 +23,7 @@ public class Item {
     private String description;
     private Double price;
     private Dimension dimension = new Dimension();
-    //private ItemHistory itemHistory = new ItemHistory();
+    private ItemHistory itemHistory = new ItemHistory();
 
     public Item () {
         // No-args constructor
@@ -106,7 +106,7 @@ public class Item {
     public void setPrice(Double price) {
         this.price = price;
     }
-/*
+
     @XmlTransient
     public ItemHistory getItemHistory() {
         return itemHistory;
@@ -115,7 +115,7 @@ public class Item {
     public void setItemHistory(ItemHistory itemHistory) {
         this.itemHistory = itemHistory;
     }
-*/
+
     public Boolean getActive() {
         return active;
     }
