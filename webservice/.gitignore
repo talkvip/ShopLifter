@@ -1,0 +1,8 @@
+bin
+target
+build.properties
+log4j.xml
+.classpath
+.project
+.settings
+
