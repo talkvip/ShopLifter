@@ -3,6 +3,7 @@ package edu.lmu.cs.eccms.ws.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.lmu.cs.eccms.ws.domain.Item;
 import edu.lmu.cs.eccms.ws.domain.User;
 import edu.lmu.cs.eccms.ws.domain.UserRole;
 import edu.lmu.cs.eccms.ws.types.Role;
@@ -31,6 +32,18 @@ public class DomainObjectUtils {
 
         user.setRoles(userRoles);
         return user;
+    }
+
+    public static Item createItemObject(Boolean active, String name, Integer sku, String description,
+            Double price) {
+        Item item = new Item();
+        item.setActive(active);
+        item.setName(name);
+        item.setSku(sku);
+        item.setDescription(description);
+        item.setPrice(price);
+
+        return item;
     }
 
 }

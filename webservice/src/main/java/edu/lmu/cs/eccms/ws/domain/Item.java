@@ -25,17 +25,21 @@ public class Item {
     private Dimension dimension = new Dimension();
     private ItemHistory itemHistory = new ItemHistory();
 
-    public Item () {
+    public Item() {
         // No-args constructor
     }
 
-    public Item (Boolean active, String name, Integer sku, String description,
-            Double price) {
-        this.active = active;
+    public Item(Long id, Boolean active, String name, Integer sku, String description,
+            Double price, Dimension dimension, ItemHistory itemHistory) {
+        this.id = id;
         this.name = name;
         this.sku = sku;
         this.description = description;
         this.price = price;
+        this.dimension = dimension;
+        this.itemHistory = itemHistory;
+        if (active != null)
+            this.active = active;
     }
 
     @Id
@@ -50,9 +54,8 @@ public class Item {
     }
 
     /**
-     * Indicates whether a student is still in the program or institution under
-     * which this installation of Headmaster is running. Better approach than
-     * having to delete the student.
+     * Indicates whether a student is still in the program or institution under which this installation of Headmaster is
+     * running. Better approach than having to delete the student.
      */
     public Boolean isActive() {
         return active;
@@ -118,5 +121,26 @@ public class Item {
 
     public Boolean getActive() {
         return active;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Item) {
+            Item item = Item.class.cast(obj);
+            return nullableEquals(this.id, item.getId()) && nullableEquals(this.active, item.getActive())
+                    && nullableEquals(this.name, item.getName()) && nullableEquals(this.sku, item.getSku())
+                    && nullableEquals(this.description, item.getDescription())
+                    && nullableEquals(this.price, item.getPrice());
+        }
+        return false;
+    }
+
+    private boolean nullableEquals(Object o1, Object o2) {
+        if (o1 == null && o2 == null) {
+            return true;
+        } else if (o1 != null && o2 != null) {
+            return o1.equals(o2);
+        }
+        return false;
     }
 }

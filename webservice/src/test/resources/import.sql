@@ -4,8 +4,5 @@ insert into userrole(id, rolename, login) values(1000000, 'HEADMASTER', 'admin')
 
 insert into serviceuser(id, active, challenge, email, login) values(1000001, true, 'password-noroles', 'noroles@headmaster.test', 'noroles');
 
--- Test fixture students.
--- insert into researchgrant_student(grant_id, student_id, students_order) values(1000001, 1000002, 0);
--- insert into researchgrant_student(grant_id, student_id, students_order) values(1000001, 1000003, 1);
--- insert into researchgrant_student(grant_id, student_id, students_order) values(1000002, 1000000, 0);
--- insert into researchgrant_student(grant_id, student_id, students_order) values(1000002, 1000004, 1);
+-- Test fixture items.
+insert into item(id, active, name, sku, description, price) values(1000000, true, 'MacBook Air', 135, 'Computer thingy.', 1199.98);
