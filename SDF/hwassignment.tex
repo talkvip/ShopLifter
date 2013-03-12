@@ -21,6 +21,7 @@
 \usepackage{doc}
 \usepackage{geometry}
 \usepackage{amsmath}
+\usepackage{float}
 \geometry{letterpaper}
 
 \title{CMSI 402 Semester Assignment - ValuJet, System Failures, and Computer Science}
@@ -38,10 +39,54 @@
 }
 
 \pagebreak
-\section{}
 
-Pay people enough to take the issue of money off the table. Pay people enough so
-they’re not thinking about money but thinking about their work.
-3 factors lead to better performance: Autonomy, mastery, purpose
+% ValuJet Essay Assignment — Write a 5000-word essay on the ValuJet article from
+% the Atlantic Magazine, which I will provide for you. This is also a
+% "critical thinking" exercise, and is partly an opinion piece, so again there
+% is no wrong answer. The essay should be in three parts:
+% 1) a synopsis of the article's main points as far as the crash, the
+% investigation, and its cause;
+% 2) your thoughts on the ethics issues involved, detailing not just what was
+% wrong, but why it was wrong and its possible contributions to other potential
+% catastrophic system failures; and
+% 3) the types of similar or different problems which might arise when planning,
+% designing, and developing a software product or application.
+
+There are always mistakes and problems that may arise in the course of
+engineering, but few things are as tragic as when lives are lost
+``The Lessons of ValuJet 592'' by William Langewiesche follows the crash, the
+investigation, and provides insight that might be gained from ValuJet 592, a
+twin-engine DC-9 that crashed in May of 1996.
+
+Langewiesche notes that ``safety is never first, and it never will be,'' because
+of the competitive nature of flying.  It is expensive to fly, but there are
+increasing amounts of people who are willing to pay a reduced fare to fly.  This
+offers a market to
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|p{8.5cm}|}\hline
+            \multicolumn{2}{|c|}{Types of airplane accidents}\\\hline
+            ``Procedural'' & Result from single obvious mistakes \\\hline
+            ``Engineered'' & Materials failures that should have been predicted by designers or discovered by test pilots. Usually defy understanding at first but yield to examination and result in tangible solutions. \\\hline
+            ``System'' & Most elusive. Charles Perrow, a Yale sociologist, calls these ``normal'' accidents because they are the ``bastards born of the confusion that lies within the complex organizations with which we manage our dangerous technologies.'' \\\hline
+        \end{tabular}
+    \end{table}
+
+
+
+
+
+Dan Pink at a talk for the Royal Society for the encouragement of Arts,
+Manufactures and Commerce, the RSA, mentioned that one way to motivate people
+in jobs that are knowledge-based is to, ``pay people enough so
+they’re not thinking about money but thinking about their work,'' and that the
+three factors that lead to better performance after money is taken ``off the
+table'' are autonomy, mastery, and purpose.
+
+\pagebreak
+
+\bibliography{hwassignment}
+\bibliographystyle{apalike}
 
 \end{document}
