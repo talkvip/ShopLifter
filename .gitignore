@@ -1,4 +1,6 @@
 *.lof
 *.lot
 *.toc
+*.bbl
+*.blg
 

@@ -23,6 +23,7 @@
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{sectsty}
+\usepackage{url}
 \geometry{letterpaper}
 
 \title{CMSI 402 Semester Assignment - ValuJet, System Failures, and Computer Software Engineering}
@@ -43,7 +44,7 @@ engineering, but few things are as tragic as when lives are lost as a result of
 avoidable mistakes.  ``The Lessons of ValuJet 592'' by William Langewiesche
 follows the crash, the investigation, and provides insight that might be gained
 from ValuJet 592, a twin-engine McDonnell Douglas DC-9 that crashed on May 11,
-1996, killing all 110 people on board.  By reviewing
+1996, killing all 110 people on board \cite{langewiesche}.  By reviewing
 the nature and origin of past problems which led to this accident we can learn
 lessons to apply to our future software development.
 
@@ -370,7 +371,7 @@ Manufactures and Commerce, the RSA, mentioned that one way to motivate people
 in jobs that are knowledge-based is to, ``pay people enough so
 they’re not thinking about money but thinking about their work,'' and that the
 three factors that lead to better performance after money is taken ``off the
-table'' are autonomy, mastery, and purpose.  His fundamental argument was that
+table'' are autonomy, mastery, and purpose \cite{motivationvideo}.  His fundamental argument was that
 you could not have employees that were motivated to try, work hard, and care
 about the results of their work when their primary concerns lie apart from the
 actual job.  Computer software engineers play an important role in software
@@ -437,12 +438,83 @@ and stakeholders can take a more active role in development and not carry a fals
 sense of complacency fostered by the presence of paperwork attesting to the
 proper engineering of software.
 
+It is important, still, to take into consideration the contribution of every
+individual in the software development process.  ValuJet and SabreTech proved that
+they did not care about their employees, and their employees proved that they
+did not care about their employers.  The programmers who create the
+software outlined in design documents are the ones that are most likely to see,
+or even cause, the errors that can prove mission, or life, threatening.  By
+fostering autonomy, mastery, and purpose, managers can empower programmers to
+think beyond the box of checking of paperwork, take ownership of the produced
+software, and act in ways to ensure the development of the best code possible.
 
+New development models, such as Agile, depend on the programmers themselves to
+design the lower level implementations of some features.  By giving ownership
+of some design aspects of the project to the team producing the actual software,
+it fosters autonomy and ownership in the programmers who are then more likely to
+be concerned about functionality that fails.
 
+Despite all the safeguards that anyone might concoct for software engineering,
+there is always the chance of errors occurring that are unforseen and
+unexpected.  The benefit that software development has over the airline industry
+is that through unit and integration testing many problems can be exposed before
+they ever reach a consumer who might be harmed by it.  There are tools out today
+that measure code coverage by unit tests and even software disciplines that
+advocate the use of tests on every piece of code before the code is ever
+written.  Test-Driven Development (TDD) advocates programmers to write unit tests
+before any code is ever written to ensure that every code that is ever written is
+always being tested.  The proper coverage of unit and integration testing cannot
+guarantee the removal of complex system errors, but with high code coverage in
+tests it is possible to make it more difficult for mistakes to slip through the
+``system.''
+
+\section{Conclusions}
+
+Langewiesche and Perrow both argue that ``system'' errors are born out of the
+complexity of the processes that we create, and cannot be entirely avoided
+despite what safeguards one may try to put in place.  Software engineering
+contains some parallels to the airline industry by which lessons may be learned
+from the crash of ValuJet 592.  These lessons may be learned, but they still
+may not completely remove the existence of errors.
+
+Computer software engineering could try to mitigate the occurrence of ``system''
+errors in the future by addressing the problems that the airline industry did
+not address in the days leading up to the crash of ValuJet 592.  The bottom-line,
+however, is that ValuJet 592 crashed because people didn't care.  The airlines
+had more incentive to care about profits than about safety, the employees cared
+more about appearing to get work done and keeping their jobs than about doing a
+job well, and regulatory boards did not have much of a chance to be concerned about
+anything at all.  The suggestions we considered in the previous section are all
+geared towards the hope that it is possible to make more people care about the
+process.
+
+By involving stakeholder in software design throughout the development process,
+we force constant review and consideration by the stakeholders.  By giving
+autonomy and purpose to the programmers by giving them a sense of ownership
+through a share of the design process, we encourage the programmers to care more
+about the software they are producing.  All the documentation and procedures that
+exist may offer a hollow sense of accomplishment to those charged with the safety
+and security of the software produced by the software development engineers, but
+if we cannot find a way to make more of the actors within the ``system'' to care
+about the results of the process it really may be impossible to avoid these
+``system'' errors.
+
+Fortunately, one way in which computer software development differs drastically
+from the airline industry is the strength of its ability to test for errors
+before deploying its products.  Through simulation, integration testing, and
+unit testing, it is possible to catch many errors before they cause harm to
+anyone.  By properly testing each piece of software and empowering those charged
+with the testing, errors can be made less likely.  However, without addressing
+the nature of these complicated ``systems'' where the individuals inside them
+care little about what happens as a result, the people testing the software are
+little more than an additional cog in the broken wheel.  If we were to couple
+these test processes, however, with the motivation that can be endowed to the
+software developers and stakeholders, then it may very well be possible to avoid
+``system'' errors for a little while longer.
 
 \pagebreak
 
 \bibliography{hwassignment}
-%\bibliographystyle{apalike}
+\bibliographystyle{apalike}
 
 \end{document}
