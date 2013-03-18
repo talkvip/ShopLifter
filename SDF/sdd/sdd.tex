@@ -316,6 +316,32 @@ technologies.
         that will populate the report or proposal.  The data that will populate
         the documents will be determined by the fields selected by the user
         through the front-end interface.
+    \item[~\ref{msi}.3 ] \emph{Front-End Generator}\br\\
+        The Front-End Generator will interact with the HTTP Endpoint Resources
+        and the persistent data store.
+
+        The Front-End Generator will interact with the HTTP Endpoint Resources
+        and the persistent data store by retrieving properties of the front-end
+        webpages to generate from the persistent data store and delivering a
+        properly formatted set of front-end webpages to the location where
+        webpages are stored when requested to do so through an HTTP Endpoint
+        Resource.
+    \item[~\ref{msi}.4 ] \emph{Transaction Processor}\br\\
+        The Transaction Processor will interact with the HTTP Endpoint Resources,
+        and the persistent data store.  Upon the initiation of a purchasing
+        transaction by a customer, the HTTP Endpoint Resource will be used to
+        check the persistent data store to ensure that appropriate availability
+        of the product is available.  Upon the completion of the transaction,
+        the HTTP Endpoint Resources will again be used to decrement the inventory
+        appropriately by the number of units sold and to add the transaction to
+        the ItemHistory of the item sold.
+    \item[~\ref{msc}.5 ] \emph{What-You-See-Is-What-You-Get (WYSIWYG) Editor}\br\\
+        The What-You-See-Is-What-You-Get (WYSIWYG) Editor will interact with the
+        HTTP Endpoint Resources and the persistent data store.  It will also
+        be interacted with through use of the keyboard and a pointing device.
+
+        The WYSIWYG Editor will interact with the HTTP Endpoint Resources in
+        order to communicate with the persistent data store.
 \end{enumerate}
 
 % This section is similar to the previous one, but focuses on the interactions
