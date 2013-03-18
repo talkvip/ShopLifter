@@ -1,0 +1,138 @@
+%
+% sdd.tex contains the Software/Database Design Document for the
+%     Software Development Folder for the eCommerce CMS project for:
+% CMSI 402
+% Loyola Marymount University
+%
+% By Andrew Won
+%
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%  Revision History:
+%  -----------------
+%
+%   Ver      Date      Modified by:  Description of change/modification
+%  -----  -----------  ------------  ------------------------------------------
+%  1.0.0  19-Mar-2013  A. Won        Initial version/release
+%
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\documentclass{article}
+\usepackage{doc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{multirow}
+\geometry{letterpaper}
+
+\title{eCommerce CMS Software/Database Design Document}
+\author{Andrew Won}
+\date{March 19, 2013}
+
+\newcommand{\br}{\vspace{2mm}}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\listoftables
+\listoffigures
+
+\pagebreak
+\setcounter{section}{5}
+\section{Software/Database Design Document}
+
+\subsection{Introduction}
+
+This document presents the architecture and detailed design for the eCommerce CMS
+software for the CMSI 402 project at Loyola Marymount University.  eCommerce CMS
+is a software solution for small business customers looking for
+an initial online presence.  The eCommerce CMS application will offer both a
+web service for HTTP requests and sets of internet-accessible web pages served
+by that web service.
+
+The eCommerce CMS application will offer a Java-based web service which will
+allow for HTTP requests to qualified users.  The Java-based service will also
+serve two sets of front-end web pages.  Through the first set, small business
+users of the application can implement and manage an online business management
+and sales solution. Through the second set, customers of the small business will
+be able to interact with the small business either through making purchases on
+an eCommerce web site or through committing information required for generation
+of a proposal.
+
+The eCommerce CMS application is the Computer Software Configuration Item
+(CSCI) and consists of three major Computer Software Components (CSC).  The
+CSCI is broken down into the back-end CSC, the user front-end CSC, and the
+customer front-end CSC.  Each respective CSC can further be broken down to
+several Computer Software Units (CSU).  This document will specify some of the
+CSU's that are intended in table~\ref{software-hierarchy}, but this list shall
+in no way bind or limit the number of CSU's that will be developed within
+eCommerce CMS.
+
+\begin{table}
+    \begin{tabular}{|c|l|p{7.5cm}|}\hline
+        CSCI & CSC & CSU \\\hline\hline
+        \multirow{12}{*}{eCommerce CMS}
+         & Back-End & Persistent Data Store \\\cline{2-3}
+         & Back-End & Report/Proposal Generator \\\cline{2-3}
+         & Back-End & Front-End Generator \\\cline{2-3}
+         & Back-End & Transaction Processor \\\cline{2-3}
+         & User Front-End & Visual Web Page Editor \\\cline{2-3}
+         & User Front-End & Web Page Template Editor \\\cline{2-3}
+         & User Front-End & Inventory Input/Edit Form \\\cline{2-3}
+         & User Front-End & Report/Proposal Requestor \\\cline{2-3}
+         & Customer Front-End & Proposal Specification Form \\\cline{2-3}
+         & Customer Front-End & Web Store \\\cline{2-3}
+         & Customer Front-End & Purchasing/Transaction System \\\hline
+    \end{tabular}
+    \caption{CSCI, CSC, and CSU Hierarchy}
+    \label{software-hierarchy}
+\end{table}
+
+\subsubsection{System Objectives}
+
+\subsubsection{Hardware, Software, and Human Interfaces}
+
+\pagebreak
+\subsection{Architectural Design}
+
+\subsubsection{Major Software Components}
+\label{msc}
+
+\subsubsection{Major Software Interactions}
+\label{msi}
+
+\subsubsection{Architectural Design Diagrams}
+\label{add}
+
+\pagebreak
+\subsection{CSC and CSU Descriptions}
+
+\subsubsection{Class Descriptions}
+\label{cd}
+
+\begin{enumerate}
+    \item[~\ref{cd}.1 ] \emph{Detailed Class Description 1}
+\end{enumerate}
+
+\subsubsection{Detailed Interface Descriptions}
+\label{did}
+
+\subsubsection{Detailed Data Structure Descriptions}
+\label{ddsd}
+
+\subsubsection{Detailed Design Diagrams}
+\label{ddd}
+
+\pagebreak
+\subsection{Database Design and Description}
+
+\subsubsection{Database Design ER Diagram}
+\label{dded}
+
+\subsubsection{Database Access}
+\label{da}
+
+\subsubsection{Database Security}
+\label{ds}
+
+\end{document}
