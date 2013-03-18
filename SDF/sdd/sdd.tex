@@ -272,9 +272,13 @@ technologies.
         will be implemented through a form whose data is stored in the data
         store.
     \item[~\ref{msc}.8 ] \emph{Front-End: Proposal Data Submission System}\br\\
-        eCommerce CMS offers a Proposal Data Submission System.
+        eCommerce CMS offers a Proposal Data Submission System.  The system
+        allows customers to input data into a form and for users to generate
+        custom proposal documents based on the data entered.
     \item[~\ref{msc}.9 ] \emph{Front-End: Shopping Cart}\br\\
-        eCommerce CMS offers a shopping cart.
+        eCommerce CMS offers a shopping cart for keeping track of items which
+        are desired to be sold.  The shopping cart is implemented through a
+        JavaScript API.
 \end{enumerate}
 
 % This section will briefly describe the major software subsystems which are
@@ -286,6 +290,33 @@ technologies.
 
 \subsubsection{Major Software Interactions}
 \label{msi}
+
+\begin{enumerate}
+    \item[~\ref{msi}.1 ] \emph{HTTP Endpoint Resources}\br\\
+        The HTTP endpoint resources will interact with both the persistent
+        data store and plain-old Java objects (POJOs).
+
+        The HTTP endpoint will interact with the persistent data store through
+        HQL queries processed by Hibernate.  The HTTP endpoints will be used as
+        the point of interface for the front-ends and transfer data from the
+        data store to the front-end.
+
+        The plain-old Java objects will be used to process data in the persistent
+        data store to be presented to the front-end in meaningful formats.
+    \item[~\ref{msi}.2 ] \emph{Report/Proposal Generator}\br\\
+        The Report/Proposal Generator will interact with the HTTP Endpoint
+        Resources and the persistent data store.
+
+        The Report/Proposal Generator will communicate directly with HTTP Endpoint
+        Resources to communicate with the persistent data store and to deliver
+        the produced report or proposal to the front-end.
+
+        The Report/Proposal Generator will communicate with the persistent
+        data store through the HTTP Endpoint Resources to retrieve the data
+        that will populate the report or proposal.  The data that will populate
+        the documents will be determined by the fields selected by the user
+        through the front-end interface.
+\end{enumerate}
 
 % This section is similar to the previous one, but focuses on the interactions
 % between the parts of the application. In this section, you should present
