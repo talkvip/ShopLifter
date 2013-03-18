@@ -102,19 +102,54 @@ of customizability requiring relatively low expertise in use of internet
 technologies.
 
 \subsubsection{Hardware, Software, and Human Interfaces}
+\label{hshi}
 
-% Identify all hardware, software and human interfaces. These interfaces should
-% have been identified in the requirements document as external interfaces.
-% This section must also provide all the details about how they interrelate to
-% the base system. Use separate numbered paragraphs for each of the interfaces,
-% and describe them completely; leave nothing to the reader's imagination.
-% For example, if there are socket interfaces, cite the specification of the
-% type of sockets to be used. If using RMI or RPC for interprocess
-% communication, state the version implemented. If you use http or SSL for
-% communication through a browser, put that in. If third party libraries are
+\begin{enumerate}
+    \item[~\ref{hshi}.1 ] \emph{HTTP Requests}\br\\
+        HTTP requests are used by front-end pages to interface with all
+        components in the back-end, see table~\ref{software-hierarchy} for a
+        list of these components.  The HTTP requests are handled using the
+        following third-party libraries:
+        \begin{enumerate}
+            \item JAX-RS
+                Java API that supports web service endpoints according to the
+                Representational State Transfer (REST) architecture.  Also known
+                as ``Java API for RESTful Web Services.''
+            \item Jersey
+                JAX-RS implementation.
+            \item JAXB
+                Java architecture for XML Binding.
+            \item Jackson
+                Java library for processing the JSON data format.
+        \end{enumerate}
+    \item[~\ref{hshi}.2 ] \emph{Keyboard}\br\\
+        A keyboard is used to interface with the user and customer front-ends,
+        see table~\ref{software-hierarchy} for a list of these components.  Keyboard
+        entries primarily allow customers and users to provide textual data,
+        primarily through form fields.
+    \item[~\ref{hshi}.3 ] \emph{Pointer Device}\br\\
+        A pointer device is used to interface with the user and customer
+        front-ends, see table~\ref{software-hierarchy} for a list of these
+        components.  The pointer device, such as a mouse, is the primary
+        way of navigating the user and customer front-ends, which are built
+        primarily using the Menus, Forms, and Dialogs interface style.
+    \item[~\ref{hshi}.4 ] \emph{Network Interface Controller}\br\\
+        A Network Interface Controller is used to interface with the user and
+        customer front-ends by facilitating a connection for the customer or
+        user to a webpage hosted on a server hosting the application, see
+        table~\ref{software-hierarchy} for a list of these components.  Because
+        the service is accessed through HTTP requests and the webpages are
+        served through web servers, a network connection is required for all
+        interaction with the application.
+\end{enumerate}
+
+% If you use HTTP or SSL for communication through a browser, put that in.
+% If third party libraries are
 % used, list each of them in a separately numbered paragraph which describes
 % the purpose of use, the version used, and the portions of your project which
-% will interface with them. Describe the user interface, GUI, or TUI which you
+% will interface with them.
+
+% Describe the user interface, GUI, or TUI which you
 % will implement, and include a screen shot or simulated drawing of its
 % appearance. Make sure to include the hardware interfaces, such as networking,
 % mouse, keyboard, and so on. Use paragraph numbers like "6.1.2.1" and "6.1.2.2".
@@ -160,6 +195,28 @@ technologies.
 \subsubsection{Major Software Components}
 \label{msc}
 
+\begin{enumerate}
+    \item[~\ref{msc}.1 ] \emph{Back-End: HTTP Resources}\br\\
+        eCommerce CMS accepts HTTP requests.
+    \item[~\ref{msc}.2 ] \emph{Back-End: Persistent Data Store}\br\\
+        eCommerce CMS offers a persistent data store through a database. Retain history of transactions.
+    \item[~\ref{msc}.3 ] \emph{Back-End: Report/Proposal Generator}\br\\
+        eCommerce CMS offers a report generator.
+    \item[~\ref{msc}.4 ] \emph{Back-End: Front-End Generator}\br\\
+        eCommerce CMS offers a front-end generator.
+    \item[~\ref{msc}.5 ] \emph{Back-End: Transaction Processor}\br\\
+        % TODO: Maybe front-end?
+        eCommerce CMS offers a transaction processor.
+    \item[~\ref{msc}.6 ] \emph{Front-End: What-You-See-Is-What-You-Get (WYSIWYG) Editor}\br\\
+        eCommerce CMS offers a What-You-See-Is-What-You-Get (WYSIWYG) Editor.
+    \item[~\ref{msc}.7 ] \emph{Front-End: Inventory Management System}\br\\
+        eCommerce CMS offers an Inventory Management System.
+    \item[~\ref{msc}.7 ] \emph{Front-End: Proposal Data Submission System}\br\\
+        eCommerce CMS offers a Proposal Data Submission System.
+    \item[~\ref{msc}.7 ] \emph{Front-End: Shopping Cart}\br\\
+        eCommerce CMS offers a shopping cart.
+\end{enumerate}
+
 % This section will briefly describe the major software subsystems which are
 % related to the functional requirements found in SDF sections 5.2.1
 % (Functional Requirement 1) through 5.2.n (Functional Requirement n), in the
@@ -172,7 +229,7 @@ technologies.
 
 % This section is similar to the previous one, but focuses on the interactions
 % between the parts of the application. In this section, you should present
-% text that discribes how the segments communicate with each other. For
+% text that describes how the segments communicate with each other. For
 % example, if you are sending packets on a socket, describe how that interface
 % works. Don't describe the details of the packets or their interpretation
 % here - that comes in the detailed design section. If there are interactions
