@@ -90,25 +90,150 @@ eCommerce CMS.
 
 \subsubsection{System Objectives}
 
+% Briefly recap the goals and scope of this project. Another semi-redundant
+% section which exists to mimic the industry standard. Make it meaningful,
+% but don't just repeat stuff already in the introduction. Focus on the "goals"
+% of the project, or the "objectives" of the application. For example, the goals
+% and objectives of a video rental website would read, at a minimum, something
+% like the following:
+
+% The objective of this application is to provide a new user interface to the
+% existing video rental checkout system which can be easily navigated by users
+% of all experience levels. Films from different genres are grouped together,
+% and are alphabetized for easy location. In addition, the search bar at the
+% top of every page allows the user to quickly find specific movies, along with
+% information about actors, directors, and other industry personnel. A one-click
+% button is provided on every page so that the user may conveniently see what
+% is in the checkout queue.
+
 \subsubsection{Hardware, Software, and Human Interfaces}
+
+% Identify all hardware, software and human interfaces. These interfaces should
+% have been identified in the requirements document as external interfaces.
+% This section must also provide all the details about how they interrelate to
+% the base system. Use separate numbered paragraphs for each of the interfaces,
+% and describe them completely; leave nothing to the reader's imagination.
+% For example, if there are socket interfaces, cite the specification of the
+% type of sockets to be used. If using RMI or RPC for interprocess
+% communication, state the version implemented. If you use http or SSL for
+% communication through a browser, put that in. If third party libraries are
+% used, list each of them in a separately numbered paragraph which describes
+% the purpose of use, the version used, and the portions of your project which
+% will interface with them. Describe the user interface, GUI, or TUI which you
+% will implement, and include a screen shot or simulated drawing of its
+% appearance. Make sure to include the hardware interfaces, such as networking,
+% mouse, keyboard, and so on. Use paragraph numbers like "6.1.2.1" and "6.1.2.2".
 
 \pagebreak
 \subsection{Architectural Design}
 
+% The architectural design of a software system is one of the most critical
+% aspects of a successful system. A good design generally takes considerable
+% foresight and a lot of trial and error through iterations. The length of this
+% section of the document can be fairly short, but the thought that goes into
+% it should be substantial.
+
+% The architectural design is the first step towards an implementation.
+% The requirements specification has previously identified the functions the
+% customer requires which the programmer will be implementing. The
+% architectural design suggests an implementation of those functions. This does
+% not mean the architectural design will simply be a module for each of the
+% functions described in the requirements specification.
+
+% One of the most important characteristics of a good designer is that s/he
+% be able to spot awkwardness in a design. This means that you must look at the
+% design and attempt to figure if it works from the perspective of, "Now if I
+% had to implement this module, could I do it reasonably?" In general, you are
+% looking for the problem, "I need to compute the sine of X, but I haven't been
+% told X and I can't find it out." Another common problem in design is a lack
+% of independence between the modules. This is known as coupling, and has the
+% related term cohesion. Refer to sections 7.2 and 7.3 of your textbook for
+% more definitive definitions of these terms, but the gist is you want a
+% software design which has loose coupling and relatively tight cohesion.
+% Design awkwardness will cause a lot of confusion on a group project, because
+% different people will be working on each module; it can also be a source of
+% confusion to single-developer projects.
+
+% This section of your SDF should present the overall design of the system.
+% Partition the system into logical sets of class definitions. These classes
+% should be based on their overall functionality within the entire application.
+% For example, you might want to decompose the system into State Control, User
+% Interface Control, and Computer Player subsystems. The goal of this section
+% is to give some conceptual organization to the detailed descriptions that are
+% to follow.
+
 \subsubsection{Major Software Components}
 \label{msc}
+
+% This section will briefly describe the major software subsystems which are
+% related to the functional requirements found in SDF sections 5.2.1
+% (Functional Requirement 1) through 5.2.n (Functional Requirement n), in the
+% requirements document. This is one way of tracking to verify that all the
+% functional requirements are covered by the software application. All the
+% major components of the application must be explained in the text.
 
 \subsubsection{Major Software Interactions}
 \label{msi}
 
+% This section is similar to the previous one, but focuses on the interactions
+% between the parts of the application. In this section, you should present
+% text that discribes how the segments communicate with each other. For
+% example, if you are sending packets on a socket, describe how that interface
+% works. Don't describe the details of the packets or their interpretation
+% here - that comes in the detailed design section. If there are interactions
+% between your software and some other software, such as OpenGL or JOGL or a
+% database engine that your project relies on to operate, describe that
+% interface as well.
+
 \subsubsection{Architectural Design Diagrams}
 \label{add}
+
+% In addition to the text in the previous sections, at least three UML diagrams
+% of the system must be included. These several diagrams must be of several
+% different types; for example, there should be a Use Case diagram of your
+% system, a top-level class diagram showing the classes and the interfaces and
+% their relationships to each other, a component and/or deployment diagram
+% showing how the parts communicate with each other and with any external
+% software or other entities, and perhaps even a swim lane diagram showing
+% how your system operates at an architectural level.
 
 \pagebreak
 \subsection{CSC and CSU Descriptions}
 
+% This section begins the detailed design section of the document. You begin by
+% describing the Computer Software Components (CSC) and Computer Software
+% Units (CSU) which comprise your application. Your application itself is a
+% Computer Software Configuration Item (CSCI), which is composed of multiple
+% CSCs, each of which comprises multiple CSUs. For an individual project, the
+% CSUs can be your classes and interfaces. Their groupings then become the
+% CSCs. Each of the CSCs must have a name, which needs to be descriptive of
+% the functionality of that group of CSUs (modules, class files, interfaces,
+% whatever). Each of these CSUs will be described in detail in the subsequent
+% sub-sections of the document.
+
+% An example of this might be if you are using the Model-View-Controller
+% paradigm. Say your project is called the "Barbecue" project. The Model
+% segment would have several classes, each of which is a CSU; collectively,
+% they are the "Barbecue Model CSC". The same will follow for the other two
+% CSCs, and collectively all the CSCs are called the "Barbeque CSCI".
+
 \subsubsection{Class Descriptions}
 \label{cd}
+
+% This section, and its sub-sections, describe the classes in each of the CSUs
+% of the project. Each CSU must have at least one class, but there may be more.
+% For these sections, you must include detailed descriptions, i.e., each class
+% description contains a list of the fields for that class (with explanations
+% of each field) and a separate list of the methods for that class (again with
+% explanations). The main section, 6.3.1, should be some type of introductory
+% paragraph such as "The following sections provide the details of all classes
+% used in the <fill in the blank> application." There will be one subsection
+% for each of the classes, numbered 6.3.1.1 through 6.3.1.<n>, where <n> is
+% the number of classes in the project. The class descriptions should generally
+% be ordered from the smallest class to the largest class so the larger classes
+% can be understood at a more detailed level. Each class definition subsection
+% must include a brief description of why this class is included (or of what
+% its operation does for the project).
 
 \begin{enumerate}
     \item[~\ref{cd}.1 ] \emph{Detailed Class Description 1}
@@ -117,11 +242,36 @@ eCommerce CMS.
 \subsubsection{Detailed Interface Descriptions}
 \label{did}
 
+% This section, and its sub-sections, describe the interfaces in each of the
+% CSUs of the project. Follow the same guidelines as described in the paragraphs
+% above, only for interfaces rather than classes.
+
 \subsubsection{Detailed Data Structure Descriptions}
 \label{ddsd}
 
+% This section, and its sub-sections, describe the data structures in each of
+% the CSUs of the project. Data structure details consist of things like the
+% in-depth description of message packets, database query results, and any
+% other non-class and non-interface data structures. For example, if you are
+% implementing a form of a doubly-linked list or a queue, include a description
+% of the structure, for what purpose it will be used, and any methods or
+% operations in which it will be involved. Follow the same guidelines as
+% described in the two preceding paragraphs.
+
 \subsubsection{Detailed Design Diagrams}
 \label{ddd}
+
+% In this section, you must include all detailed diagrams for all facets of the
+% project. This means you will need to have detailed use case diagrams,
+% package diagrams, class diagrams, and either activity, swim lane, sequence,
+% or state diagrams. You need to show in diagram form the actual workings of
+% the project. The intent of sections 6.3 and 6.4 (and if needed, 6.5) is to
+% provide a start for the code phase of the project. You should be able to
+% start coding directly from these descriptions, and should see the interplay
+% of all parts from the diagrams. Be sure to use correct UML for all diagrams.
+% You can use whatever tool you like to draw the UML, whether it be a CASE tool
+% like Poseidon or a simple drawing tool like Impress. Just make sure the
+% diagrams are legible, meaningful, and drawn as correctly as possible.
 
 \pagebreak
 \subsection{Database Design and Description}
@@ -134,5 +284,14 @@ eCommerce CMS.
 
 \subsubsection{Database Security}
 \label{ds}
+
+% These sections are all lumped together, since they may be optional. If you
+% have no database in your project, simply include section 6.4, and insert a
+% paragraph stating there is no database involved in the project. If there is
+% a database as part of your application, then you must describe it. Include a
+% complete and correct UML Entity-Relationship diagram in section 6.4.1, a
+% paragraph or two about how the database will be accessed in 6.4.2, and another
+% paragraph or two about how you are implementing database security in 6.4.3.
+% Make this section consistent with the other sections of the document.
 
 \end{document}
