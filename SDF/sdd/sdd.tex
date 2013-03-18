@@ -335,13 +335,37 @@ technologies.
         the HTTP Endpoint Resources will again be used to decrement the inventory
         appropriately by the number of units sold and to add the transaction to
         the ItemHistory of the item sold.
-    \item[~\ref{msc}.5 ] \emph{What-You-See-Is-What-You-Get (WYSIWYG) Editor}\br\\
+    \item[~\ref{msi}.5 ] \emph{What-You-See-Is-What-You-Get (WYSIWYG) Editor}\br\\
         The What-You-See-Is-What-You-Get (WYSIWYG) Editor will interact with the
         HTTP Endpoint Resources and the persistent data store.  It will also
         be interacted with through use of the keyboard and a pointing device.
 
         The WYSIWYG Editor will interact with the HTTP Endpoint Resources in
-        order to communicate with the persistent data store.
+        order to communicate with the persistent data store.  The WYSIWYG Editor
+        will initially, graphically present the customer front-end's present
+        state of properties.  When changes are made through the WYSIWYG Editor,
+        the changes will be sent through HTTP Endpoint Resources to be stored
+        in the persistent data store.
+
+        Changes in the WYSIWYG Editor will be made through the mouse and keyboard
+        to manipulate visible elements.  Manipulation of visual elements will
+        be translated into numeric or textual properties to be stored in the
+        persistent data store.
+    \item[~\ref{msi}.6 ] \emph{Inventory Management System}\br\\
+        The Inventory Management System will interact with the HTTP Endpoint
+        Resources, the persistent data store, and with the user through a
+        keyboard.  The Inventory Management System will interact with the HTTP
+        Endpoint Resources to communicate with the persistent data store.  The
+        Inventory Management System will retrieve data available for items and
+        services and display a summary of this data for users.
+
+        Users will be able to interact with the Inventory Management System
+        through keyboard entries into forms, which will be sent to the
+        persistent data store.
+    \item[~\ref{msi}.7 ] \emph{Proposal Data Submission System}\br\\
+        The Proposal Data Submission System.
+    \item[~\ref{msi}.8 ] \emph{Shopping Cart}\br\\
+        The Shopping Cart.
 \end{enumerate}
 
 % This section is similar to the previous one, but focuses on the interactions
