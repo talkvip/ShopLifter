@@ -448,7 +448,7 @@ JavaScript does not use classes.
             \item CustomerSiteDao.java
             \item WebTemplate.java
         \end{itemize}
-    \item[~\ref{cd}.2 ] \emph{Back-End - Report/Proposal Generator}
+    \item[~\ref{cd}.2 ] \emph{Back-End - Report/Proposal Generator}\br\\
         The Report/Proposal Generator consists of a resource file to handle HTTP
         requests, a service file to interface with the database access objects,
         a database access object to interface with the persistent data store,
@@ -463,7 +463,7 @@ JavaScript does not use classes.
             \item Document.java
             \item DocTemplate.java
         \end{itemize}
-    \item[~\ref{cd}.3 ] \emph{Back-End - Front-End Generator}
+    \item[~\ref{cd}.3 ] \emph{Back-End - Front-End Generator}\br\\
         The Front-End Generator consists of a resource file to handle HTTP requests,
         a service file to interface with the database access objects, a database
         access object to interface with the persistent data store,
@@ -481,7 +481,7 @@ JavaScript does not use classes.
             \item HtmlCompiler.java
             \item CssCompiler.java
         \end{itemize}
-    \item[~\ref{cd}.4 ] \emph{Back-End - Transaction Processor}
+    \item[~\ref{cd}.4 ] \emph{Back-End - Transaction Processor}\br\\
         Transaction processing is handled by the Item and Service objects
         independently, and does not require additional a specific class dedicated
         to processing transactions.  The Item and Service objects will require
@@ -495,14 +495,14 @@ JavaScript does not use classes.
             \item ItemDao.java
             \item ServiceDao.java
         \end{itemize}
-    \item[~\ref{cd}.5 ] \emph{User Front-End - Visual Web Page Editor}
+    \item[~\ref{cd}.5 ] \emph{User Front-End - Visual Web Page Editor}\br\\
         The Visual Web Page Editor handles events by a JavaScript file that
         translates visual changes into numeric and textual properties to be
         transmitted to the web service.
         \begin{itemize}
             \item wysiwyg.js
         \end{itemize}
-    \item[~\ref{cd}.6 ] \emph{User Front-End - Web Page Template Editor}
+    \item[~\ref{cd}.6 ] \emph{User Front-End - Web Page Template Editor}\br\\
         The Web Page Template Editor looks like the Visual Web Page Editor, but
         the web page saved into the web service is saved as a template.  Templates
         are not accessible by a web browser outside of the web service and must be implemented
@@ -511,25 +511,25 @@ JavaScript does not use classes.
         \begin{itemize}
             \item wysiwyg.js
         \end{itemize}
-    \item[~\ref{cd}.7 ] \emph{User Front-End - Inventory Input/Edit Form}
+    \item[~\ref{cd}.7 ] \emph{User Front-End - Inventory Input/Edit Form}\br\\
         The Inventory Input/Edit Form will have a JavaScript file to listen for
         events and communicate with the web service.
         \begin{itemize}
             \item ims.js
         \end{itemize}
-    \item[~\ref{cd}.8 ] \emph{User Front-End - Report/Proposal Requestor}
+    \item[~\ref{cd}.8 ] \emph{User Front-End - Report/Proposal Requestor}\br\\
         The Report/Proposal Requestor will only have a JavaScript file to
         communicate with the web service and present a document to the user.
         \begin{itemize}
             \item docRequest.js
         \end{itemize}
-    \item[~\ref{cd}.9 ] \emph{Customer Front-End - Proposal Specification Form}
+    \item[~\ref{cd}.9 ] \emph{Customer Front-End - Proposal Specification Form}\br\\
         The Proposal Specification Form will have a JavaScript file to submit
         form data to the web service.
         \begin{itemize}
             \item proposalForm.js
         \end{itemize}
-    \item[~\ref{cd}.10 ] \emph{Customer Front-End - Web Store}
+    \item[~\ref{cd}.10 ] \emph{Customer Front-End - Web Store}\br\\
         The Web Store will have JavaScript files to handle adding or removing
         items from the shopping cart and to retrieve items/services from the
         web service and display them on a webpage.
@@ -537,7 +537,7 @@ JavaScript does not use classes.
             \item shoppingCart.js
             \item store.js
         \end{itemize}
-    \item[~\ref{cd}.11 ] \emph{Customer Front-End - Purchasing/Transaction System}
+    \item[~\ref{cd}.11 ] \emph{Customer Front-End - Purchasing/Transaction System}\br\\
         The Purchasing/Transaction System has a file to communicate with the
         web service.
         \begin{itemize}
@@ -563,28 +563,11 @@ JavaScript does not use classes.
 \subsubsection{Detailed Interface Descriptions}
 \label{did}
 
-% TODO: talk about what reports can be generated
+The back-end classes will not directly interact with the user or customer.  The
+back-end is only accessed through the web service by HTTP requests.  The following
+HTTP requests may be made:
 
-% This section, and its sub-sections, describe the interfaces in each of the
-% CSUs of the project. Follow the same guidelines as described in the paragraphs
-% above, only for interfaces rather than classes.
-
-\subsubsection{Detailed Data Structure Descriptions}
-\label{ddsd}
-
-% This section, and its sub-sections, describe the data structures in each of
-% the CSUs of the project. Data structure details consist of things like the
-% in-depth description of message packets, database query results, and any
-% other non-class and non-interface data structures. For example, if you are
-% implementing a form of a doubly-linked list or a queue, include a description
-% of the structure, for what purpose it will be used, and any methods or
-% operations in which it will be involved. Follow the same guidelines as
-% described in the two preceding paragraphs.
-
-\subsubsection{Detailed Design Diagrams}
-\label{ddd}
-
-\begin{table}
+\begin{table}[H]
     \centering
     \begin{tabular}{|l|p{4.5cm}|l|}\hline
         Endpoint & Query Parameters & Description\\\hline\hline
@@ -622,6 +605,41 @@ JavaScript does not use classes.
     \caption{HTTP Request Web Service Endpoints}
     \label{endpoints}
 \end{table}
+
+\begin{enumerate}
+    \item[~\ref{did}.1 ] \emph{User Front-End - Visual Web Page Editor}\br\\
+    \item[~\ref{did}.2 ] \emph{User Front-End - Web Page Template Editor}\br\\
+    \item[~\ref{did}.3 ] \emph{User Front-End - Inventory Input/Edit Form}\br\\
+    \item[~\ref{did}.4 ] \emph{User Front-End - Report/Proposal Requestor}\br\\
+    \item[~\ref{did}.5 ] \emph{Customer Front-End - Proposal Specification Form}\br\\
+    \item[~\ref{did}.6 ] \emph{Customer Front-End - Web Store}\br\\
+    \item[~\ref{did}.7 ] \emph{Customer Front-End - Purchasing/Transaction System}\br\\
+\end{enumerate}
+
+% TODO: talk about what reports can be generated
+
+% This section, and its sub-sections, describe the interfaces in each of the
+% CSUs of the project. Follow the same guidelines as described in the paragraphs
+% above, only for interfaces rather than classes.
+
+\subsubsection{Detailed Data Structure Descriptions}
+\label{ddsd}
+
+All database queries will be parsed into plain-old Java objects (POJOs).  The
+POJOs will contain either java ArrayLists or java Stacks depending upon how
+the data will have to be accessed.
+
+% This section, and its sub-sections, describe the data structures in each of
+% the CSUs of the project. Data structure details consist of things like the
+% in-depth description of message packets, database query results, and any
+% other non-class and non-interface data structures. For example, if you are
+% implementing a form of a doubly-linked list or a queue, include a description
+% of the structure, for what purpose it will be used, and any methods or
+% operations in which it will be involved. Follow the same guidelines as
+% described in the two preceding paragraphs.
+
+\subsubsection{Detailed Design Diagrams}
+\label{ddd}
 
 % In this section, you must include all detailed diagrams for all facets of the
 % project. This means you will need to have detailed use case diagrams,
