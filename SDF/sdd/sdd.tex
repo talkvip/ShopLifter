@@ -437,8 +437,9 @@ JavaScript does not use classes.
 \begin{enumerate}
     \item[~\ref{cd}.1 ] \emph{Back-End - Persistent Data Store}\br\\
         The persistent data store primarily consists of data-access objects (daos)
-        which correspond to equivalent domain object classes.  The classes are as
-        follows:
+        which correspond to equivalent domain object classes.  Because these data
+        access objects pertain to various functionality, these classes will be
+        repeated in other sections.  The classes are as follows:
         \begin{itemize}
             \item ItemDao.java
             \item ServiceDao.java
@@ -449,48 +450,98 @@ JavaScript does not use classes.
         \end{itemize}
     \item[~\ref{cd}.2 ] \emph{Back-End - Report/Proposal Generator}
         The Report/Proposal Generator consists of a resource file to handle HTTP
-        requests, and domain objects to represent the report and proposal as a
-        Java class.
+        requests, a service file to interface with the database access objects,
+        a database access object to interface with the persistent data store,
+        and domain objects to represent the report and proposal as a Java class.
         \begin{itemize}
             \item DocumentResource.java
+            \item DocTemplateResource.java
+            \item DocumentService.java
+            \item DocTemplateService.java
+            \item DocumentDao.java
+            \item DocTemplateDao.java
             \item Document.java
             \item DocTemplate.java
         \end{itemize}
     \item[~\ref{cd}.3 ] \emph{Back-End - Front-End Generator}
+        The Front-End Generator consists of a resource file to handle HTTP requests,
+        a service file to interface with the database access objects, a database
+        access object to interface with the persistent data store,
+        domain objects to represent the customer website and templates, an interface
+        for websites as a Java class, and utility classes to convert Java objects
+        into HTML, CSS, and JavaScript files.
         \begin{itemize}
-            \item
+            \item SiteGeneratorResource.java
+            \item SiteGeneratorService.java
+            \item SiteGeneratorDao.java
+            \item Website.java (interface)
+            \item CustomerSite.java
+            \item WebTemplate.java
+            \item Element.java
+            \item HtmlCompiler.java
+            \item CssCompiler.java
         \end{itemize}
     \item[~\ref{cd}.4 ] \emph{Back-End - Transaction Processor}
+        Transaction processing is handled by the Item and Service objects
+        independently, and does not require additional a specific class dedicated
+        to processing transactions.  The Item and Service objects will require
+        resource classes to handle HTTP requests and will interface with their
+        respective data access objects with service classes.
         \begin{itemize}
-            \item
+            \item Item.java
+            \item Service.java
+            \item ItemService.java
+            \item ServiceService.java
+            \item ItemDao.java
+            \item ServiceDao.java
         \end{itemize}
     \item[~\ref{cd}.5 ] \emph{User Front-End - Visual Web Page Editor}
+        The Visual Web Page Editor handles events by a JavaScript file that
+        translates visual changes into numeric and textual properties to be
+        transmitted to the web service.
         \begin{itemize}
-            \item
+            \item wysiwyg.js
         \end{itemize}
     \item[~\ref{cd}.6 ] \emph{User Front-End - Web Page Template Editor}
+        The Web Page Template Editor looks like the Visual Web Page Editor, but
+        the web page saved into the web service is saved as a template.  Templates
+        are not accessible by a web browser outside of the web service and must be implemented
+        into a web page through the Visual Web Page Editor before a customer can
+        access the page.
         \begin{itemize}
-            \item
+            \item wysiwyg.js
         \end{itemize}
     \item[~\ref{cd}.7 ] \emph{User Front-End - Inventory Input/Edit Form}
+        The Inventory Input/Edit Form will have a JavaScript file to listen for
+        events and communicate with the web service.
         \begin{itemize}
-            \item
+            \item ims.js
         \end{itemize}
     \item[~\ref{cd}.8 ] \emph{User Front-End - Report/Proposal Requestor}
+        The Report/Proposal Requestor will only have a JavaScript file to
+        communicate with the web service and present a document to the user.
         \begin{itemize}
-            \item
+            \item docRequest.js
         \end{itemize}
     \item[~\ref{cd}.9 ] \emph{Customer Front-End - Proposal Specification Form}
+        The Proposal Specification Form will have a JavaScript file to submit
+        form data to the web service.
         \begin{itemize}
-            \item
+            \item proposalForm.js
         \end{itemize}
     \item[~\ref{cd}.10 ] \emph{Customer Front-End - Web Store}
+        The Web Store will have JavaScript files to handle adding or removing
+        items from the shopping cart and to retrieve items/services from the
+        web service and display them on a webpage.
         \begin{itemize}
-            \item
+            \item shoppingCart.js
+            \item store.js
         \end{itemize}
     \item[~\ref{cd}.11 ] \emph{Customer Front-End - Purchasing/Transaction System}
+        The Purchasing/Transaction System has a file to communicate with the
+        web service.
         \begin{itemize}
-            \item
+            \item checkout.js
         \end{itemize}
 \end{enumerate}
 
