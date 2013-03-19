@@ -61,35 +61,6 @@ be able to interact with the small business either through making purchases on
 an eCommerce web site or through committing information required for generation
 of a proposal.
 
-The eCommerce CMS application is the Computer Software Configuration Item
-(CSCI) and consists of three major Computer Software Components (CSC).  The
-CSCI is broken down into the back-end CSC, the user front-end CSC, and the
-customer front-end CSC.  Each respective CSC can further be broken down to
-several Computer Software Units (CSU).  This document will specify some of the
-CSU's that are intended in table~\ref{software-hierarchy}, but this list shall
-in no way bind or limit the number of CSU's that will be developed within
-eCommerce CMS.
-
-\begin{table}
-    \begin{tabular}{|c|l|p{7.5cm}|}\hline
-        CSCI & CSC & CSU \\\hline\hline
-        \multirow{12}{*}{eCommerce CMS}
-         & Back-End & Persistent Data Store \\\cline{2-3}
-         & Back-End & Report/Proposal Generator \\\cline{2-3}
-         & Back-End & Front-End Generator \\\cline{2-3}
-         & Back-End & Transaction Processor \\\cline{2-3}
-         & User Front-End & Visual Web Page Editor \\\cline{2-3}
-         & User Front-End & Web Page Template Editor \\\cline{2-3}
-         & User Front-End & Inventory Input/Edit Form \\\cline{2-3}
-         & User Front-End & Report/Proposal Requestor \\\cline{2-3}
-         & Customer Front-End & Proposal Specification Form \\\cline{2-3}
-         & Customer Front-End & Web Store \\\cline{2-3}
-         & Customer Front-End & Purchasing/Transaction System \\\hline
-    \end{tabular}
-    \caption{CSCI, CSC, and CSU Hierarchy}
-    \label{software-hierarchy}
-\end{table}
-
 \subsubsection{System Objectives}
 
 The objective of this application is to provide a new content management
@@ -412,6 +383,33 @@ technologies.
 \pagebreak
 \subsection{CSC and CSU Descriptions}
 
+The eCommerce CMS application is the Computer Software Configuration Item
+(CSCI) and consists of three major Computer Software Components (CSC).  The
+CSCI is broken down into the back-end CSC, the user front-end CSC, and the
+customer front-end CSC.  Each respective CSC can further be broken down to
+several Computer Software Units (CSU).  This document will specify some of the
+CSU's that are intended, as listed in table~\ref{software-hierarchy}.
+
+\begin{table}[H]
+    \begin{tabular}{|c|l|p{7.5cm}|}\hline
+        CSCI & CSC & CSU \\\hline\hline
+        \multirow{12}{*}{eCommerce CMS}
+         & Back-End & Persistent Data Store \\\cline{2-3}
+         & Back-End & Report/Proposal Generator \\\cline{2-3}
+         & Back-End & Front-End Generator \\\cline{2-3}
+         & Back-End & Transaction Processor \\\cline{2-3}
+         & User Front-End & Visual Web Page Editor \\\cline{2-3}
+         & User Front-End & Web Page Template Editor \\\cline{2-3}
+         & User Front-End & Inventory Input/Edit Form \\\cline{2-3}
+         & User Front-End & Report/Proposal Requestor \\\cline{2-3}
+         & Customer Front-End & Proposal Specification Form \\\cline{2-3}
+         & Customer Front-End & Web Store \\\cline{2-3}
+         & Customer Front-End & Purchasing/Transaction System \\\hline
+    \end{tabular}
+    \caption{CSCI, CSC, and CSU Hierarchy}
+    \label{software-hierarchy}
+\end{table}
+
 % This section begins the detailed design section of the document. You begin by
 % describing the Computer Software Components (CSC) and Computer Software
 % Units (CSU) which comprise your application. Your application itself is a
@@ -432,6 +430,70 @@ technologies.
 \subsubsection{Class Descriptions}
 \label{cd}
 
+The CSU's that correspond to the back-end architecture all have corresponding
+class files.  However, not all JavaScript CSU's may have class files because
+JavaScript does not use classes.
+
+\begin{enumerate}
+    \item[~\ref{cd}.1 ] \emph{Back-End - Persistent Data Store}\br\\
+        The persistent data store primarily consists of data-access objects (daos)
+        which correspond to equivalent domain object classes.  The classes are as
+        follows:
+        \begin{itemize}
+            \item ItemDao.java
+            \item ServiceDao.java
+            \item DocTemplateDao.java
+            \item DocumentDao.java
+            \item CustomerSiteDao.java
+            \item WebTemplate.java
+        \end{itemize}
+    \item[~\ref{cd}.2 ] \emph{Back-End - Report/Proposal Generator}
+        The Report/Proposal Generator consists of a resource file to handle HTTP
+        requests, and domain objects to represent the report and proposal as a
+        Java class.
+        \begin{itemize}
+            \item DocumentResource.java
+            \item Document.java
+            \item DocTemplate.java
+        \end{itemize}
+    \item[~\ref{cd}.3 ] \emph{Back-End - Front-End Generator}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \item[~\ref{cd}.4 ] \emph{Back-End - Transaction Processor}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \item[~\ref{cd}.5 ] \emph{User Front-End - Visual Web Page Editor}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \item[~\ref{cd}.6 ] \emph{User Front-End - Web Page Template Editor}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \item[~\ref{cd}.7 ] \emph{User Front-End - Inventory Input/Edit Form}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \item[~\ref{cd}.8 ] \emph{User Front-End - Report/Proposal Requestor}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \item[~\ref{cd}.9 ] \emph{Customer Front-End - Proposal Specification Form}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \item[~\ref{cd}.10 ] \emph{Customer Front-End - Web Store}
+        \begin{itemize}
+            \item
+        \end{itemize}
+    \item[~\ref{cd}.11 ] \emph{Customer Front-End - Purchasing/Transaction System}
+        \begin{itemize}
+            \item
+        \end{itemize}
+\end{enumerate}
+
 % This section, and its sub-sections, describe the classes in each of the CSUs
 % of the project. Each CSU must have at least one class, but there may be more.
 % For these sections, you must include detailed descriptions, i.e., each class
@@ -446,10 +508,6 @@ technologies.
 % can be understood at a more detailed level. Each class definition subsection
 % must include a brief description of why this class is included (or of what
 % its operation does for the project).
-
-\begin{enumerate}
-    \item[~\ref{cd}.1 ] \emph{Detailed Class Description 1}
-\end{enumerate}
 
 \subsubsection{Detailed Interface Descriptions}
 \label{did}
