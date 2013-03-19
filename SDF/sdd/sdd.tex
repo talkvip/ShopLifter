@@ -436,8 +436,9 @@ JavaScript does not use classes.
     \item[~\ref{cd}.2 ] \emph{Back-End - Report/Proposal Generator}\br\\
         The Report/Proposal Generator consists of a resource file to handle HTTP
         requests, a service file to interface with the database access objects,
-        a database access object to interface with the persistent data store,
-        and domain objects to represent the report and proposal as a Java class.
+        database access objects to interface with the persistent data store,
+        domain objects to retrieve data to populate the report or proposal,
+        and domain objects to represent the report or proposal as a Java class.
         \begin{itemize}
             \item DocumentResource.java
             \item DocTemplateResource.java
@@ -445,6 +446,12 @@ JavaScript does not use classes.
             \item DocTemplateService.java
             \item DocumentDao.java
             \item DocTemplateDao.java
+            \item ItemDao.java
+            \item ServiceDao.java
+            \item Item.java
+            \item Service.java
+            \item ItemHistory.java
+            \item ServiceHistory.java
             \item Document.java
             \item DocTemplate.java
         \end{itemize}
@@ -593,12 +600,54 @@ HTTP requests may be made:
 
 \begin{enumerate}
     \item[~\ref{did}.1 ] \emph{User Front-End - Visual Web Page Editor}\br\\
+        The Visual Web Page Editor consists of a webpage that looks similar to
+        an image editor.  The Editor will look much like the website the customer
+        will see, but there will be tools surrounding the site to allow the
+        user to customize the site.  Elements of the webpage will be laid out on
+        a canvas and a combination of buttons and text input fields will allow
+        users to change the look of the webpage.  Text can be directly input
+        into web page elements.
     \item[~\ref{did}.2 ] \emph{User Front-End - Web Page Template Editor}\br\\
+        The Web Page Template Editor will look exactly like the Visual Web
+        Page Editor.  The only difference here is that pages saved as a template
+        will not be accessible to customers until the user goes into the Visual
+        Web Page Editor to implement the generated template into a web page.
     \item[~\ref{did}.3 ] \emph{User Front-End - Inventory Input/Edit Form}\br\\
+        The Inventory Input/Edit Form will initially present itself as a webpage
+        with a table of existing items/services in the persistent data store.  The
+        table of items/services will be directly editable and any changes made in
+        the table will propagate into the persistent data store.  A button will be
+        available for an Inventory Input form, and the Inventory Input form will
+        be a form consisting of properties of Item and Service classes.
     \item[~\ref{did}.4 ] \emph{User Front-End - Report/Proposal Requestor}\br\\
+        The Report/Proposal Requestor will initially present a list of existing
+        templates for reports or proposals.  A user will be able to choose from
+        the list and generate a report or proposal that contains data from the
+        Item, Service, ItemHistory, ServiceHistory classes.
+
+        The user will also be presented with the option to edit or create a
+        new report or proposal template by editing fields within each document.  This
+        will be done through a list of all available fields and a list of included
+        fields.  The user will be able to drag-and-drop fields from one list to
+        the other as desired.
     \item[~\ref{did}.5 ] \emph{Customer Front-End - Proposal Specification Form}\br\\
+        The Proposal Specification Form will look like the web store, but
+        customers will not be able to directly purchase the items or services
+        that are added to a cart.  The items or services that are added will
+        be submitted from the customer to the user and the user will have the
+        responsibility of examining the data, preparing a proposal based on the
+        request, and delivering the proposal to the customer.
+%TODO NEED PROPOSAL OBJECT TO GIVE TO USER!!
     \item[~\ref{did}.6 ] \emph{Customer Front-End - Web Store}\br\\
+        The Web Store will be collection of web pages that are customized by
+        the user.  The web pages will contain text, images, products (items or
+        services), and buttons to add products to carts.  The Web Store will also
+        have a shopping cart in the top right corner and will link to a ``Checkout''
+        page that will handle transactions.
     \item[~\ref{did}.7 ] \emph{Customer Front-End - Purchasing/Transaction System}\br\\
+        The Purchasing/Transaction System will be a webpage that will display
+        items or services that the customer added to a shopping cart and will use
+        a third-party to execute the purchase/transaction.
 \end{enumerate}
 
 % TODO: talk about what reports can be generated
@@ -611,8 +660,8 @@ HTTP requests may be made:
 \label{ddsd}
 
 All database queries will be parsed into plain-old Java objects (POJOs).  The
-POJOs will contain either java ArrayLists or java Stacks depending upon how
-the data will have to be accessed.
+POJOs will contain either java.util.ArrayLists or java.util.Stacks depending
+upon how the data will have to be accessed.
 
 % This section, and its sub-sections, describe the data structures in each of
 % the CSUs of the project. Data structure details consist of things like the
