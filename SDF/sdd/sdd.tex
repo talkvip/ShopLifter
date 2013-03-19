@@ -19,9 +19,11 @@
 
 \documentclass{article}
 \usepackage{doc}
-\usepackage{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{float}
 \geometry{letterpaper}
 
 \title{eCommerce CMS Software/Database Design Document}
@@ -195,45 +197,6 @@ technologies.
 \subsubsection{Major Software Components}
 \label{msc}
 
-\begin{table}
-    \centering
-    \begin{tabular}{|l|p{4.5cm}|l|}\hline
-        Endpoint & Query Parameters & Description\\\hline\hline
-         GET /items & page, pagesize, price, name, description, sku & Search for items. \\\hline
-         GET /items/:id & -- & Get item details. \\\hline
-         POST /items & -- & Create item. \\\hline
-         PUT /items/:id & -- & Update item details. \\\hline
-         DELETE /items/:id & -- & Delete an item. \\\hline
-         GET /services & page, pagesize, price, name, description & Search for services. \\\hline
-         GET /services/:id & -- & Get service details. \\\hline
-         POST /services & -- & Create a service. \\\hline
-         PUT /services/:id & -- & Update service details. \\\hline
-         DELETE /services/:id & -- & Delete a service. \\\hline
-         GET /documents & page, pagesize, templateId, field, description & Search for documents. \\\hline
-         GET /documents/:id & -- & Get document details. \\\hline
-         POST /documents & -- & Create a document. \\\hline
-         PUT /documents/:id & -- & Update document details. \\\hline
-         DELETE /documents/:id & -- & Delete a document. \\\hline
-         GET /doctemplates & page, pagesize, name, field, description & Search for doctemplates. \\\hline
-         GET /doctemplates/:id & -- & Get doctemplate details. \\\hline
-         POST /doctemplates & -- & Create a doctemplate. \\\hline
-         PUT /doctemplates/:id & -- & Update doctemplate details. \\\hline
-         DELETE /doctemplates/:id & -- & Delete a doctemplate. \\\hline
-         GET /websites & page, pagesize, templateId, name, description & Search for websites. \\\hline
-         GET /websites/:id & -- & Get website details. \\\hline
-         POST /websites & -- & Create a website. \\\hline
-         PUT /websites/:id & -- & Update website details. \\\hline
-         DELETE /websites/:id & -- & Delete a website. \\\hline
-         GET /webtemplatess & page, pagesize, price, name, description & Search for webtemplatess. \\\hline
-         GET /webtemplatess/:id & -- & Get webtemplates details. \\\hline
-         POST /webtemplatess & -- & Create a webtemplates. \\\hline
-         PUT /webtemplatess/:id & -- & Update webtemplates details. \\\hline
-         DELETE /webtemplatess/:id & -- & Delete a webtemplates. \\\hline
-    \end{tabular}
-    \caption{HTTP Request Web Service Endpoints}
-    \label{endpoints}
-\end{table}
-
 \begin{enumerate}
     \item[~\ref{msc}.1 ] \emph{Back-End: HTTP Resources}\br\\
         eCommerce CMS accepts HTTP requests through URI endpoints as outlined
@@ -401,6 +364,42 @@ technologies.
 \subsubsection{Architectural Design Diagrams}
 \label{add}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in]{../../UML/eccms-DomainObject Class Diagram.png}
+\caption{Top-Level Class Diagram}
+\label{server-class}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.5in]{../../UML/eccms-Use Case (Client) Diagram.png}
+\caption{Use-Case Diagram for Client}
+\label{client-usecase}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.5in]{../../UML/eccms-Use Case (Server) Diagram.png}
+\caption{Use-Case Diagram for Server}
+\label{server-usecase}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in]{../../UML/eccms-State (Client) Diagram.png}
+\caption{State Diagram for Client}
+\label{client-state}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in]{../../UML/eccms-State (Server) Diagram.png}
+\caption{State Diagram for Server}
+\label{server-state}
+\end{figure}
+
 % In addition to the text in the previous sections, at least three UML diagrams
 % of the system must be included. These several diagrams must be of several
 % different types; for example, there should be a Use Case diagram of your
@@ -475,6 +474,45 @@ technologies.
 
 \subsubsection{Detailed Design Diagrams}
 \label{ddd}
+
+\begin{table}
+    \centering
+    \begin{tabular}{|l|p{4.5cm}|l|}\hline
+        Endpoint & Query Parameters & Description\\\hline\hline
+         GET /items & page, pagesize, price, name, description, sku & Search for items. \\\hline
+         GET /items/:id & -- & Get item details. \\\hline
+         POST /items & -- & Create item. \\\hline
+         PUT /items/:id & -- & Update item details. \\\hline
+         DELETE /items/:id & -- & Delete an item. \\\hline
+         GET /services & page, pagesize, price, name, description & Search for services. \\\hline
+         GET /services/:id & -- & Get service details. \\\hline
+         POST /services & -- & Create a service. \\\hline
+         PUT /services/:id & -- & Update service details. \\\hline
+         DELETE /services/:id & -- & Delete a service. \\\hline
+         GET /documents & page, pagesize, templateId, field, description & Search for documents. \\\hline
+         GET /documents/:id & -- & Get document details. \\\hline
+         POST /documents & -- & Create a document. \\\hline
+         PUT /documents/:id & -- & Update document details. \\\hline
+         DELETE /documents/:id & -- & Delete a document. \\\hline
+         GET /doctemplates & page, pagesize, name, field, description & Search for doctemplates. \\\hline
+         GET /doctemplates/:id & -- & Get doctemplate details. \\\hline
+         POST /doctemplates & -- & Create a doctemplate. \\\hline
+         PUT /doctemplates/:id & -- & Update doctemplate details. \\\hline
+         DELETE /doctemplates/:id & -- & Delete a doctemplate. \\\hline
+         GET /websites & page, pagesize, templateId, name, description & Search for websites. \\\hline
+         GET /websites/:id & -- & Get website details. \\\hline
+         POST /websites & -- & Create a website. \\\hline
+         PUT /websites/:id & -- & Update website details. \\\hline
+         DELETE /websites/:id & -- & Delete a website. \\\hline
+         GET /webtemplatess & page, pagesize, price, name, description & Search for webtemplatess. \\\hline
+         GET /webtemplatess/:id & -- & Get webtemplates details. \\\hline
+         POST /webtemplatess & -- & Create a webtemplates. \\\hline
+         PUT /webtemplatess/:id & -- & Update webtemplates details. \\\hline
+         DELETE /webtemplatess/:id & -- & Delete a webtemplates. \\\hline
+    \end{tabular}
+    \caption{HTTP Request Web Service Endpoints}
+    \label{endpoints}
+\end{table}
 
 % In this section, you must include all detailed diagrams for all facets of the
 % project. This means you will need to have detailed use case diagrams,
