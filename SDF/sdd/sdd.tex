@@ -344,21 +344,6 @@ technologies.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=4.5in]{../../UML/eccms-Use Case (Client) Diagram.png}
-\caption{Use-Case Diagram for Client}
-\label{client-usecase}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=4.5in]{../../UML/eccms-Use Case (Server) Diagram.png}
-\caption{Use-Case Diagram for Server}
-\label{server-usecase}
-\end{figure}
-
-
-\begin{figure}[H]
-\centering
 \includegraphics[width=6.5in]{../../UML/eccms-State (Client) Diagram.png}
 \caption{State Diagram for Client}
 \label{client-state}
@@ -596,11 +581,11 @@ HTTP requests may be made:
          POST /websites & -- & Create a website. \\\hline
          PUT /websites/:id & -- & Update website details. \\\hline
          DELETE /websites/:id & -- & Delete a website. \\\hline
-         GET /webtemplatess & page, pagesize, price, name, description & Search for webtemplatess. \\\hline
-         GET /webtemplatess/:id & -- & Get webtemplates details. \\\hline
-         POST /webtemplatess & -- & Create a webtemplates. \\\hline
-         PUT /webtemplatess/:id & -- & Update webtemplates details. \\\hline
-         DELETE /webtemplatess/:id & -- & Delete a webtemplates. \\\hline
+         GET /webtemplates & page, pagesize, price, name, description & Search for webtemplates. \\\hline
+         GET /webtemplates/:id & -- & Get webtemplates details. \\\hline
+         POST /webtemplates & -- & Create a webtemplates. \\\hline
+         PUT /webtemplates/:id & -- & Update webtemplates details. \\\hline
+         DELETE /webtemplates/:id & -- & Delete a webtemplates. \\\hline
     \end{tabular}
     \caption{HTTP Request Web Service Endpoints}
     \label{endpoints}
@@ -641,6 +626,20 @@ the data will have to be accessed.
 \subsubsection{Detailed Design Diagrams}
 \label{ddd}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.5in]{../../UML/eccms-Use Case (Client) Diagram.png}
+\caption{Use-Case Diagram for Client}
+\label{client-usecase}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.5in]{../../UML/eccms-Use Case (Server) Diagram.png}
+\caption{Use-Case Diagram for Server}
+\label{server-usecase}
+\end{figure}
+
 % In this section, you must include all detailed diagrams for all facets of the
 % project. This means you will need to have detailed use case diagrams,
 % package diagrams, class diagrams, and either activity, swim lane, sequence,
@@ -656,14 +655,23 @@ the data will have to be accessed.
 \pagebreak
 \subsection{Database Design and Description}
 
-\subsubsection{Database Design ER Diagram}
-\label{dded}
+The persistent data store is implemented with a PostgreSQL relational database
+and interacts with the Java objects through the Hibernate API.  Hibernate
+designs the database, secures entry into the database, and converts retrieved
+data directly into plain-old Java objects (POJOs).
 
-\subsubsection{Database Access}
-\label{da}
+The use of Java's Hibernate removes much of the database related work.  Additional
+sections are not added to this document to describe the database because the
+database is not directly implemented by the programmer.
 
-\subsubsection{Database Security}
-\label{ds}
+%\subsubsection{Database Design ER Diagram}
+%\label{dded}
+
+%\subsubsection{Database Access}
+%\label{da}
+
+%\subsubsection{Database Security}
+%\label{ds}
 
 % These sections are all lumped together, since they may be optional. If you
 % have no database in your project, simply include section 6.4, and insert a
