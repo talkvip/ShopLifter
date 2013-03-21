@@ -50,7 +50,7 @@ public abstract class ResourceTest extends JerseyTest {
             )
             .initParam(
                 "com.sun.jersey.config.property.packages",
-                "edu.lmu.cs.headmaster.ws.resource"
+                "edu.lmu.cs.eccms.ws.resource"
             )
             .initParam(
                 "com.sun.jersey.spi.container.ContainerRequestFilters",

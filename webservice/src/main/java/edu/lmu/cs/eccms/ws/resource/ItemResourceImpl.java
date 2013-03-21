@@ -52,7 +52,7 @@ public class ItemResourceImpl extends AbstractResource implements ItemResource {
     }
 
     @Override
-    public Item getItemById(@PathParam("id") Long id) {
+    public Item getItemById(Long id) {
         logServiceCall();
 
         Item item = itemService.getItemById(id);
