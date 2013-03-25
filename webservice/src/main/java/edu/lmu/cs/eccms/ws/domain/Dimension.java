@@ -1,5 +1,7 @@
 package edu.lmu.cs.eccms.ws.domain;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.Embeddable;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -16,8 +18,16 @@ public class Dimension {
     private Double depth;
     private Double weight;
 
-    public Dimension () {
+    public Dimension() {
         // No-args constructor
+    }
+
+    public Dimension(Integer count, Double height, Double width, Double depth, Double weight) {
+        this.count = count;
+        this.height = height;
+        this.width = width;
+        this.depth = depth;
+        this. weight = weight;
     }
 
     public Integer getCount() {
@@ -60,4 +70,27 @@ public class Dimension {
         this.weight = weight;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Dimension) {
+            Dimension d = Dimension.class.cast(obj);
+            return (Objects.equal(count, d.count) &&
+                    Objects.equal(height, d.height) &&
+                    Objects.equal(width, d.width) &&
+                    Objects.equal(depth, d.depth) &&
+                    Objects.equal(weight, d.weight));
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("count", this.count)
+                .add("height", this.height)
+                .add("width", this.width)
+                .add("depth", this.depth)
+                .add("weight", this.weight)
+                .toString();
+    }
 }
