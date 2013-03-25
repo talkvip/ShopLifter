@@ -5,7 +5,6 @@ import java.util.List;
 
 import edu.lmu.cs.eccms.ws.domain.Item;
 import edu.lmu.cs.eccms.ws.domain.Service;
-import edu.lmu.cs.eccms.ws.domain.ServiceHistory;
 import edu.lmu.cs.eccms.ws.domain.User;
 import edu.lmu.cs.eccms.ws.domain.UserRole;
 import edu.lmu.cs.eccms.ws.types.Role;
@@ -48,14 +47,13 @@ public class DomainObjectUtils {
     }
 
     public static Service createServiceObject(Boolean active, String name, Integer sku, String description,
-            Double price, ServiceHistory serviceHistory) {
+            Double price) {
         Service service = new Service();
         service.setActive(active);
         service.setName(name);
         service.setSku(sku);
         service.setDescription(description);
         service.setPrice(price);
-        service.setServiceHistory(serviceHistory);
 
         return service;
     }
