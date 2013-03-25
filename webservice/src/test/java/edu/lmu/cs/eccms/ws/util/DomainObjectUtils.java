@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.lmu.cs.eccms.ws.domain.Item;
+import edu.lmu.cs.eccms.ws.domain.Service;
+import edu.lmu.cs.eccms.ws.domain.ServiceHistory;
 import edu.lmu.cs.eccms.ws.domain.User;
 import edu.lmu.cs.eccms.ws.domain.UserRole;
 import edu.lmu.cs.eccms.ws.types.Role;
@@ -23,7 +25,7 @@ public class DomainObjectUtils {
         user.setChallengeRequest(challenge);
 
         List<UserRole> userRoles = new ArrayList<UserRole>();
-        for (Role role: roles) {
+        for (Role role : roles) {
             UserRole userRole = new UserRole();
             userRole.setUser(user);
             userRole.setRole(role);
@@ -34,8 +36,7 @@ public class DomainObjectUtils {
         return user;
     }
 
-    public static Item createItemObject(Boolean active, String name, Integer sku, String description,
-            Double price) {
+    public static Item createItemObject(Boolean active, String name, Integer sku, String description, Double price) {
         Item item = new Item();
         item.setActive(active);
         item.setName(name);
@@ -46,4 +47,16 @@ public class DomainObjectUtils {
         return item;
     }
 
+    public static Service createServiceObject(Boolean active, String name, Integer sku, String description,
+            Double price, ServiceHistory serviceHistory) {
+        Service service = new Service();
+        service.setActive(active);
+        service.setName(name);
+        service.setSku(sku);
+        service.setDescription(description);
+        service.setPrice(price);
+        service.setServiceHistory(serviceHistory);
+
+        return service;
+    }
 }

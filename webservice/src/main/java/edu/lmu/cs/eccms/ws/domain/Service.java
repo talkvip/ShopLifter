@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import com.google.common.base.Objects;
 
 /**
- * A service is offered by the business owner and can be compiled into a 
+ * A service is offered by the business owner and can be compiled into a
  * proposal document through customer selections.
  */
 @Entity
@@ -32,7 +32,7 @@ public class Service {
     }
 
     public Service(Long id, Boolean active, String name, Integer sku, String description,
-            Double price, Dimension dimension, ServiceHistory serviceHistory) {
+            Double price, ServiceHistory serviceHistory) {
         this.id = id;
         this.name = name;
         this.sku = sku;
