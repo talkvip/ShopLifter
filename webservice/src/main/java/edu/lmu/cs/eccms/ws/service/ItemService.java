@@ -21,11 +21,11 @@ public interface ItemService {
     /**
      * Saves the given item, which should have a null id.
      */
-    Item createItem(Item grant);
+    Item createItem(Item item);
 
     /**
      * Updates or saves the given item, which should have a non-null id.
      */
-    void createOrUpdateItem(Item grant);
+    void createOrUpdateItem(Item item);
 
 }

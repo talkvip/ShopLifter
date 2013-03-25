@@ -50,9 +50,20 @@
         <constructor-arg ref="itemService"/>
     </bean>
 
+    <bean id="ServiceResource"
+        class="edu.lmu.cs.eccms.ws.resource.ServiceResourceImpl">
+        <constructor-arg ref="userDao"/>
+        <constructor-arg ref="serviceService"/>
+    </bean>
+
     <bean id="itemService"
         class="edu.lmu.cs.eccms.ws.service.ItemServiceImpl">
         <constructor-arg ref="itemDao"/>
+    </bean>
+
+    <bean id="serviceService"
+        class="edu.lmu.cs.eccms.ws.service.ServiceServiceImpl">
+        <constructor-arg ref="serviceDao"/>
     </bean>
 
     <bean id="userDaoImpl"
