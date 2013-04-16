@@ -1,0 +1,178 @@
+<wicket:extend>     
+    <div class ="row-fluid">
+        <div class="container-fluid span4">
+
+        <div id="left-sidebar">
+            <div class="section">
+                <a href="#"id="profile-picture"><img src="http://placehold.it/125x150" alt=""></a>
+                    Wutup <div id="nickname">Shelby!</div>
+                <btn id="event-createButton" class="btn btn-large">Create Event</btn>
+            </div>
+
+            <div id="calendar" class="section" style='font-size: 13px'></div>
+
+            <div id="my-events" class="tabbable section">
+                <ul class="nav nav-tabs">  
+                    <li class="active"><a href="#tab-hosting" data-toggle="tab">Hosting (2)</a></li>
+                    <li><a href="#tab-attending" data-toggle="tab">Attending (7)</a></li>  
+                    <li><a href="#tab-invited-to" data-toggle="tab">Invited To (5) </a></li> 
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab-hosting">
+                        <table class="table table-hover" id="hosting-event-stream"></table>
+                    </div>
+
+                    <div class="tab-pane" id="tab-attending">
+                        <table class="table table-hover" id="attending-event-stream"></table>
+                    </div>
+
+                    <div class="tab-pane" id="tab-invited-to">
+                        <table class="table table-hover" id="invited-to-event-stream"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+
+        <div id="event-page-content" class="container-fluid span8">
+
+            <table id="event-header" class="row-fluid header table table-condensed">
+              <tbody>
+                <tr>
+                  <td rowspan="2"><h3>Llama Petting Zoo</h3></td>
+                  <td><div align="right">November 12, 2012</div></td>
+                </tr>
+                <tr>
+                  <td><div align="right">2:00 pm - 3:00 pm</div></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div id="map_canvas" class="section eventMap"></div>
+                    
+            <div class="row-fluid">
+                <div class="container-fluid span8">
+                    <div class="">
+                        <table id="event-attendance" class="row-fluid table table-condensed">
+                            <tbody>
+                                <tr>
+                                    <td class="span3">
+                                        <btn id="event-attendButton" class="btn event-button">Attend</btn>
+                                        <btn id="event-declineButton" class="btn event-button">Decline</btn>
+                                        <btn id="event-maybeButton" class="btn event-button">Maybe</btn>
+                                    </td>
+
+                                    <td class="span9">
+                                        <p id="event-description">
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            And a happy new year.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            And a happy new year.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            And a happy new year.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            And a happy new year.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            And a happy new year.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            And a happy new year.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            And a happy new year.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            We wish you a merry Christmas.
+                                            And a happy new year.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="">
+                        <form id="create-comment" class="form-inline" method="post">
+                            <textarea rows="3" class="input-block-level" placeholder="Insert Comment"></textarea>
+                            <div><input class="submit btn" id="post-comment" type="submit" value="Comment"></input></div>
+                        </form>
+                        
+                        <table class="table table-hover" id="comment-stream">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="http://24.media.tumblr.com/tumblr_lurm27QJ2X1r6d623o1_500.jpg" alt="Llamas" height="50" width="50">
+                                    </td>
+                                    <td colspan="8">
+                                        <a href="#">George Glass</a>
+                                        <p>I am so excited!</p>
+                                    </td>
+
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <img src="http://24.media.tumblr.com/tumblr_lurm27QJ2X1r6d623o1_500.jpg" alt="Llamas" height="50" width="50">
+                                    </td>
+                                    <td colspan="8">
+                                        <a href="#">Anna Banana</a>
+                                        <p>Wow! Real lyfe llamas!</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div id="guest-list" class="container-fluid span4">
+                    <h3 class="header"><center>Attending(38)</center></h3>
+                    <div class="section">
+                        <table class="table table-hover" id="Attending"></table>
+                    </div>
+                    <h3 class="header"><center>Maybe(16)</center></h3>
+                    <div class="section">
+                        <table class="table table-hover" id="Maybe"></table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; Wutup 2012</p>
+    </footer>
+
+    <!-- /container -->
+
+    <!-- The javascript ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <wicket:link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBqOg2q0dqSGTw1OkyqWTWsVSOLCsHjXpM&sensor=false&libraries=places"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <script src="lib/fullcalendar/fullcalendar.min.js"></script>
+    <script src="js/indexCalendar.js"></script>
+    <script src="js/streamBuilder.js"></script>
+    <script src="js/eventStreams.js"></script>
+    </wicket:link>
+
+</wicket:extend>
