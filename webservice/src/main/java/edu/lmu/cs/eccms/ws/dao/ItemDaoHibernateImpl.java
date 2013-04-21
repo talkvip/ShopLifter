@@ -1,5 +1,25 @@
 package edu.lmu.cs.eccms.ws.dao;
 
+/** Purpose    : Implementation for Database Interaction through Data-Access
+ *               Object for domain item Item.
+ *  Author     : Andrew Won
+ *  Description: This file is an implementation of the ItemDao interface.  This
+ *               class provides database access using HQL queries for
+ *               Hibernate.  The dao, or Data-Access Object is the single point
+ *               where the service interacts with any database or persistent
+ *               data store.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date       Modified by:  Description of change/modification
+ *  -----  -----------   ------------  ------------------------------------------
+ *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -39,9 +59,12 @@ public class ItemDaoHibernateImpl extends HibernateDaoSupport implements ItemDao
     /**
      * Returns a base HQL query object (no pagination) for the given parameters
      * for items.
+     *
+     * @param query String for database query
+     * @param active Flag whether item sought is active
+     * @return HQL query object for given parameters
      */
     private QueryBuilder createItemQuery(String query, Boolean active) {
-        // The desired return order is id.
         QueryBuilder builder = new QueryBuilder(
             "select i from Item i",
             "order by id"

@@ -1,5 +1,25 @@
 package edu.lmu.cs.eccms.ws.dao;
 
+/** Purpose    : Implementation for Database Interaction through Data-Access
+ *               Object for domain item User.
+ *  Author     : Andrew Won
+ *  Description: This file is an implementation of the UserDao interface.
+ *               This class provides database access using HQL queries for
+ *               Hibernate.  The dao, or Data-Access Object is the single point
+ *               where the service interacts with any database or persistent
+ *               data store.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date       Modified by:  Description of change/modification
+ *  -----  -----------   ------------  ------------------------------------------
+ *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
