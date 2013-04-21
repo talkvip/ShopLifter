@@ -1,7 +1,24 @@
 (function () {
-    var manageSitePage = "AboutPage",
-        manageInventoryPage = "",
-        generateReportsPage = "";
+    var manageSitePage = "Editor",
+        manageInventoryPage = "Inventory",
+        generateReportsPage = "Reports",
+        testData = [
+                {
+                    name:"Water Bottle",
+                    sku:23,
+                    description:"Plastic",
+                    price:3.4,
+                    dimension:{},
+                    itemHistory:{}
+                },{
+                    name:"Paper Plates",
+                    sku:42,
+                    description:"Paper",
+                    price:5.2,
+                    dimension:{},
+                    itemHistory:{}
+                }
+            ];
 
     $("#manageSiteLink").bind('mouseup', function () {
         window.location.href = manageSitePage;
@@ -11,5 +28,23 @@
     });
     $("#generateReportsLink").bind('mouseup', function () {
         window.location.href = generateReportsPage;
+        // Ajax call.
+        /*
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/eccms/items",
+            data: JSON.stringify(testData),
+            success: function () {
+                alert("Success!");
+
+            },
+            contentType: "application/json",
+            dataType: "json"
+        });
+        */
     });
+
+
+
+
 })();
