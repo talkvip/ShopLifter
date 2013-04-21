@@ -1,5 +1,21 @@
 package edu.lmu.cs.eccms.ws.resource;
 
+/** Purpose    : Utility for the JAX-RS web service resources.
+ *  Author     : Andrew Won
+ *  Description: A base class for the resources, supplying error keys, a logger,
+ *               a validation method, and fields for JAX-RS context objects.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date       Modified by:  Description of change/modification
+ *  -----  -----------   ------------  ------------------------------------------
+ *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
@@ -17,10 +33,6 @@ import edu.lmu.cs.eccms.ws.dao.UserDao;
 import edu.lmu.cs.eccms.ws.types.Role;
 import edu.lmu.cs.eccms.ws.util.ServiceException;
 
-/**
- * A base class for the resources, supplying error keys, a logger, a validation method, and fields
- * for JAX-RS context objects.
- */
 public class AbstractResource {
 
     // Error keys.  No resource returns user-displayable text, since that is the responsibility
