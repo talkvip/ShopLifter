@@ -1,5 +1,26 @@
 package edu.lmu.cs.eccms.ws.dao.util;
 
+/** Purpose    : Utility for constructing Hibernate queries (HQL) from input
+ *               data.
+ *  Author     : Dr. John D. Dionisio
+ *  Description: QueryBuilder is a builder that constructs a Hibernate query
+ *               (HQL) from an initial string and any number of "clauses" or
+ *               arbitrary strings (which must comply with the HQL syntax).
+ *               Clauses represent conditions based on a particular value; the
+ *               resulting appended string follows Hibernate's format for
+ *               supplying parameters (i.e., ":identifier").
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -----------    ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,13 +32,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-/**
- * QueryBuilder is a builder that constructs a Hibernate query (HQL) from an
- * initial string and any number of "clauses" or arbitrary strings (which must
- * comply with the HQL syntax). Clauses represent conditions based on a
- * particular value; the resulting appended string follows Hibernate's format
- * for supplying parameters (i.e., ":identifier").
- */
 public class QueryBuilder {
 
     private Logger logger = Logger.getLogger(getClass());
@@ -33,6 +47,8 @@ public class QueryBuilder {
 
     /**
      * Produces a new query builder with the given initial string.
+     * @param initialString String to prepend to generated QueryBuilder
+     * @return QueryBuilder instance with initialized prepended string
      */
     public QueryBuilder(final String initialString) {
         this(initialString, null);
@@ -41,6 +57,10 @@ public class QueryBuilder {
     /**
      * Creates a new query builder with the given initial and after-where-clause
      * strings.
+     * @param initialString String to prepend to generated QueryBuilder
+     * @param afterWhereClauseString String to append after where clause
+     * @return QueryBuilder instance with initialized prepended string and string
+     *         for after a where clause.
      */
     public QueryBuilder(final String initialString, final String afterWhereClauseString) {
         stringBuilder = new StringBuilder(initialString);
@@ -59,6 +79,8 @@ public class QueryBuilder {
 
     /**
      * Appends an arbitrary chunk of text to the query builder.
+     * @param text String to append to current Query Builder
+     * @return This instance of QueryBuilder.
      */
     public QueryBuilder append(String text) {
         assertNotBuilt();
@@ -72,6 +94,9 @@ public class QueryBuilder {
      * the parameter map. For example, calling <code>clause(":x > 5", 10)</code>
      * will add the clause ":x > 5" to clauses, and the mapping
      * <code>["x" => 10]</code> to map.
+     * @param condition Condition for HQL query
+     * @param paramValue Variable value associated with condition
+     * @return This instance of QueryBuilder.
      */
     public QueryBuilder clause(String condition, Object paramValue) {
         assertNotBuilt();
@@ -86,7 +111,7 @@ public class QueryBuilder {
     /**
      * Puts the base string, the clauses, and the parameters all together into a
      * Hibernate query object.
-     * 
+     *
      * This is a template method; it uses createQuery to instantiate the query
      * object to be built and finishQuery to perform any final operations before
      * returning the query. Subclasses can override these methods as needed.
@@ -140,7 +165,7 @@ public class QueryBuilder {
     protected Query createQuery(Session session, String queryString) {
         return session.createQuery(queryString);
     }
-    
+
     /**
      * Wrap-up method for finishing the Query object before returning.
      */
