@@ -1,5 +1,23 @@
 package edu.lmu.cs.eccms.ws.domain;
 
+/** Purpose    : Domain object within web service representing a saleable
+ *               Service for the eCommerce user.
+ *  Author     : Andrew Won
+ *  Description: A service is a saleable service offered by the eCommerce user
+ *               and, if active, can be compiled into a proposal document
+ *               through customer selections.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -----------    ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,10 +29,6 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.google.common.base.Objects;
 
-/**
- * A service is offered by the business owner and can be compiled into a
- * proposal document through customer selections.
- */
 @Entity
 @XmlRootElement
 public class Service {

@@ -1,5 +1,22 @@
 package edu.lmu.cs.eccms.ws.domain;
 
+/** Purpose    : Domain object within web service representing a saleable Item
+ *               for the eCommerce user.
+ *  Author     : Andrew Won
+ *  Description: Item is a saleable good offered by the eCommerce user and,
+ *               if active, purchaseable by customers.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -----------    ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +28,6 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.google.common.base.Objects;
 
-/**
- * An item is a salable, tangible product that can be displayed for sale.
- */
 @Entity
 @XmlRootElement
 public class Item {

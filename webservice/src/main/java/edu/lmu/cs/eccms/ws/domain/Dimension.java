@@ -1,13 +1,27 @@
 package edu.lmu.cs.eccms.ws.domain;
 
+/** Purpose    : Domain object within web service providing physical
+ *               measurements to correspond to an Item.
+ *  Author     : Andrew Won
+ *  Description: Dimension is a set of physical measurements corresponding to an
+ *               Item.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -----------    ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import com.google.common.base.Objects;
 
 import javax.persistence.Embeddable;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * A Dimension is a set of measurements corresponding to an Item.
- */
 @Embeddable
 @XmlRootElement
 public class Dimension {

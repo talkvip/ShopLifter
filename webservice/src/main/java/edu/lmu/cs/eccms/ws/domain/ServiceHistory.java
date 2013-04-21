@@ -1,5 +1,22 @@
 package edu.lmu.cs.eccms.ws.domain;
 
+/** Purpose    : Domain object within web service providing a history to
+ *               correspond to a Service.
+ *  Author     : Andrew Won
+ *  Description: ServiceHistory contains price and purchase history
+ *               corresponding to a Service.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -----------    ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +33,6 @@ import org.joda.time.DateTime;
 
 import edu.lmu.cs.eccms.ws.util.DateTimeXmlAdapter;
 
-/**
- * A ServiceHistory is a history of a Service.
- */
 @Embeddable
 @XmlRootElement
 public class ServiceHistory {

@@ -1,5 +1,22 @@
 package edu.lmu.cs.eccms.ws.domain;
 
+/** Purpose    : Domain object within web service representing a user that can
+ *               log into the web service.
+ *  Author     : Andrew Won
+ *  Description: A user is an entity who may interact with the eCommerce CMS
+ *               (ShopLifter) web service.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -----------    ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,9 +38,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
-/**
- * A user is an entity who may interact with eCommerce CMS.
- */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="serviceuser")
