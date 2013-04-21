@@ -1,5 +1,22 @@
 package edu.lmu.cs.eccms.ws.resource;
 
+/** Purpose    : The JAX-RS implementation for the service resource.
+ *  Author     : Andrew Won
+ *  Description: This file provides a JAX-RS implementation for a web service
+ *               resource providing web clients URI endpoints to interact
+ *               with the web service.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date       Modified by:  Description of change/modification
+ *  -----  -----------   ------------  ------------------------------------------
+ *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.util.List;
 
 import javax.ws.rs.Path;

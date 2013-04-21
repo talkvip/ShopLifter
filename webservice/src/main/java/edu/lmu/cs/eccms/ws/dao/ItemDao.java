@@ -23,9 +23,6 @@ import java.util.List;
 
 import edu.lmu.cs.eccms.ws.domain.Item;
 
-/**
- * Simple dao for item domain objects.
- */
 public interface ItemDao {
 
     /**

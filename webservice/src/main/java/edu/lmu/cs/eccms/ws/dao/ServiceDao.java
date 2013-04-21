@@ -23,9 +23,6 @@ import java.util.List;
 
 import edu.lmu.cs.eccms.ws.domain.Service;
 
-/**
- * Simple dao for service domain objects.
- */
 public interface ServiceDao {
 
     /**

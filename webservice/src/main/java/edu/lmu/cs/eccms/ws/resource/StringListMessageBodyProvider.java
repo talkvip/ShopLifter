@@ -1,5 +1,21 @@
 package edu.lmu.cs.eccms.ws.resource;
 
+/** Purpose    : Utility to properly write List<String> into Jersey responses.
+ *  Author     : Andrew Won
+ *  Description: A MessageBodyWriter for List<String> responses, which do not
+ *               appear to be supported by default in Jersey.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date       Modified by:  Description of change/modification
+ *  -----  -----------   ------------  ------------------------------------------
+ *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -20,10 +36,6 @@ import org.codehaus.jackson.type.TypeReference;
 
 import com.sun.jersey.core.provider.AbstractMessageReaderWriterProvider;
 
-/**
- * A MessageBodyWriter for List<String> responses, which, shockingly, do not
- * appear to be supported by default in Jersey.
- */
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

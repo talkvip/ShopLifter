@@ -1,5 +1,22 @@
 package edu.lmu.cs.eccms.ws.resource;
 
+/** Purpose    : The JAX-RS implementation for the user resource.
+ *  Author     : Andrew Won
+ *  Description: This file provides a JAX-RS implementation for a web service
+ *               resource providing web clients URI endpoints to interact
+ *               with the web service.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date       Modified by:  Description of change/modification
+ *  -----  -----------   ------------  ------------------------------------------
+ *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.net.URI;
 import java.util.List;
 
@@ -10,9 +27,6 @@ import edu.lmu.cs.eccms.ws.dao.UserDao;
 import edu.lmu.cs.eccms.ws.domain.User;
 import edu.lmu.cs.eccms.ws.domain.UserRole;
 
-/**
- * The sole implementation of the user resource.
- */
 @Path("/users")
 public class UserResourceImpl extends AbstractResource implements UserResource {
 

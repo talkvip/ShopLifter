@@ -21,9 +21,6 @@ package edu.lmu.cs.eccms.ws.dao;
 
 import edu.lmu.cs.eccms.ws.domain.User;
 
-/**
- * Dao interface for user domain objects.
- */
 public interface UserDao {
 
     /**

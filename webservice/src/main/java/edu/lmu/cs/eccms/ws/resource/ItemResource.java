@@ -1,5 +1,22 @@
 package edu.lmu.cs.eccms.ws.resource;
 
+/** Purpose    : The JAX-RS interface for operating on item resources.
+ *  Author     : Andrew Won
+ *  Description: This file provides a JAX-RS interface for a web service
+ *               resource allowing web clients to interact with the web
+ *               service.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date       Modified by:  Description of change/modification
+ *  -----  -----------   ------------  ------------------------------------------
+ *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
@@ -18,9 +35,6 @@ import javax.ws.rs.core.Response;
 import edu.lmu.cs.eccms.ws.domain.Item;
 import edu.lmu.cs.eccms.ws.util.ServiceException;
 
-/**
- * The JAX-RS interface for operating on item resources.
- */
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public interface ItemResource {

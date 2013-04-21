@@ -26,9 +26,6 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import edu.lmu.cs.eccms.ws.domain.User;
 
-/**
- * Hibernate-based implementation of the user dao.
- */
 public class UserDaoHibernateImpl extends HibernateDaoSupport implements UserDao {
 
     @Override
