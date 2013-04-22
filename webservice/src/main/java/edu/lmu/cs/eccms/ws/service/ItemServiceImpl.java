@@ -1,5 +1,23 @@
 package edu.lmu.cs.eccms.ws.service;
 
+/** Purpose    : The service implementation for the currently configured web
+ *               service functionality.
+ *  Author     : Andrew Won
+ *  Description: This file provides a service implementation for the web service
+ *               resource allowing the resource to interact with the rest of the
+ *               web service.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -------------  ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.util.List;
 
 import edu.lmu.cs.eccms.ws.dao.ItemDao;

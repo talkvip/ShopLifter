@@ -1,5 +1,23 @@
 package edu.lmu.cs.eccms.ws.service;
 
+/** Purpose    : The service interface for web service functionality to be
+ *               retrieved by the service resource.
+ *  Author     : Andrew Won
+ *  Description: This file provides a service interface for a web service
+ *               resource allowing the resource to interact with the rest of the
+ *               web service.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -------------  ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import java.util.List;
 
 import edu.lmu.cs.eccms.ws.domain.Service;
