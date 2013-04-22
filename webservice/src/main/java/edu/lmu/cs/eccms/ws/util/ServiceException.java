@@ -1,12 +1,25 @@
 package edu.lmu.cs.eccms.ws.util;
 
+/** Purpose    : Exception class to carry an HTTP response code.
+ *  Author     : Dr. John Dionisio
+ *  Description: A simplified exception class useful in JAX-RS applications.
+ *               Allows responses to be build with an HTTP response code, the
+ *               content type text/plain and a single message.
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *  Revision History:
+ *  -----------------
+ *
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -------------  ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
+ *
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
-/**
- * A simplified exception class useful in JAX-RS applications.  Allows responses to be
- * build with an HTTP response code, the content type text/plain and a single message.
- */
 @SuppressWarnings("serial")
 public class ServiceException extends WebApplicationException {
 
