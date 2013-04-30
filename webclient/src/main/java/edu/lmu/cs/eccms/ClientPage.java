@@ -22,7 +22,7 @@ public abstract class ClientPage extends WebPage {
      * out ((Headmaster)getApplication()).getServiceRoot() all the time.
      */
     protected String getServiceRoot() {
-        return ((Headmaster)getApplication()).getServiceRoot();
+        return ((Eccms)getApplication()).getServiceRoot();
     }
 
     /**

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Custom markup for the Apache Wicket SignInPanel component.  Model must match what that
+    component expects.
+-->
+<html xmlns:wicket>
+<body>
+    <wicket:panel>
+        <div wicket:id="feedback"/>
+
+        <form wicket:id="signInForm">
+            <label for="username"><h3><wicket:message key="prompt.username"/></h3></label>
+            <input wicket:id="username" id="username" type="text"/>
+
+            <label for="password"><h3><wicket:message key="prompt.password"/></h3></label>
+            <input wicket:id="password" id="password" type="password"/>
+
+            <label class="checkbox" wicket:id="rememberMeRow">
+                <input wicket:id="rememberMe" id="rememberMe" type="checkbox"/>
+                <wicket:message key="prompt.rememberMe"/>
+            </label>
+
+            <button type="submit" class="btn btn-primary btn-large">
+                <wicket:message key="button.login"/>
+            </button>
+        </form>
+    </wicket:panel>
+</body>
+</html>

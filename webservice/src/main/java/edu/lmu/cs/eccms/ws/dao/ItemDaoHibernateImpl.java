@@ -14,9 +14,9 @@ package edu.lmu.cs.eccms.ws.dao;
  *  Revision History:
  *  -----------------
  *
- *   Ver      Date       Modified by:  Description of change/modification
- *  -----  -----------   ------------  ------------------------------------------
- *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -------------  ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
  *
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 

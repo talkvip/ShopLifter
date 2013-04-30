@@ -11,9 +11,9 @@ package edu.lmu.cs.eccms.ws.resource;
  *  Revision History:
  *  -----------------
  *
- *   Ver      Date       Modified by:  Description of change/modification
- *  -----  -----------   ------------  ------------------------------------------
- *  1.0.0  21-April-2013  A. Won    Initial version/release
+ *   Ver      Date        Modified by:  Description of change/modification
+ *  -----  -------------  ------------  ----------------------------------------
+ *  1.0.0  21-April-2013  A. Won        Initial version/release
  *
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -31,7 +31,6 @@ public class ItemResourceImpl extends AbstractResource implements ItemResource {
 
     private ItemService itemService;
 
-    // TODO userDao must become userService when that is available.
     public ItemResourceImpl(UserDao userDao, ItemService itemService) {
         super(userDao);
         this.itemService = itemService;

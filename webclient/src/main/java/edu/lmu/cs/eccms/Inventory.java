@@ -1,13 +1,12 @@
 package edu.lmu.cs.eccms;
 
 import org.apache.wicket.markup.html.image.Image;
-import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.apache.wicket.request.resource.PackageResourceReference;
-import org.apache.wicket.request.resource.ResourceReference;
+import org.apache.wicket.PageParameters;
+import org.apache.wicket.ResourceReference;
 
 public class Inventory extends PageWrapper {
     private static final long serialVersionUID = 1L;
-    private static final ResourceReference RESOURCE_REF = new PackageResourceReference(Inventory.class,
+    private static final ResourceReference RESOURCE_REF = new ResourceReference(Inventory.class,
             "img/logo.png");
     public Inventory(final PageParameters parameters) {
     super(parameters);
@@ -16,4 +15,5 @@ public class Inventory extends PageWrapper {
         // TODO Add your page's components here
 
     }
+
 }

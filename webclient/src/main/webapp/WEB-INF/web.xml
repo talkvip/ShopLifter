@@ -5,6 +5,16 @@
 
     <display-name>webclient</display-name>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
     <!--
         There are three means to configure Wickets configuration mode and they
         are tested in the order given.
@@ -15,13 +25,25 @@
 
         The value might be either "development" (reloading when templates change) or
         "deployment". If no configuration is found, "development" is the default. -->
-
+<!--
+    <filter>
+        <filter-name>wicket.webclient</filter-name>
+        <filter-class>org.apache.wicket.protocol.http.WicketFilter
+        </filter-class>
+        <init-param>
+            <param-name>applicationFactoryClassName</param-name>
+            <param-value>org.apache.wicket.spring.SpringWebApplicationFactory
+            </param-value>
+            <load-in-startup>1</load-in-startup>
+        </init-param>
+    </filter>
+-->
     <filter>
         <filter-name>wicket.webclient</filter-name>
         <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
         <init-param>
             <param-name>applicationClassName</param-name>
-            <param-value>edu.lmu.cs.eccms.WicketApplication</param-value>
+            <param-value>edu.lmu.cs.eccms.Eccms</param-value>
         </init-param>
     </filter>
 
