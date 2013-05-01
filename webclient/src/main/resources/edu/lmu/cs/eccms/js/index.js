@@ -1,7 +1,7 @@
 (function () {
-    var manageSitePage = "Editor",
-        manageInventoryPage = "Inventory",
-        generateReportsPage = "Reports",
+    var manageSitePage = "editor",
+        manageInventoryPage = "inventory",
+        generateReportsPage = "reports",
         testData = [
                 {
                     name:"Water Bottle",

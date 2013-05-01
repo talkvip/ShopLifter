@@ -100,11 +100,13 @@ public class Eccms extends AuthenticatedWebApplication {
         getMarkupSettings().setStripWicketTags(true);
 
         // URL customization.
-        mountBookmarkablePage("about", AboutPage.class);
+        mountBookmarkablePage("index", Index.class);
         mountBookmarkablePage("logout", LogoutPage.class);
         mountBookmarkablePage("login", LoginPage.class);
-        mountBookmarkablePage("reports", Reports.class);
+        mountBookmarkablePage("about", AboutPage.class);
 
+        mountBookmarkablePage("reports", Reports.class);
+        mountBookmarkablePage("editor", Editor.class);
         mountBookmarkablePage("inventory", Inventory.class);
     }
 
