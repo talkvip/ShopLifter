@@ -68,12 +68,6 @@ public class UserDaoHibernateImpl extends HibernateDaoSupport implements UserDao
         //
         // This is particularly important if the incoming User object is detached,
         // or created outside of Hibernate (e.g., delivered over the network).
-        //
-        // A useful blog entry for using saveOrUpdate vs. merge:
-        //     http://www.stevideter.com/2008/12/07/saveorupdate-versus-merge-in-hibernate/
-        //
-        // In particular, look at Comment 10 for some discussion of why we should generally
-        // default to saveOrUpdate until we realize that we need the extra work done by merge.
         return getHibernateTemplate().merge(user);
     }
 

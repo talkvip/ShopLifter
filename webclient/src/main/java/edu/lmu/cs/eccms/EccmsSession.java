@@ -34,7 +34,7 @@ public class EccmsSession extends AuthenticatedWebSession {
         DefaultHttpClient httpClient = new DefaultHttpClient();
 
         String serviceUri = ((Eccms)getApplication()).getServiceRoot() +
-                "users/login/" + username;
+                "eccms/users/login/" + username;
         getLogger().info("Authenticating with serviceUri: [" + serviceUri + "]");
 
         // Supply credentials.
