@@ -37,7 +37,7 @@ public class Eccms extends AuthenticatedWebApplication {
      */
     @Override
     public Class<? extends Page> getHomePage() {
-        return LoginPage.class;
+        return Index.class;
     }
 
     /**
@@ -55,7 +55,7 @@ public class Eccms extends AuthenticatedWebApplication {
     public String getServiceRoot() {
         return StringUtils.isNotBlank(serviceRoot) ?
             (serviceRoot.endsWith("/") ? serviceRoot : serviceRoot + "/") :
-            "http://localhost:8080/"; // Common case: service is on the same host as web app.
+            "http://localhost:8080/eccms/"; // Common case: service is on the same host as web app.
     }
 
     /**

@@ -34,7 +34,7 @@ public class EccmsSession extends AuthenticatedWebSession {
         DefaultHttpClient httpClient = new DefaultHttpClient();
 
         String serviceUri = ((Eccms)getApplication()).getServiceRoot() +
-                "eccms/users/login/" + username;
+                "users/login/" + username;
         getLogger().info("Authenticating with serviceUri: [" + serviceUri + "]");
 
         // Supply credentials.
@@ -44,7 +44,6 @@ public class EccmsSession extends AuthenticatedWebSession {
             new UsernamePasswordCredentials(username, password)
         );
 
-        // Create the request.  We want JSON.
         HttpGet httpGet = new HttpGet(serviceUri);
         httpGet.setHeader("Accept", "application/json");
 
