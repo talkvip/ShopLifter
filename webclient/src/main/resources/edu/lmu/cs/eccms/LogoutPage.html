@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html xmlns:wicket>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title><wicket:message key="title">ShopLifter Logout</wicket:message></title>
+
+        <link rel="stylesheet"
+                href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap.min.css"/>
+
+        <wicket:link>
+            <link rel="stylesheet" href="css/index.css" />
+        </wicket:link>
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <div class="hero-unit">
+                <h2><wicket:message key="message.main">You have logged out of
+                    ShopLifter.</wicket:message></h2>
+
+                <p><wicket:message key="message.instructions">For security purposes,
+                    please close this window.</wicket:message></p>
+
+                <wicket:link>
+                    <p class="lead">
+                        <wicket:message key="message.relogin.prefix">Click</wicket:message>
+                        <strong><a href="Index.html" alt="ShopLifter Home">
+                            <wicket:message key="message.relogin.link">here</wicket:message>
+                        </a></strong>
+                        <wicket:message key="message.relogin.suffix">to login
+                            again.</wicket:message>
+                    </p>
+                </wicket:link>
+            </div>
+        </div>
+    </body>
+</html>
