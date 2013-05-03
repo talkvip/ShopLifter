@@ -23,16 +23,21 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 
+    <filter>
+        <filter-name>cors</filter-name>
+        <filter-class>edu.lmu.cs.eccms.ws.filter.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>cors</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
-        <servlet-name>jersey</servlet-name>
+        <servlet-name>jersey-servlet</servlet-name>
         <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
         <init-param>
             <param-name>com.sun.jersey.config.property.resourceConfigClass</param-name>
             <param-value>com.sun.jersey.api.core.PackagesResourceConfig</param-value>
-        </init-param>
-        <init-param>
-            <param-name>com.sun.jersey.spi.container.ResourceFilters</param-name>
-            <param-value>com.sun.jersey.api.container.filter.RolesAllowedResourceFilterFactory</param-value>
         </init-param>
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
@@ -41,11 +46,16 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+<!--        <init-param>
+            <param-name>com.sun.jersey.spi.container.ResourceFilters</param-name>
+            <param-value>com.sun.jersey.api.container.filter.RolesAllowedResourceFilterFactory</param-value>
+        </init-param>
+-->
     <!--
         Let Jersey handle *everything*.
     -->
     <servlet-mapping>
-        <servlet-name>jersey</servlet-name>
+        <servlet-name>jersey-servlet</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
