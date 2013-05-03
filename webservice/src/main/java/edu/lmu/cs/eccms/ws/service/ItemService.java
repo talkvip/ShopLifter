@@ -46,4 +46,9 @@ public interface ItemService {
      */
     void createOrUpdateItem(Item item);
 
+    /**
+     * Deletes an item by the given item ID.
+     */
+    void removeItemById(Long id);
+
 }

@@ -55,4 +55,10 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
         return itemDao.getItemById(id);
     }
 
+    @Override
+    public void removeItemById(Long id) {
+        getLogger().debug("removeItemById");
+        itemDao.removeItemById(id);
+    }
+
 }

@@ -76,4 +76,13 @@ public class ItemResourceImpl extends AbstractResource implements ItemResource {
         return item;
     }
 
+    @Override
+    public Response removeItemById(Long id) {
+        logServiceCall();
+
+        itemService.removeItemById(id);
+
+        return Response.noContent().build();
+    }
+
 }

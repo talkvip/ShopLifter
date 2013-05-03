@@ -1,26 +1,24 @@
 package edu.lmu.cs.eccms.ws.resource;
 
-/** Purpose    : The JAX-RS interface for operating on item resources.
- *  Author     : Andrew Won
- *  Description: This file provides a JAX-RS interface for a web service
- *               resource allowing web clients to interact with the web
- *               service.
+/**
+ * Purpose : The JAX-RS interface for operating on item resources. Author : Andrew Won Description: This file provides a
+ * JAX-RS interface for a web service resource allowing web clients to interact with the web service.
  */
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Revision History:
- *  -----------------
+/*
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Revision History: -----------------
  *
- *   Ver      Date        Modified by:  Description of change/modification
- *  -----  -------------  ------------  ----------------------------------------
- *  1.0.0  21-April-2013  A. Won        Initial version/release
+ * Ver Date Modified by: Description of change/modification ----- ------------- ------------
+ * ---------------------------------------- 1.0.0 21-April-2013 A. Won Initial version/release
  *
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
 
 import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -60,9 +58,8 @@ public interface ItemResource {
      * @return the (paginated) set of items matching the query parameters
      */
     @GET
-    List<Item> getItems(@QueryParam("q") String query,
-            @QueryParam("active") Boolean active, @QueryParam("skip") @DefaultValue("0") int skip,
-            @QueryParam("max") @DefaultValue("100") int max);
+    List<Item> getItems(@QueryParam("q") String query, @QueryParam("active") Boolean active,
+            @QueryParam("skip") @DefaultValue("0") int skip, @QueryParam("max") @DefaultValue("100") int max);
 
     /**
      * Creates a item for which the server will generate the id.
@@ -101,4 +98,17 @@ public interface ItemResource {
     @GET
     @Path("{id}")
     Item getItemById(@PathParam("id") Long id);
+
+    /**
+     * Deletes the item with the given id.
+     *
+     * @param id
+     *            the id of the item requested to be deleted.
+     * @return A response with HTTP 204 no content on success, or a response with HTTP 400 otherwise.
+     * @throws ServiceException
+     *             if there is no item with the given id, causing the framework to generate an HTTP 404.
+     */
+    @DELETE
+    @Path("{id}")
+    Response removeItemById(@PathParam("id") Long id);
 }

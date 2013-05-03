@@ -56,6 +56,12 @@ public class ItemDaoHibernateImpl extends HibernateDaoSupport implements ItemDao
         getHibernateTemplate().saveOrUpdate(item);
     }
 
+    @Override
+    public void removeItemById(Long id) {
+        Item item = getHibernateTemplate().get(Item.class, id);
+        getHibernateTemplate().delete(item);
+    }
+
     /**
      * Returns a base HQL query object (no pagination) for the given parameters
      * for items.
