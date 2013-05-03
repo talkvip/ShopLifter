@@ -8,6 +8,8 @@ import org.apache.wicket.javascript.DefaultJavascriptCompressor;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
+import edu.lmu.cs.eccms.ServiceRelayPage;
+
 /**
  * Application object for the web application.
  */
@@ -100,6 +102,7 @@ public class Eccms extends AuthenticatedWebApplication {
         getMarkupSettings().setStripWicketTags(true);
 
         // URL customization.
+        mountBookmarkablePage("relay", ServiceRelayPage.class);
         mountBookmarkablePage("index", Index.class);
         mountBookmarkablePage("logout", LogoutPage.class);
         mountBookmarkablePage("login", LoginPage.class);

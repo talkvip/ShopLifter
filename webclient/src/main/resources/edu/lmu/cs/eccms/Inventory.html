@@ -25,41 +25,15 @@
                             <th>Description</th>
                         </tr>
                     </table>
-                        <script>
-                        var testData = [
-                {
-                    name:"Water Bottle",
-                    sku:23,
-                    description:"Plastic",
-                    price:3.4,
-                    dimension:{},
-                    itemHistory:{}
-                },{
-                    name:"Paper Plates",
-                    sku:42,
-                    description:"Paper",
-                    price:5.2,
-                    dimension:{},
-                    itemHistory:{}
-                }
-            ];
-                            for (i = 0; i < testData.length; i++) {
-                            $("#inv-table > tbody:last").after(
-                                "<tr>\n" +
-                                "<td>" + testData[i].sku + "</td>\n" +
-                                "<td>" + testData[i].name + "</td>\n" +
-                                "<td>" + testData[i].price + "</td>\n" +
-                                "<td>" + "NA" + "</td>\n" +
-                                "<td>" + testData[i].description + "</td>\n" +
-                                "</tr>\n"
-                            );}
-                        </script>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- /container -->
+    <wicket:link>
+    <script src="js/inventory.js"></script>
+    </wicket:link>
 
 
 </wicket:extend>
