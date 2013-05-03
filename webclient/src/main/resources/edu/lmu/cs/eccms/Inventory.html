@@ -5,6 +5,10 @@
 </wicket:head>
 <wicket:extend>
 
+    <wicket:link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    </wicket:link>
   <div id="container" class="container-fluid">
         <div class="row-fluid" id="call-to-action">
             <div class="span12">
@@ -12,27 +16,44 @@
                     <img wicket:id="Logo" src="img/logo.png" alt="ShopLifter Logo"/>
                 </div>
                 <div>
-                    <table border="1">
-                        <tr id="inv-table">
+                    <table id="inv-table">
+                        <tr>
                             <th>SKU</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Description</th>
                         </tr>
+                    </table>
                         <script>
-                            for (item : testData) {
-                            $("inv-table").append(
+                        var testData = [
+                {
+                    name:"Water Bottle",
+                    sku:23,
+                    description:"Plastic",
+                    price:3.4,
+                    dimension:{},
+                    itemHistory:{}
+                },{
+                    name:"Paper Plates",
+                    sku:42,
+                    description:"Paper",
+                    price:5.2,
+                    dimension:{},
+                    itemHistory:{}
+                }
+            ];
+                            for (i = 0; i < testData.length; i++) {
+                            $("#inv-table > tbody:last").after(
                                 "<tr>\n" +
-                                "<td>" + testData[item].sku + "</td>\n" +
-                                "<td>" + testData[item].name + "</td>\n" +
-                                "<td>" + testData[item].price + "</td>\n" +
-                                "<td>" + "Not yet implemented" + "</td>\n" +
-                                "<td>" + testData[item].description + "</td>\n" +
+                                "<td>" + testData[i].sku + "</td>\n" +
+                                "<td>" + testData[i].name + "</td>\n" +
+                                "<td>" + testData[i].price + "</td>\n" +
+                                "<td>" + "NA" + "</td>\n" +
+                                "<td>" + testData[i].description + "</td>\n" +
                                 "</tr>\n"
                             );}
                         </script>
-                    </table>
                 </div>
             </div>
         </div>
@@ -40,9 +61,5 @@
 
     <!-- /container -->
 
-    <wicket:link>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-    </wicket:link>
 
 </wicket:extend>
