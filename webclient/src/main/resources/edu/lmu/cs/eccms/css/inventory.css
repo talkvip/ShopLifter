@@ -1,0 +1,43 @@
+table, th, td {
+  border: 1px solid black;
+}
+
+td {
+  padding: 5px;
+}
+
+#inv-table {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 800px;
+}
+
+#inv-table > tr > td:nth-child(1) {
+  width: 12%;
+}
+
+#inv-table > tr > td:nth-child(2) {
+  width: 25%;
+}
+
+#inv-table > tr > td:nth-child(3) {
+  width: 12%;
+}
+
+#inv-table > tr > td:nth-child(4) {
+  width: 12%;
+}
+
+#inv-table > tr > td:nth-child(5) {
+  width: 39%;
+}
+
+.trash {
+  width: 22px;
+}
+
+.trash:hover {
+  cursor: pointer;
+}

@@ -19,12 +19,13 @@
         loadArrayToTable = function (arr) {
                 for (i = 0; i < arr.length; i++) {
                     $("#inv-table > tbody:last").after(
-                        "<tr>\n" +
+                        "<tr id=\"" + arr[i].id + "\">\n" +
                         "<td>" + arr[i].sku + "</td>\n" +
                         "<td>" + arr[i].name + "</td>\n" +
                         "<td>" + arr[i].price + "</td>\n" +
                         "<td>" + "NA" + "</td>\n" +
-                        "<td>" + arr[i].description + "</td>\n" +
+                        "<td>" + arr[i].description +
+                        "<span style=\"float:right\"><img wicket:id=\"Trash\" class=\"trash\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" alt=\"Delete Icon\"/></span>" + "</td>\n" +
                         "</tr>\n"
                     );
                 }
