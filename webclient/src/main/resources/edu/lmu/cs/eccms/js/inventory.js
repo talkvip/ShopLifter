@@ -1,4 +1,4 @@
-(function () {
+$(document).ready(function(){
     var testData = [
         {
             name:"Water Bottle",
@@ -14,7 +14,7 @@
             price:5.2,
             dimension:{},
             itemHistory:{}
-        }];
+        }],
 
         loadArrayToTable = function (arr) {
                 for (i = 0; i < arr.length; i++) {
@@ -25,22 +25,35 @@
                         "<td>" + arr[i].price + "</td>\n" +
                         "<td>" + "NA" + "</td>\n" +
                         "<td>" + arr[i].description +
-                        "<span style=\"float:right\"><img wicket:id=\"Trash\" class=\"trash\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" alt=\"Delete Icon\"/></span>" + "</td>\n" +
+                        "<span style=\"float:right\"><img id=\"trash" + arr[i].id +
+                        "\" class=\"trash\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" alt=\"Delete Icon\"/></span>" + "</td>\n" +
                         "</tr>\n"
                     );
+
+                    $('.trash').on('click', function(e) {
+                        var currentId = $(this).attr('id').substr(5);
+                        // TODO: Need to prompt user
+
+                        $.ajax({
+                            url: "/relay?s=items/" + currentId,
+                            type: 'DELETE',
+                          }).done(function (data) {
+                              $("#" + currentId).remove();
+                          });
+                    });
                 }
             },
 
-    loadJsonArray = function () {
-        $.getJSON(
-            "/relay?s=items?q=",
-            {},
-            function (array, textStatus, jqXHR) {
-                loadArrayToTable(array);
-            }
-        );
-    };
+        loadJsonArray = function () {
+            $.getJSON(
+                "/relay?s=items?q=",
+                {},
+                function (array, textStatus, jqXHR) {
+                    loadArrayToTable(array);
+                }
+            );
+        };
 
     loadArrayToTable(testData);
     loadJsonArray();
-})();
+});
