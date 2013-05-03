@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    var loadArrayToTable = function (arr) {
+    var tableColumns = ["sku", "name", "price", "description"],
+        loadArrayToTable = function (arr) {
                 for (i = 0; i < arr.length; i++) {
                     $("#inv-table > tbody:last").after(
                         "<tr id=\"" + arr[i].id + "\">\n" +
@@ -37,6 +38,8 @@ $(document).ready(function(){
                 );
             },
 
+        jsonString = "",
+        jObject,
         name = $('#name'),
         sku = $('#sku'),
         price = $('#price'),
@@ -90,8 +93,27 @@ $(document).ready(function(){
                 bValid = bValid && checkIsNumber(price, 'Price');
 
                 if (bValid) {
-                    // Post
-                    console.log(name.val());
+                    var num = false;
+                    jsonString += "{";
+                    for (var i = 0; i < allFields.length; i++) {
+                        num = i === 2;
+                        jsonString += "\"" + tableColumns[i] + "\":\""+ allFields[i].value + "\",";
+                    }
+                    jsonString = jsonString.substr(0, jsonString.length - 1);
+                    jsonString += "}";
+                    jObject = $.parseJSON(jsonString);
+
+                    $.ajax({
+                        type: "POST",
+                        url: '/relay?s=items',
+                        data: JSON.stringify(jObject),
+                        success: function () {
+                            // TODO
+                        },
+                        contentType: "application/json",
+                        dataType: "json"
+                    });
+
                     $(this).dialog('close');
                 }
             },
