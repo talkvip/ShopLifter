@@ -1,22 +1,5 @@
 $(document).ready(function(){
-    var testData = [
-        {
-            name:"Water Bottle",
-            sku:23,
-            description:"Plastic",
-            price:3.4,
-            dimension:{},
-            itemHistory:{}
-        },{
-            name:"Paper Plates",
-            sku:42,
-            description:"Paper",
-            price:5.2,
-            dimension:{},
-            itemHistory:{}
-        }],
-
-        loadArrayToTable = function (arr) {
+    var loadArrayToTable = function (arr) {
                 for (i = 0; i < arr.length; i++) {
                     $("#inv-table > tbody:last").after(
                         "<tr id=\"" + arr[i].id + "\">\n" +
@@ -54,6 +37,9 @@ $(document).ready(function(){
             );
         };
 
-    loadArrayToTable(testData);
     loadJsonArray();
+
+    $('#create').on('click', function() {
+        alert('hi');
+    });
 });

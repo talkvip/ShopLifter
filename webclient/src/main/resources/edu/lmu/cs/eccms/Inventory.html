@@ -20,11 +20,14 @@
                     <img wicket:id="Trash" src="http://localhost:9090/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png" alt="Delete Icon" hidden/>
                     <table id="inv-table">
                         <tr>
-                            <th>SKU</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Description</th>
+                            <th><wicket:message key="sku">SKU</wicket:message></th>
+                            <th><wicket:message key="name">Name</wicket:message></th>
+                            <th><wicket:message key="price">Price</wicket:message></th>
+                            <th><wicket:message key="quantity">Quantity</wicket:message></th>
+                            <th><wicket:message key="description">Description</wicket:message></th>
+                        </tr>
+                        <tr>
+                            <td colspan="5" id="create"><wicket:message key="create">+ Create new item</wicket:message></td>
                         </tr>
                     </table>
                 </div>
