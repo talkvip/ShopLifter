@@ -27,15 +27,8 @@ $(document).ready(function(){
                         $('#dialog-form').dialog('open');
                     });
                     $('.trash').on('click', function() {
-                        var currentId = $(this).attr('id').substr(5);
-                        // TODO: Need to prompt user
-
-                        $.ajax({
-                            url: "/relay?s=items/" + currentId,
-                            type: 'DELETE',
-                          }).done(function (data) {
-                              $("#" + currentId).remove();
-                          });
+                        editId = $(this).attr('id').substr(5);
+                        $('#dialog-delete').dialog('open');
                     });
                 }
             },
@@ -125,20 +118,45 @@ $(document).ready(function(){
                         url: '/relay?s=items' + (editId ? "/" + editId : ""),
                         data: JSON.stringify(jObject),
                         contentType: "application/json",
-                        dataType: "json"
+                        dataType: "json",
+                        success : function(data, textStatus, request) {
+                            console.log(request.getResponseHeader('Location'));
+                        }
                     });
                     loadArrayToTable([jObject]);
                     $(this).dialog('close');
                 }
             },
             Cancel: function() {
-                    editId = null;
                     $(this).dialog('close');
                 }
             },
         close: function() {
                 editId = null;
                 allFields.val('').removeClass('ui-state-error');
+            }
+        });
+
+    $('#dialog-delete').dialog({
+        autoOpen: false,
+        height: 200,
+        width: 350,
+        modal: true,
+        buttons: {
+            "Yes": function() {
+                    $.ajax({
+                        url: "/relay?s=items/" + editId,
+                        type: 'DELETE'
+                    });
+                    $("#" + editId).remove();
+                    $(this).dialog('close');
+            },
+            Cancel: function() {
+                    $(this).dialog('close');
+                }
+            },
+        close: function() {
+                editId = null;
             }
         });
 
