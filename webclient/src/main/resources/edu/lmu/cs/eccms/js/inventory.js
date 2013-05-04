@@ -9,7 +9,10 @@ $(document).ready(function(){
                         "<td>" + arr[i].price + "</td>\n" +
                         "<td>" + "NA" + "</td>\n" +
                         "<td>" + arr[i].description +
-                        "<span style=\"float:right\"><img id=\"trash" + arr[i].id +
+                        "<span style=\"float:right\">" +
+                        "<img id=\"edit" + arr[i].id +
+                        "\" class=\"edit\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/edit_icon.png\" alt=\"Edit Icon\"/>" +
+                        "<img id=\"trash" + arr[i].id +
                         "\" class=\"trash\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" alt=\"Delete Icon\"/></span>" + "</td>\n" +
                         "</tr>\n"
                     );
@@ -78,7 +81,7 @@ $(document).ready(function(){
 
     $('#dialog-form').dialog({
         autoOpen: false,
-        height: 300,
+        height: 400,
         width: 350,
         modal: true,
         buttons: {
@@ -107,13 +110,10 @@ $(document).ready(function(){
                         type: "POST",
                         url: '/relay?s=items',
                         data: JSON.stringify(jObject),
-                        success: function () {
-                            // TODO
-                        },
                         contentType: "application/json",
                         dataType: "json"
                     });
-
+                    loadArrayToTable([jObject]);
                     $(this).dialog('close');
                 }
             },

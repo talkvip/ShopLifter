@@ -38,11 +38,11 @@ td {
   text-align: center;
 }
 
-.trash {
+.edit, .trash {
   width: 22px;
   height: 22px;
 }
 
-#create:hover, .trash:hover {
+#create:hover, .trash:hover, .edit:hover {
   cursor: pointer;
 }
