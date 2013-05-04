@@ -1,6 +1,8 @@
-/* Drawing area properties. */
 .drawing-area {
     cursor: crosshair;
+}
+
+.drawing-area, .inactive-drawing-area {
     position: relative;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -11,9 +13,11 @@
     margin-bottom: 25px;
 }
 
-/* Box properties and their variants. */
 .box {
     border: thin solid black;
+}
+
+.box, .inactive-box {
     position: absolute;
 }
 

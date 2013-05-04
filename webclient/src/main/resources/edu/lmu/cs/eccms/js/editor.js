@@ -26,4 +26,10 @@
     $('#edit_sample_page').on('click', function() {
         window.location.href = "editor";
     });
+
+
+
+    $('#add_div').on('click', function() {
+        Boxes.turnOff();
+    });
 })();

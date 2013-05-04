@@ -94,3 +94,7 @@ body {
   width: 128px;
   float: left;
 }
+
+.offset-top {
+  margin-top: 25px;
+}

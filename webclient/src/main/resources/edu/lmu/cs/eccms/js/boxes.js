@@ -11,7 +11,8 @@ var Boxes = {
         jQueryElements
             .addClass("drawing-area")
             // "this" is Boxes.
-            .mousedown(this.startDraw)
+            .bind('mousedown', this.startDraw)
+//            .mousedown(this.startDraw)
             .mousemove(this.trackDrag)
 
             // We conclude drawing on either a mouseup or a mouseleave.
@@ -29,6 +30,18 @@ var Boxes = {
             .unbind("mouseleave");
     },
 
+    turnOff: function () {
+        $('.drawing-area')
+            .addClass('inactive-drawing-area')
+            .removeClass('drawing-area')
+            .attr('id', 'inactive-drawing-area');
+        $('.box')
+            .addClass('inactive-box')
+            .removeClass('box');
+        $('.inactive-drawing-area').off();
+        $('.inactive-box').off();
+    },
+
     /**
      * Begins a box draw sequence.
      */
@@ -40,7 +53,7 @@ var Boxes = {
             // ("this" as standardized by jQuery).
             this.anchorX = event.pageX;
             this.anchorY = event.pageY;
-            this.drawingBox = $("<div></div>")
+            this.drawingBox = $("<div contenteditable=\"true\"></div>")
                 .appendTo(this)
                 .addClass("box")
                 .offset({ left: this.anchorX, top: this.anchorY });
@@ -176,23 +189,20 @@ var Boxes = {
         if (this.drawingBox) {
             // Finalize things by setting the box's behavior.
             this.drawingBox
-                .mousemove(Boxes.highlight)
-                .mousemove(Boxes.cursorChange)
-                .mouseleave(Boxes.unhighlight)
-                .mousedown(Boxes.startMoveOrResize);
-            // All done.
+                .on('mousemove', Boxes.highlight)
+                .on('mousemove', Boxes.cursorChange)
+                .on('mouseleave', Boxes.unhighlight)
+                .on('mousedown', Boxes.startMoveOrResize);
             this.drawingBox = null;
         } else if (this.movingBox) {
             if (this.deleteState) {
                 this.movingBox.remove();
             }
-            // Change state to "not-moving-anything" by clearing out
-            // this.movingBox.
+            // Change state to "not-moving-anything."
             this.movingBox = null;
         }
 
-        // In either case, restore the highlight behavior that was
-        // temporarily removed while the drag was happening.
+        // Restore the highlight behavior.
         $(".drawing-area .box")
             .removeClass("box-highlight")
             .mousemove(Boxes.highlight)

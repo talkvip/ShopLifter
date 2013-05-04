@@ -7,3 +7,7 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+#page_select > div > div:hover {
+  background-color: #E6E6E6;
+}

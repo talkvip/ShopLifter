@@ -9,6 +9,10 @@
     <wicket:link>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/boxes.js"></script>
+        <script src="lib/ckeditor/ckeditor.js"></script>
+        <script src="lib/ckeditor/config.js"></script>
+        <script src="lib/ckeditor/styles.js"></script>
+        <script src="lib/ckeditor/build-config.js"></script>
     </wicket:link>
 
     <div id="container" class="container-fluid">
@@ -20,7 +24,7 @@
             </div>
         </div>
         <div id="call-to-action">
-
+            <button id="add_div" style="float:left;margin-left:50px;">Turn draw off</button>
             <div class="border" id="drawing-area"></div>
             <script>
                 $(function () {
