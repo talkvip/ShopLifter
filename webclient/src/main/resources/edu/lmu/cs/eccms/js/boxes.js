@@ -27,6 +27,10 @@ var Boxes = {
             .unbind("mouseleave");
     },
 
+    /**
+     * Disables all functionality of Boxes and prepends 'inactive' to associated
+     * classes.
+     */
     turnOff: function () {
         $('.drawing-area')
             .addClass('inactive-drawing-area')
@@ -39,10 +43,15 @@ var Boxes = {
         $('.inactive-box').off();
     },
 
+    /**
+     * Enables all functionality of Boxes and (if applicable) removes 'inactive'
+     * that may have been prepended to associated classes.
+     */
     turnOn: function () {
         $('.inactive-drawing-area')
             .addClass('drawing-area')
             .removeClass('inactive-drawing-area')
+            .attr('id', 'drawing-area')
             .on('mousedown', this.startDraw)
             .on('mousemove', this.trackDrag)
             .on('mouseup', this.endDrag)
@@ -60,7 +69,6 @@ var Boxes = {
      * Begins a box draw sequence.
      */
     startDraw: function (event) {
-        // We only respond to the left mouse button.
         if (event.which === Boxes.LEFT_BUTTON) {
             // Add a new box to the drawing area.
             this.anchorX = event.pageX;
@@ -311,9 +319,7 @@ var Boxes = {
             var jThis = $(this),
                 startOffset = jThis.offset(),
 
-                // Grab the drawing area (this element's parent).
-                // We want the actual element, and not the jQuery wrapper
-                // that usually comes with it.
+                // Grab the drawing area (this element's parent & not the jQuery wrapper).
                 parent = jThis.parent().get(0),
                 drawingAreaLeft = parseInt($('#drawing-area').css('margin-left')),
                 drawingAreaTop = parseInt($('#call-to-action').css('margin-top')) +
@@ -350,11 +356,10 @@ var Boxes = {
             parent.deltaX = event.pageX - startOffset.left;
             parent.deltaY = event.pageY - startOffset.top;
 
-            // Take away the highlight behavio
+            // Take away the highlight behavior
             Boxes.setupDragState();
 
-            // Eat up the event so that the drawing area does not
-            // deal with it.
+            // Eat up the event so that the drawing area does not deal with it.
             event.stopPropagation();
         }
     }
