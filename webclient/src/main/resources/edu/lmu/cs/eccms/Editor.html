@@ -17,14 +17,15 @@
 
     <div id="container" class="container-fluid">
         <div class="row-fluid">
-            <div class="span12">
+            <div class="span12" id="editor-head">
                 <div id="logo">
                     <img wicket:id="Logo" class="small_logo" src="img/logo.png" alt="ShopLifter Logo"/>
                 </div>
             </div>
         </div>
         <div id="call-to-action">
-            <button id="add_div" style="float:left;margin-left:50px;">Turn draw off</button>
+            <button id="draw_off">Turn draw off</button>
+            <button id="draw_on">Turn draw on</button>
             <div class="border" id="drawing-area"></div>
             <script>
                 $(function () {

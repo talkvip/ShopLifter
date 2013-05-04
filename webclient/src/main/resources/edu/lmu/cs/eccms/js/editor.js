@@ -27,9 +27,11 @@
         window.location.href = "editor";
     });
 
-
-
-    $('#add_div').on('click', function() {
+    $('#draw_off').on('click', function() {
         Boxes.turnOff();
+    });
+
+    $('#draw_on').on('click', function() {
+        Boxes.turnOn();
     });
 })();

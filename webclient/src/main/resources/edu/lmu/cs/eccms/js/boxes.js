@@ -11,13 +11,10 @@ var Boxes = {
         jQueryElements
             .addClass("drawing-area")
             // "this" is Boxes.
-            .bind('mousedown', this.startDraw)
-//            .mousedown(this.startDraw)
-            .mousemove(this.trackDrag)
-
-            // We conclude drawing on either a mouseup or a mouseleave.
-            .mouseup(this.endDrag)
-            .mouseleave(this.endDrag);
+            .on('mousedown', this.startDraw)
+            .on('mousemove', this.trackDrag)
+            .on('mouseup', this.endDrag)
+            .on('mouseleave', this.endDrag);
     },
 
     /**
@@ -42,24 +39,38 @@ var Boxes = {
         $('.inactive-box').off();
     },
 
+    turnOn: function () {
+        $('.inactive-drawing-area')
+            .addClass('drawing-area')
+            .removeClass('inactive-drawing-area')
+            .on('mousedown', this.startDraw)
+            .on('mousemove', this.trackDrag)
+            .on('mouseup', this.endDrag)
+            .on('mouseleave', this.endDrag);
+        $('.inactive-box')
+            .addClass('box')
+            .removeClass('inactive-box')
+            .on('mousemove', Boxes.highlight)
+            .on('mousemove', Boxes.cursorChange)
+            .on('mouseleave', Boxes.unhighlight)
+            .on('mousedown', Boxes.startMoveOrResize);
+    },
+
     /**
      * Begins a box draw sequence.
      */
     startDraw: function (event) {
         // We only respond to the left mouse button.
         if (event.which === Boxes.LEFT_BUTTON) {
-            // Add a new box to the drawing area.  Note how we use
-            // the drawing area as a holder of "local" variables
-            // ("this" as standardized by jQuery).
+            // Add a new box to the drawing area.
             this.anchorX = event.pageX;
             this.anchorY = event.pageY;
-            this.drawingBox = $("<div contenteditable=\"true\"></div>")
+            this.drawingBox = $("<div></div>")
                 .appendTo(this)
+                .attr('contenteditable', 'true')
                 .addClass("box")
                 .offset({ left: this.anchorX, top: this.anchorY });
 
-            // Take away the highlight behavior while the draw is
-            // happening.
             Boxes.setupDragState();
         }
     },
@@ -304,8 +315,9 @@ var Boxes = {
                 // We want the actual element, and not the jQuery wrapper
                 // that usually comes with it.
                 parent = jThis.parent().get(0),
-                drawingAreaLeft = parseInt($('body').css('margin-left')),
-                drawingAreaTop = parseInt($('body').css('margin-top'));
+                drawingAreaLeft = parseInt($('#drawing-area').css('margin-left')),
+                drawingAreaTop = parseInt($('#call-to-action').css('margin-top')) +
+                        parseInt($('#editor-head').css('height'));
 
             parent.drawingAreaEdges = {left: drawingAreaLeft,
                 right: drawingAreaLeft + parseInt($('#drawing-area').css('width')),
@@ -338,8 +350,7 @@ var Boxes = {
             parent.deltaX = event.pageX - startOffset.left;
             parent.deltaY = event.pageY - startOffset.top;
 
-            // Take away the highlight behavior while the move is
-            // happening.
+            // Take away the highlight behavio
             Boxes.setupDragState();
 
             // Eat up the event so that the drawing area does not
