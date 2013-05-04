@@ -108,6 +108,7 @@ public class Eccms extends AuthenticatedWebApplication {
         mountBookmarkablePage("login", LoginPage.class);
         mountBookmarkablePage("about", AboutPage.class);
 
+        mountBookmarkablePage("report", Report.class);
         mountBookmarkablePage("reports", Reports.class);
         mountBookmarkablePage("editor", Editor.class);
         mountBookmarkablePage("inventory", Inventory.class);
