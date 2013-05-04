@@ -13,7 +13,7 @@ var Boxes = {
             // "this" is Boxes.
             .mousedown(this.startDraw)
             .mousemove(this.trackDrag)
-            
+
             // We conclude drawing on either a mouseup or a mouseleave.
             .mouseup(this.endDrag)
             .mouseleave(this.endDrag);
@@ -69,11 +69,103 @@ var Boxes = {
                 .width(Math.abs(event.pageX - this.anchorX))
                 .height(Math.abs(event.pageY - this.anchorY));
         } else if (this.movingBox) {
-            // Reposition the object.
-            this.movingBox.offset({
-                left: event.pageX - this.deltaX,
-                top: event.pageY - this.deltaY
-            });
+            this.movingBox
+                .mousemove(Boxes.cursorChange);
+
+            // Resize from the top left corner
+            if ((this.boxLeftSide.minimum - 15 < this.anchorX) &&
+                (this.anchorX < this.boxLeftSide.maximum + 15) &&
+                (this.boxTopSide.minimum - 15 < this.anchorY) &&
+                (this.anchorY < this.boxTopSide.maximum + 15)) {
+                this.movingBox
+                    .offset({
+                        left: event.pageX,
+                        top: event.pageY
+                     })
+                    .width(this.originalSize.width + this.anchorX - event.pageX)
+                    .height(this.originalSize.height + this.anchorY - event.pageY);
+            }
+            // Resize from the bottom left corner
+            else if((this.boxLeftSide.minimum - 15 < this.anchorX) &&
+                (this.anchorX < this.boxLeftSide.maximum + 15) &&
+                (this.boxBottomSide.minimum - 15 < this.anchorY) &&
+                (this.anchorY < this.boxBottomSide.maximum + 15)){
+                this.movingBox
+                    .offset({
+                        left: event.pageX
+                     })
+                    .width(this.originalSize.width + this.anchorX - event.pageX)
+                    .height(this.originalSize.height + event.pageY - this.anchorY);
+            }
+            // Resize from the top right corner
+            else if((this.boxRightSide.minimum - 15 < this.anchorX) &&
+                (this.anchorX < this.boxRightSide.maximum + 15) &&
+                (this.boxTopSide.minimum - 15 < this.anchorY) &&
+                (this.anchorY < this.boxTopSide.maximum + 15)){
+                this.movingBox
+                    .offset({
+                        top: event.pageY
+                     })
+                    .width(this.originalSize.width + event.pageX - this.anchorX)
+                    .height(this.originalSize.height + this.anchorY - event.pageY);
+            }
+            // Resize from the bottom right corner
+            else if((this.boxRightSide.minimum - 15 < this.anchorX) &&
+                (this.anchorX < this.boxRightSide.maximum + 15) &&
+                (this.boxBottomSide.minimum - 15 < this.anchorY) &&
+                (this.anchorY < this.boxBottomSide.maximum + 15)){
+                this.movingBox
+                    .width(this.originalSize.width + event.pageX - this.anchorX)
+                    .height(this.originalSize.height + event.pageY - this.anchorY);
+            }
+            // Resize from the left side
+            else if((this.boxLeftSide.minimum < this.anchorX) &&
+                (this.anchorX < this.boxLeftSide.maximum)){
+                this.movingBox
+                    .offset({
+                        left: event.pageX
+                     })
+                    .width(this.originalSize.width + this.anchorX - event.pageX);
+            }
+            // Resize from the right side
+            else if((this.boxRightSide.minimum - 15 < this.anchorX) &&
+                (this.anchorX < this.boxRightSide.maximum + 15)){
+                this.movingBox.width(this.originalSize.width + event.pageX - this.anchorX);
+            }
+            // Resize from the top side
+            else if((this.boxTopSide.minimum - 15 < this.anchorY) &&
+                (this.anchorY < this.boxTopSide.maximum + 15)){
+                this.movingBox
+                    .offset({
+                        top: event.pageY
+                     })
+                    .height(this.originalSize.height + this.anchorY - event.pageY);
+            }
+            // Resize from the bottom side
+            else if ((this.boxBottomSide.minimum - 15 < this.anchorY) &&
+                (this.anchorY < this.boxBottomSide.maximum + 15)) {
+                this.movingBox.height(this.originalSize.height + event.pageY - this.anchorY);
+            }
+            else{
+                // Reposition the object.
+                this.movingBox.offset({
+                    left: event.pageX - this.deltaX,
+                    top: event.pageY - this.deltaY
+                });
+
+                if (event.pageX < this.drawingAreaEdges.left ||
+                    event.pageX > this.drawingAreaEdges.right ||
+                    event.pageY < this.drawingAreaEdges.top ||
+                    event.pageY > this.drawingAreaEdges.bottom) {
+                    this.movingBox.addClass('deleteState');
+                    this.movingBox.text("Release to delete");
+                    this.deleteState = true;
+                } else {
+                    this.movingBox.text("");
+                    this.movingBox.removeClass('deleteState');
+                    this.deleteState = false;
+                }
+            }
         }
     },
 
@@ -85,12 +177,15 @@ var Boxes = {
             // Finalize things by setting the box's behavior.
             this.drawingBox
                 .mousemove(Boxes.highlight)
+                .mousemove(Boxes.cursorChange)
                 .mouseleave(Boxes.unhighlight)
-                .mousedown(Boxes.startMove);
-            
+                .mousedown(Boxes.startMoveOrResize);
             // All done.
             this.drawingBox = null;
         } else if (this.movingBox) {
+            if (this.deleteState) {
+                this.movingBox.remove();
+            }
             // Change state to "not-moving-anything" by clearing out
             // this.movingBox.
             this.movingBox = null;
@@ -102,6 +197,73 @@ var Boxes = {
             .removeClass("box-highlight")
             .mousemove(Boxes.highlight)
             .mouseleave(Boxes.unhighlight);
+    },
+
+    cursorChange: function (event) {
+        var jThis = $(this),
+            originalSize = {
+                    width: parseInt(jThis.css('width')),
+                    height: parseInt(jThis.css('height'))
+                },
+
+            originalLocation = {
+                    left: parseInt(jThis.css('left')),
+                    top: parseInt(jThis.css('top')),
+                    right: parseInt(jThis.css('left')) + originalSize.width,
+                    bottom: parseInt(jThis.css('top')) + originalSize.height
+                };
+
+        // Change cursor for top left corner
+        if ((originalLocation.left - 15 < event.pageX) &&
+            (event.pageX < originalLocation.left + 15) &&
+            (originalLocation.top - 15 < event.pageY) &&
+            (event.pageY < originalLocation.top + 15)){
+            $(this).css("cursor", "nw-resize");
+        }
+        // Change cursor for bottom left corner
+        else if ((originalLocation.left - 15 < event.pageX) &&
+            (event.pageX < originalLocation.left + 15) &&
+            (originalLocation.bottom - 15 < event.pageY) &&
+            (event.pageY < originalLocation.bottom + 15)){
+            $(this).css("cursor", "sw-resize");
+        }
+        // Change cursor for top right corner
+        else if((originalLocation.right - 15 < event.pageX) &&
+            (event.pageX < originalLocation.right + 15) &&
+            (originalLocation.top - 15 < event.pageY) &&
+            (event.pageY < originalLocation.top + 15)){
+            $(this).css("cursor", "ne-resize");
+        }
+        // Change cursor for bottom right corner
+        else if((originalLocation.right - 15 < event.pageX) &&
+            (event.pageX < originalLocation.right + 15) &&
+            (originalLocation.bottom - 15 < event.pageY) &&
+            (event.pageY < originalLocation.bottom + 15)){
+            $(this).css("cursor", "se-resize");
+        }
+        // Change cursor for left side
+        else if((originalLocation.left - 15 < event.pageX) &&
+            (event.pageX < originalLocation.left + 15)){
+            $(this).css("cursor", "w-resize");
+        }
+        // Change cursor for right side
+        else if((originalLocation.right - 15 < event.pageX) &&
+            (event.pageX < originalLocation.right + 15)){
+            $(this).css("cursor", "e-resize");
+        }
+        // Change cursor for top side
+        else if((originalLocation.top - 15 < event.pageY) &&
+            (event.pageY < originalLocation.top + 15)){
+            $(this).css("cursor", "n-resize");
+        }
+        // Change cursor for bottom side
+        else if((originalLocation.bottom - 15 < event.pageY) &&
+            (event.pageY < originalLocation.bottom + 15)){
+            $(this).css("cursor", "s-resize");
+        }
+        else{
+            $(this).css("cursor", "move");
+        }
     },
 
     /**
@@ -121,7 +283,7 @@ var Boxes = {
     /**
      * Begins a box move sequence.
      */
-    startMove: function (event) {
+    startMoveOrResize: function (event) {
         // We only move using the left mouse button.
         if (event.which === Boxes.LEFT_BUTTON) {
             // Take note of the box's current (global) location.
@@ -131,7 +293,34 @@ var Boxes = {
                 // Grab the drawing area (this element's parent).
                 // We want the actual element, and not the jQuery wrapper
                 // that usually comes with it.
-                parent = jThis.parent().get(0);
+                parent = jThis.parent().get(0),
+                drawingAreaLeft = parseInt($('body').css('margin-left')),
+                drawingAreaTop = parseInt($('body').css('margin-top'));
+
+            parent.drawingAreaEdges = {left: drawingAreaLeft,
+                right: drawingAreaLeft + parseInt($('#drawing-area').css('width')),
+                top: drawingAreaTop,
+                bottom: drawingAreaTop + parseInt($('#drawing-area').css('height'))};
+
+
+            parent.originalSize = {width: parseInt(jThis.css('width')),
+                height: parseInt(jThis.css('height'))};
+            parent.originalLocation = {left: parseInt(jThis.css('left')),
+                top: parseInt(jThis.css('top')),
+                right: parseInt(jThis.css('left')) + parent.originalSize.width,
+                bottom: parseInt(jThis.css('top')) + parent.originalSize.height
+            };
+
+            // For conditional purposes in trackDrag
+            parent.boxLeftSide = {
+                    minimum: parent.originalLocation.left - 15,
+                    maximum: parent.originalLocation.left + 15
+                };
+            parent.boxRightSide = {minimum: parent.originalLocation.right - 15, maximum: parent.originalLocation.right + 15};
+            parent.boxTopSide = {minimum: parent.originalLocation.top - 15, maximum: parent.originalLocation.top + 15};
+            parent.boxBottomSide = {minimum: parent.originalLocation.bottom - 15, maximum: parent.originalLocation.bottom + 15};
+            parent.anchorX = event.pageX;
+            parent.anchorY = event.pageY;
 
             // Set the drawing area's state to indicate that it is
             // in the middle of a move.

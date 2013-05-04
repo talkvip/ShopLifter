@@ -89,3 +89,8 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
+
+.small_logo {
+  width: 128px;
+  float: left;
+}

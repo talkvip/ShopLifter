@@ -23,4 +23,7 @@
         }
     );
 */
+    $('#edit_sample_page').on('click', function() {
+        window.location.href = "editor";
+    });
 })();

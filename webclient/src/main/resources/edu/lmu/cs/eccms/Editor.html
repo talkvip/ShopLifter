@@ -2,20 +2,31 @@
     <wicket:link>
         <link href="css/editor.css" rel="stylesheet" />
         <link href="css/index.css" rel="stylesheet" />
+        <link href="css/boxes.css" rel="stylesheet" />
     </wicket:link>
 </wicket:head>
 <wicket:extend>
+    <wicket:link>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="js/boxes.js"></script>
+    </wicket:link>
 
-  <div id="container" class="container-fluid">
-        <div class="row-fluid" id="call-to-action">
+    <div id="container" class="container-fluid">
+        <div class="row-fluid">
             <div class="span12">
                 <div id="logo">
-                    <img wicket:id="Logo" src="img/logo.png" alt="ShopLifter Logo"/>
-                </div>
-                <div>
-                    <h2>Select page to edit:</h2>
+                    <img wicket:id="Logo" class="small_logo" src="img/logo.png" alt="ShopLifter Logo"/>
                 </div>
             </div>
+        </div>
+        <div id="call-to-action">
+
+            <div class="border" id="drawing-area"></div>
+            <script>
+                $(function () {
+                    Boxes.setDrawingArea($("#drawing-area"));
+                });
+            </script>
         </div>
     </div>
 
