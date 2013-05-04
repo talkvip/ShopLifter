@@ -35,6 +35,7 @@
                     if($(id).is(':empty')) {
                         $(id).html('<p>Insert text here.</p>');
                     }
+
                     $(id).attr('contenteditable', 'true');
 
                     CKEDITOR.inline(ids[i]);
