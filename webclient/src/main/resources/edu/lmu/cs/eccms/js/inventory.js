@@ -1,14 +1,15 @@
 $(document).ready(function(){
     var tableColumns = ["sku", "name", "price", "description"],
+        editId,
         loadArrayToTable = function (arr) {
                 for (i = 0; i < arr.length; i++) {
                     $("#inv-table > tbody:last").after(
                         "<tr id=\"" + arr[i].id + "\">\n" +
-                        "<td>" + arr[i].sku + "</td>\n" +
-                        "<td>" + arr[i].name + "</td>\n" +
-                        "<td>" + arr[i].price + "</td>\n" +
-                        "<td>" + "NA" + "</td>\n" +
-                        "<td>" + arr[i].description +
+                        "<td id=\"sku" + arr[i].id + "\">" + arr[i].sku + "</td>\n" +
+                        "<td id=\"name" + arr[i].id + "\">" + arr[i].name + "</td>\n" +
+                        "<td id=\"price" + arr[i].id + "\">" + arr[i].price + "</td>\n" +
+                        "<td id=\"quantity" + arr[i].id + "\">" + "NA" + "</td>\n" +
+                        "<td id=\"description" + arr[i].id + "\">" + arr[i].description +
                         "<span style=\"float:right\">" +
                         "<img id=\"edit" + arr[i].id +
                         "\" class=\"edit\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/edit_icon.png\" alt=\"Edit Icon\"/>" +
@@ -16,8 +17,16 @@ $(document).ready(function(){
                         "\" class=\"trash\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" alt=\"Delete Icon\"/></span>" + "</td>\n" +
                         "</tr>\n"
                     );
-
-                    $('.trash').on('click', function(e) {
+                    $('.edit').on('click', function() {
+                        var currentId = parseInt($(this).attr('id').substr(4));
+                        $('#sku').val($('#sku' + currentId).text());
+                        $('#name').val($('#name' + currentId).text());
+                        $('#price').val($('#price' + currentId).text());
+                        $('#description').val($('#description' + currentId).text());
+                        editId = currentId;
+                        $('#dialog-form').dialog('open');
+                    });
+                    $('.trash').on('click', function() {
                         var currentId = $(this).attr('id').substr(5);
                         // TODO: Need to prompt user
 
@@ -85,7 +94,7 @@ $(document).ready(function(){
         width: 350,
         modal: true,
         buttons: {
-            "Create an item": function() {
+            "Create or Edit an item": function() {
                 var bValid = true;
                 allFields.removeClass('ui-state-error');
 
@@ -94,21 +103,26 @@ $(document).ready(function(){
                 bValid = bValid && notNull(price, 'Price');
 
                 bValid = bValid && checkIsNumber(price, 'Price');
+                console.log(editId);
 
                 if (bValid) {
                     var num = false;
-                    jsonString += "{";
+                    jsonString = "{";
                     for (var i = 0; i < allFields.length; i++) {
                         num = i === 2;
                         jsonString += "\"" + tableColumns[i] + "\":\""+ allFields[i].value + "\",";
                     }
-                    jsonString = jsonString.substr(0, jsonString.length - 1);
+
+                    if (editId) {
+                        jsonString += "\"id\":\"" + editId + "\"";
+                    } else {
+                        jsonString = jsonString.substr(0, jsonString.length - 1);
+                    }
                     jsonString += "}";
                     jObject = $.parseJSON(jsonString);
-
                     $.ajax({
-                        type: "POST",
-                        url: '/relay?s=items',
+                        type: editId ? "PUT" : "POST",
+                        url: '/relay?s=items' + (editId ? "/" + editId : ""),
                         data: JSON.stringify(jObject),
                         contentType: "application/json",
                         dataType: "json"
@@ -118,10 +132,12 @@ $(document).ready(function(){
                 }
             },
             Cancel: function() {
+                    editId = null;
                     $(this).dialog('close');
                 }
             },
         close: function() {
+                editId = null;
                 allFields.val('').removeClass('ui-state-error');
             }
         });
