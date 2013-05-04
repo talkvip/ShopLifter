@@ -1,5 +1,5 @@
 (function () {
-    var manageSitePage = "editor",
+    var manageSitePage = "editpage",
         manageInventoryPage = "inventory",
         generateReportsPage = "reports";
 

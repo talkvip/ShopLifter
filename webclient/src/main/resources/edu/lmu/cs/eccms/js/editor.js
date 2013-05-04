@@ -1,18 +1,26 @@
 (function () {
+/*
     $("#generateReportsLink").bind('mouseup', function () {
         //window.location.href = generateReportsPage;
-        // Ajax call.
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8080/eccms/items",
-            data: JSON.stringify(testData),
-            success: function () {
-                alert("Success!");
 
-            },
+        $.ajax({
+            type: editId ? "PUT" : "POST",
+            url: '/relay?s=items' + (editId ? "/" + editId : ""),
+            data: JSON.stringify(jObject),
             contentType: "application/json",
-            dataType: "json"
+            dataType: "json",
+            success : function(data, textStatus, request) {
+                console.log(request.getResponseHeader('Location'));
+            }
         });
     });
 
+    $.getJSON(
+        "/relay?s=items?q=",
+        {},
+        function (array, textStatus, jqXHR) {
+            loadArrayToTable(array);
+        }
+    );
+*/
 })();

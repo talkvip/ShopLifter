@@ -1,20 +1,29 @@
 <wicket:head>
     <wicket:link>
-        <link href="css/editor.css" rel="stylesheet" />
         <link href="css/index.css" rel="stylesheet" />
+        <link href="css/editor.css" rel="stylesheet" />
     </wicket:link>
 </wicket:head>
 <wicket:extend>
 
-  <div id="container" class="container-fluid">
-        <div class="row-fluid" id="call-to-action">
+    <div id="container" class="container-fluid">
+        <div class="row-fluid">
             <div class="span12">
                 <div id="logo">
                     <img wicket:id="Logo" src="img/logo.png" alt="ShopLifter Logo"/>
                 </div>
-                <div>
-                    <h2>Select page to edit:</h2>
+            </div>
+        </div>
+        <div class="row-fluid" id="call-to-action">
+            <div class="span5 border" id="page_select">
+                <h2>Select page to edit:</h2>
+                <div class="row-fluid">
+                    <div class="span10 offset1 border">
+                        This is where the content is going to go for a website that can be edited.
+                    </div>
                 </div>
+            </div>
+            <div class="span4">
             </div>
         </div>
     </div>
