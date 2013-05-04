@@ -1,4 +1,5 @@
-var Boxes = {
+var idCounter = 0,
+    Boxes = {
     /**
      * Constant for the left mouse button.
      */
@@ -38,6 +39,7 @@ var Boxes = {
             .attr('id', 'inactive-drawing-area');
         $('.box')
             .addClass('inactive-box')
+            .removeClass('box-highlight')
             .removeClass('box');
         $('.inactive-drawing-area').off();
         $('.inactive-box').off();
@@ -58,6 +60,7 @@ var Boxes = {
             .on('mouseleave', this.endDrag);
         $('.inactive-box')
             .addClass('box')
+            .addClass('box-highlight')
             .removeClass('inactive-box')
             .on('mousemove', Boxes.highlight)
             .on('mousemove', Boxes.cursorChange)
@@ -75,10 +78,10 @@ var Boxes = {
             this.anchorY = event.pageY;
             this.drawingBox = $("<div></div>")
                 .appendTo(this)
-                .attr('contenteditable', 'true')
                 .addClass("box")
+                .attr('id', 'box' + idCounter)
                 .offset({ left: this.anchorX, top: this.anchorY });
-
+            idCounter += 1;
             Boxes.setupDragState();
         }
     },
@@ -350,8 +353,7 @@ var Boxes = {
             parent.anchorX = event.pageX;
             parent.anchorY = event.pageY;
 
-            // Set the drawing area's state to indicate that it is
-            // in the middle of a move.
+            // Set drawing area's state to indicate that it is in a move.
             parent.movingBox = jThis;
             parent.deltaX = event.pageX - startOffset.left;
             parent.deltaY = event.pageY - startOffset.top;
