@@ -10,46 +10,30 @@
 
     <div id="page-wrap">
 
-        <textarea id="header" style="margin-top: 50px;">INVOICE</textarea>
+        <textarea id="header" style="margin-top: 50px;">
+            <wicket:message key="invoice-title">INVOICE</wicket:message>
+        </textarea>
 
         <div id="identity">
-
             <textarea id="address">
-                John Doe
-                1 LMU Dr.
-                Los Angeles, CA 90045
-
-                Phone: (310) 867-5309
+                <wicket:message key="user-name">Max Powers</wicket:message>
+                <wicket:message key="user-address-1">1 LMU Dr.</wicket:message>
+                <wicket:message key="user-address-2">Los Angeles, CA 90045</wicket:message>
+                <wicket:message key="user-phone">Phone: (310) 867-5309</wicket:message>
             </textarea>
-<!--
-            <div id="logo">
-              <div id="logoctr">
-                <a href="javascript:;" id="change-logo" title="Change logo">Change Logo</a>
-                <a href="javascript:;" id="save-logo" title="Save changes">Save</a>
-                |
-                <a href="javascript:;" id="delete-logo" title="Delete logo">Delete Logo</a>
-                <a href="javascript:;" id="cancel-logo" title="Cancel changes">Cancel</a>
-              </div>
-
-              <div id="logohelp">
-                <input id="imageloc" type="text" size="50" value="" /><br />
-                (max width: 540px, max height: 100px)
-              </div>
-              <img id="Logo" src="img/logo.png" alt="logo" />
-            </div>
--->
-              <img wicket:id="Logo" style="width: 165px; float: right;" src="img/logo.png" alt="ShopLifter Logo" />
+            <img wicket:id="Logo" style="width: 165px; float: right;" src="img/logo.png" alt="ShopLifter Logo" />
         </div>
 
         <div style="clear:both"></div>
 
         <div id="customer">
-
+            <!-- Fields that may be set dynamically will not be in Wicket properties -->
             <textarea id="customer-title">
                 Andrew Won
                 MS B-2346
-                1 LMU Drive
+                1 LMU Dr.
                 Los Angeles, CA 90045
+                Phone: (310) 867-5309
             </textarea>
 
             <table id="meta">
@@ -66,72 +50,71 @@
                     <td class="meta-head">Amount Due</td>
                     <td><div class="due">$875.00</div></td>
                 </tr>
-
             </table>
-
         </div>
 
         <table id="items">
+            <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Unit Cost</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
 
-          <tr>
-              <th>Item</th>
-              <th>Description</th>
-              <th>Unit Cost</th>
-              <th>Quantity</th>
-              <th>Price</th>
-          </tr>
+            <tr class="item-row">
+                <td class="item-name"><div class="delete-wpr"><textarea>Water Bottles</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+                <td class="description"><textarea>Premium, name-brand water bottles</textarea></td>
+                <td><textarea class="cost">$35.00</textarea></td>
+                <td><textarea class="qty">1</textarea></td>
+                <td><span class="price">$35.00</span></td>
+            </tr>
 
-          <tr class="item-row">
-              <td class="item-name"><div class="delete-wpr"><textarea>Water Bottles</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
-              <td class="description"><textarea>Premium, name-brand water bottles</textarea></td>
-              <td><textarea class="cost">$35.00</textarea></td>
-              <td><textarea class="qty">1</textarea></td>
-              <td><span class="price">$35.00</span></td>
-          </tr>
+            <tr class="item-row">
+                <td class="item-name"><div class="delete-wpr"><textarea>Macbook Air</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+                <td class="description"><textarea>Super cool laptop</textarea></td>
+                <td><textarea class="cost">$1299.00</textarea></td>
+                <td><textarea class="qty">1</textarea></td>
+                <td><span class="price">$1299.00</span></td>
+            </tr>
 
-          <tr class="item-row">
-              <td class="item-name"><div class="delete-wpr"><textarea>Macbook Air</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+            <tr id="hiderow">
+                <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
+            </tr>
 
-              <td class="description"><textarea>Super cool laptop</textarea></td>
-              <td><textarea class="cost">$1299.00</textarea></td>
-              <td><textarea class="qty">1</textarea></td>
-              <td><span class="price">$1299.00</span></td>
-          </tr>
+            <tr>
+                <td colspan="2" class="blank"> </td>
+                <td colspan="2" class="total-line">Subtotal</td>
+                <td class="total-value"><div id="subtotal">$1334.00</div></td>
+            </tr>
 
-          <tr id="hiderow">
-            <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
-          </tr>
+            <tr>
+                <td colspan="2" class="blank"> </td>
+                <td colspan="2" class="total-line">Total</td>
+                <td class="total-value"><div id="total">$1334.00</div></td>
+            </tr>
 
-          <tr>
-              <td colspan="2" class="blank"> </td>
-              <td colspan="2" class="total-line">Subtotal</td>
-              <td class="total-value"><div id="subtotal">$1334.00</div></td>
-          </tr>
-          <tr>
+            <tr>
+                <td colspan="2" class="blank"> </td>
+                <td colspan="2" class="total-line">Amount Paid</td>
+                <td class="total-value"><textarea id="paid">$0.00</textarea></td>
+            </tr>
 
-              <td colspan="2" class="blank"> </td>
-              <td colspan="2" class="total-line">Total</td>
-              <td class="total-value"><div id="total">$1334.00</div></td>
-          </tr>
-          <tr>
-              <td colspan="2" class="blank"> </td>
-              <td colspan="2" class="total-line">Amount Paid</td>
-
-              <td class="total-value"><textarea id="paid">$0.00</textarea></td>
-          </tr>
-          <tr>
-              <td colspan="2" class="blank"> </td>
-              <td colspan="2" class="total-line balance">Balance Due</td>
-              <td class="total-value balance"><div class="due">$1334.00</div></td>
-          </tr>
-
+            <tr>
+                <td colspan="2" class="blank"> </td>
+                <td colspan="2" class="total-line balance">Balance Due</td>
+                <td class="total-value balance"><div class="due">$1334.00</div></td>
+            </tr>
         </table>
 
         <div id="terms">
-          <h5>Terms</h5>
-          <textarea>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</textarea>
+            <h5>
+                <wicket:message key="terms-title">Terms</wicket:message>
+            </h5>
+            <textarea>
+                <wicket:message key="terms">NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</wicket:message>
+            </textarea>
         </div>
-
     </div>
 
 

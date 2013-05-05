@@ -1,3 +1,6 @@
+/**
+ * Javascript handler for both EditPage.html and Editor.html
+ */
 (function () {
 /*
     $("#generateReportsLink").bind('mouseup', function () {
@@ -63,5 +66,13 @@
     $('#draw_on').on('click', function() {
         CkEditor.turnOff();
         Boxes.turnOn();
+    });
+
+    $('#save').on('click', function() {
+        for (var i in CKEDITOR.instances) {
+            console.log(CKEDITOR.instances[i].getData());
+            console.log(CKEDITOR.plugins.undo.UndoManager.save());
+        }
+        alert('hi');
     });
 })();
