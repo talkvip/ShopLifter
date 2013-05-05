@@ -1,5 +1,10 @@
 package edu.lmu.cs.eccms;
 
+/** Purpose    : Session class for the ShopLifter client.
+ *  Author     : Andrew Won
+ *  Description: Provides authentication for the ShopLifter web client.
+ */
+
 import java.io.IOException;
 import java.util.Collection;
 
@@ -17,9 +22,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Session class for the eccms client.
- */
 @SuppressWarnings("serial")
 public class EccmsSession extends AuthenticatedWebSession {
 
@@ -28,6 +30,9 @@ public class EccmsSession extends AuthenticatedWebSession {
         clearUserData();
     }
 
+    /**
+     * @see org.apache.wicket.authentication.AuthenticatedWebSession#authenticate()
+     */
     @Override
     public boolean authenticate(String username, String password) {
         // We authenticate by accessing the user's roles.

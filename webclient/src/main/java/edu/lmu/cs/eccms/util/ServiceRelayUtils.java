@@ -1,5 +1,11 @@
 package edu.lmu.cs.eccms.util;
 
+/** Purpose    : Utility methods for web service calls.
+ *  Author     : Andrew Won
+ *  Description: ServiceRelayUtils contains utility methods for communicating
+ *               with the configured service layer for this web application.
+ */
+
 import java.io.IOException;
 import java.util.List;
 
@@ -21,10 +27,6 @@ import org.apache.wicket.model.PropertyModel;
 
 import edu.lmu.cs.eccms.ClientPage;
 
-/**
- * ServiceRelayUtils contains utility methods for communicating with the
- * configured service layer for this web application.
- */
 public class ServiceRelayUtils {
 
     /**

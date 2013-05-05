@@ -1,5 +1,10 @@
 package edu.lmu.cs.eccms;
 
+/** Purpose    : Application object for the web application.
+ *  Author     : Andrew Won
+ *  Description: Eccms is the Wicket application object for the ShopLifter web client.
+ */
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.wicket.Page;
 import org.apache.wicket.authentication.AuthenticatedWebApplication;
@@ -10,9 +15,6 @@ import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
 import edu.lmu.cs.eccms.ServiceRelayPage;
 
-/**
- * Application object for the web application.
- */
 public class Eccms extends AuthenticatedWebApplication {
 
     private String serviceRoot;

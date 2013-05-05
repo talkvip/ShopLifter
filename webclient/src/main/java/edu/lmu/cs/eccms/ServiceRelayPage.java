@@ -1,5 +1,14 @@
 package edu.lmu.cs.eccms;
 
+/** Purpose    : Passes client web app service calls to the web service (CORS)
+ *               in a way that does not violate access-control-origin policy.
+ *  Author     : Andrew Won
+ *  Description: ServiceRelayPage passes client web app service calls to the
+ *               true web service.  This allows ShopLifter to run its web
+ *               service and web client on different hosts, without violating
+ *               the same origin policy.
+ */
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,11 +40,6 @@ import org.apache.wicket.protocol.http.WebResponse;
 import edu.lmu.cs.eccms.util.ServiceRelayUtils;
 import edu.lmu.cs.eccms.util.ServiceRelayUtils.RequestMethod;
 
-/**
- * ServiceRelayPage passes client web app service calls to the true web service.
- * This allows Headmaster to run its web service and web client on different
- * hosts, without violating the same origin policy.
- */
 public class ServiceRelayPage extends ClientPage {
 
     public ServiceRelayPage(final PageParameters pageParameters) {
@@ -51,7 +55,6 @@ public class ServiceRelayPage extends ClientPage {
 
             @Override
             public void respond(RequestCycle requestCycle) {
-                // Put together the URI.
                 String serviceUri = getServiceRoot() + getServiceTail();
 
                 // Supply credentials. As a Wicket page derivative we use the

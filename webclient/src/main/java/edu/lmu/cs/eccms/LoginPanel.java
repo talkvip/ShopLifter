@@ -1,10 +1,12 @@
 package edu.lmu.cs.eccms;
 
+/** Purpose    : LoginPanel customizes the default Wicket sign-in panel markup.
+ *  Author     : Andrew Won
+ *  Description: LoginPanel customizes the default Wicket sign-in panel markup.
+ */
+
 import org.apache.wicket.authentication.panel.SignInPanel;
 
-/**
- * LoginPanel customizes the default Wicket sign-in panel markup.
- */
 @SuppressWarnings("serial")
 public class LoginPanel extends SignInPanel {
 

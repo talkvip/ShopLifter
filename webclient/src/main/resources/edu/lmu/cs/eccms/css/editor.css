@@ -13,14 +13,20 @@
 }
 
 button {
-  float: left;
   display: block;
 }
 
-button:nth-of-type(1) {
-  margin-left:50px;
+#draw_off {
+  float: left;
+  margin-left: 1%;
 }
 
-button:nth-of-type(2) {
-  margin-left: 10px;
+#draw_on {
+  float: left;
+  margin-left: 1%;
+}
+
+#save {
+  float: right;
+  margin-right: 10%;
 }

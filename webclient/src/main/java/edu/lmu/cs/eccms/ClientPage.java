@@ -1,5 +1,10 @@
 package edu.lmu.cs.eccms;
 
+/** Purpose    : Superclass for all logged-in ShopLifter views.
+ *  Author     : Andrew Won
+ *  Description: Eccms is the Wicket application object for the ShopLifter web client.
+ */
+
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.authorization.strategies.role.Roles;
 import org.apache.wicket.authorization.strategies.role.annotations.AuthorizeInstantiation;
@@ -7,9 +12,6 @@ import org.apache.wicket.markup.html.WebPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * ClientPage is the superclass for all logged-in Headmaster views.
- */
 @AuthorizeInstantiation(Roles.USER)
 public abstract class ClientPage extends WebPage {
 
@@ -18,15 +20,15 @@ public abstract class ClientPage extends WebPage {
     }
 
     /**
-     * Relay call to the application. Mainly a shortcut, so wedon't have to code
-     * out ((Headmaster)getApplication()).getServiceRoot() all the time.
+     * Relay call to the application. Mainly a shortcut, so we do not have to
+     * code out ((Eccms)getApplication()).getServiceRoot() all the time.
      */
     protected String getServiceRoot() {
         return ((Eccms)getApplication()).getServiceRoot();
     }
 
     /**
-     * Convenience method for grabbing the logger.  This is not stored as an
+     * Returns the application's logger.  This is not stored as an
      * instance variable because Wicket serializes web page classes and this
      * logger is not serializable.
      */
