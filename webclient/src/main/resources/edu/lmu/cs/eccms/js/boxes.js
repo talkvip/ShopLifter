@@ -220,7 +220,10 @@ var idCounter = 0,
             if (this.deleteState) {
                 this.movingBox.remove();
             }
-            // Change state to "not-moving-anything."
+
+            // Re-populate children that were removed in the move
+            this.movingBox.html(this.savedChildren);
+            // Finish by clearning movingBox for next time
             this.movingBox = null;
         }
 
@@ -327,13 +330,12 @@ var idCounter = 0,
                 drawingAreaLeft = parseInt($('#drawing-area').css('margin-left')),
                 drawingAreaTop = parseInt($('#call-to-action').css('margin-top')) +
                         parseInt($('#editor-head').css('height'));
-
             parent.drawingAreaEdges = {left: drawingAreaLeft,
                 right: drawingAreaLeft + parseInt($('#drawing-area').css('width')),
                 top: drawingAreaTop,
                 bottom: drawingAreaTop + parseInt($('#drawing-area').css('height'))};
 
-
+            parent.savedChildren = $('p', this);
             parent.originalSize = {width: parseInt(jThis.css('width')),
                 height: parseInt(jThis.css('height'))};
             parent.originalLocation = {left: parseInt(jThis.css('left')),
