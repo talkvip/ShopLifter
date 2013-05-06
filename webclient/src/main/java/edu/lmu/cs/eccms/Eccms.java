@@ -13,7 +13,7 @@ import org.apache.wicket.javascript.DefaultJavascriptCompressor;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
-import edu.lmu.cs.eccms.ServiceRelayPage;
+import edu.lmu.cs.eccms.cust.CustomerIndex;
 
 public class Eccms extends AuthenticatedWebApplication {
 
@@ -115,6 +115,8 @@ public class Eccms extends AuthenticatedWebApplication {
         mountBookmarkablePage("editor", Editor.class);
         mountBookmarkablePage("editpage", EditPage.class);
         mountBookmarkablePage("inventory", Inventory.class);
+
+        mountBookmarkablePage("customer-index", CustomerIndex.class);
     }
 
 }
