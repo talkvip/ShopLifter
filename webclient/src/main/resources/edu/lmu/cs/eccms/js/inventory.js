@@ -1,27 +1,26 @@
 $(document).ready(function(){
-    var tableColumns = ["sku", "name", "price", "description"],
+    var tableColumns = ["sku", "name", "price", "quantity", "description"],
         editId,
+        stringBuild,
         loadArrayToTable = function (arr) {
                 for (i = 0; i < arr.length; i++) {
-                    $("#inv-table > tbody:last").after(
-                        "<tr id=\"" + arr[i].id + "\">\n" +
-                        "<td id=\"sku" + arr[i].id + "\">" + arr[i].sku + "</td>\n" +
-                        "<td id=\"name" + arr[i].id + "\">" + arr[i].name + "</td>\n" +
-                        "<td id=\"price" + arr[i].id + "\">" + arr[i].price + "</td>\n" +
-                        "<td id=\"quantity" + arr[i].id + "\">" + "NA" + "</td>\n" +
-                        "<td id=\"description" + arr[i].id + "\">" + arr[i].description +
-                        "<span style=\"float:right\">" +
+                    stringBuild = "<tr id=\"" + arr[i].id + "\">\n";
+                    for (j = 0; j < tableColumns.length; j++) {
+                        stringBuild += "<td id=\"" + tableColumns[j] + arr[i].id + "\">" + arr[i][tableColumns[j]] + "</td>\n"
+                    }
+                    stringBuild += "<span style=\"float:right\">" +
                         "<img id=\"edit" + arr[i].id +
                         "\" class=\"edit\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/edit_icon.png\" alt=\"Edit Icon\"/>" +
                         "<img id=\"trash" + arr[i].id +
                         "\" class=\"trash\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" alt=\"Delete Icon\"/></span>" + "</td>\n" +
                         "</tr>\n"
-                    );
+                    $("#inv-table > tbody:last").after(stringBuild);
                     $('.edit').on('click', function() {
                         var currentId = parseInt($(this).attr('id').substr(4));
                         $('#sku').val($('#sku' + currentId).text());
                         $('#name').val($('#name' + currentId).text());
                         $('#price').val($('#price' + currentId).text());
+                        $('#quantity').val($('#quantity' + currentId).text());
                         $('#description').val($('#description' + currentId).text());
                         editId = currentId;
                         $('#dialog-form').dialog('open');
@@ -45,11 +44,12 @@ $(document).ready(function(){
 
         jsonString = "",
         jObject,
-        name = $('#name'),
         sku = $('#sku'),
+        name = $('#name'),
         price = $('#price'),
+        quantity = $('#quantity'),
         description = $('#description'),
-        allFields = $([]).add(name).add(sku).add(price).add(description),
+        allFields = $([]).add(name).add(sku).add(price).add(quantity).add(description),
         tips = $('.validateTips'),
 
         updateTips = function(t) {
@@ -94,8 +94,10 @@ $(document).ready(function(){
                 bValid = bValid && notNull(name, 'Name');
                 bValid = bValid && notNull(sku, 'SKU');
                 bValid = bValid && notNull(price, 'Price');
+                bValid = bValid && notNull(price, 'Quantity');
 
                 bValid = bValid && checkIsNumber(price, 'Price');
+                bValid = bValid && checkIsNumber(quantity, 'Quantity');
                 console.log(editId);
 
                 if (bValid) {
