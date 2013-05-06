@@ -19,7 +19,7 @@ import edu.lmu.cs.eccms.ws.util.DomainObjectUtils;
  */
 public class ItemResourceTest extends ResourceTest {
 
-    private Item testItem = new Item(1000000L, true, "MacBook Air", 135, "Computer thingy.", 1199.98, null, null);
+    private Item testItem = new Item(1000000L, true, "MacBook Air", 135, 100, "Computer thingy.", 1199.98, null, null);
     private Item itemToCreate = DomainObjectUtils.createItemObject(false, "Big Bad Box", 134, "8gb memory and more!",
             399.99);
     private Item itemToUpdate = DomainObjectUtils.createItemObject(false, "Big Bad Box", 134, "8gb memory and more!",

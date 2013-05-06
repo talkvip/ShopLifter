@@ -13,7 +13,7 @@ import edu.lmu.cs.eccms.ws.util.DomainObjectUtils;
 public class ItemDaoTest extends edu.lmu.cs.eccms.ws.util.ApplicationContextTest {
 
     private ItemDao itemDao;
-    private Item testItem = new Item(1000000L, true, "MacBook Air", 135, "Computer thingy.", 1199.98, null, null);
+    private Item testItem = new Item(1000000L, true, "MacBook Air", 135, 100, "Computer thingy.", 1199.98, null, null);
     private Item itemToCreate1 = DomainObjectUtils.createItemObject(true, "Andy", 123, "This is me", 0.99);
     private Item itemToCreate2 = DomainObjectUtils.createItemObject(null, "SamV", 8675309, "What did I break?", 0.53);
 

@@ -38,6 +38,7 @@ public class Item {
     private Integer sku;
     private String description;
     private Double price;
+    private Integer quantity;
     private Dimension dimension = new Dimension();
     private ItemHistory itemHistory = new ItemHistory();
 
@@ -45,11 +46,12 @@ public class Item {
         // No-args constructor
     }
 
-    public Item(Long id, Boolean active, String name, Integer sku, String description,
-            Double price, Dimension dimension, ItemHistory itemHistory) {
+    public Item(Long id, Boolean active, String name, Integer sku, Integer quantity,
+            String description, Double price, Dimension dimension, ItemHistory itemHistory) {
         this.id = id;
         this.name = name;
         this.sku = sku;
+        this.quantity = quantity;
         this.description = description;
         this.price = price;
         this.dimension = dimension;
@@ -115,6 +117,14 @@ public class Item {
         this.sku = sku;
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
     public Double getPrice() {
         return price;
     }
@@ -148,6 +158,7 @@ public class Item {
                 .add("active", this.active)
                 .add("name", this.name)
                 .add("sku", this.sku)
+                .add("quantity", this.quantity)
                 .add("description", this.description)
                 .add("price", this.price)
                 .add("dimension", this.dimension)
@@ -160,7 +171,7 @@ public class Item {
             Item item = Item.class.cast(obj);
             return Objects.equal(this.id, item.getId()) && Objects.equal(this.active, item.getActive())
                     && Objects.equal(this.name, item.getName()) && Objects.equal(this.sku, item.getSku())
-                    && Objects.equal(this.description, item.getDescription())
+                    && Objects.equal(this.quantity, item.getQuantity()) && Objects.equal(this.description, item.getDescription())
                     && Objects.equal(this.price, item.getPrice());
         }
         return false;
