@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-   Licensed to the Apache Software Foundation (ASF) under one or more
-   contributor license agreements.  See the NOTICE file distributed with
-   this work for additional information regarding copyright ownership.
-   The ASF licenses this file to You under the Apache License, Version 2.0
-   (the "License"); you may not use this file except in compliance with
-   the License.  You may obtain a copy of the License at
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor
+    license agreements. See the NOTICE file distributed with this work for additional
+    information regarding copyright ownership. The ASF licenses this file to
+    You under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of
+    the License at
 
-        http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    Unless required by applicable law or agreed to in writing, software distributed
+    under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+    CONDITIONS OF ANY KIND, either express or implied. See the License for the
+    specific language governing permissions and limitations under the License. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
@@ -36,79 +32,75 @@
     <dependencies>
         <!-- Spring dependencies. -->
         <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-context-support</artifactId>
-          <version>${spring.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-web</artifactId>
-          <version>${spring.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-test</artifactId>
-          <version>${spring.version}</version>
-          <scope>test</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- WICKET DEPENDENCIES -->
         <dependency>
-          <groupId>org.apache.wicket</groupId>
-          <artifactId>wicket-auth-roles</artifactId>
-          <version>${wicket.version}</version>
-        </dependency>
-
-        <dependency>
-          <groupId>org.apache.wicket</groupId>
-          <artifactId>wicket-spring</artifactId>
-          <version>${wicket.version}</version>
-          <exclusions>
-            <exclusion>
-              <groupId>org.springframework</groupId>
-              <artifactId>spring</artifactId>
-            </exclusion>
-          </exclusions>
-        </dependency>
-
-        <!-- OPTIONAL DEPENDENCY
-        <dependency>
             <groupId>org.apache.wicket</groupId>
-            <artifactId>wicket-extensions</artifactId>
+            <artifactId>wicket-auth-roles</artifactId>
             <version>${wicket.version}</version>
         </dependency>
-        -->
+
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-spring</artifactId>
+            <version>${wicket.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- OPTIONAL DEPENDENCY <dependency> <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-extensions</artifactId> <version>${wicket.version}</version>
+            </dependency> -->
 
         <!-- Utility dependencies. -->
         <dependency>
-          <groupId>org.apache.httpcomponents</groupId>
-          <artifactId>httpclient</artifactId>
-          <version>4.1</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.1</version>
         </dependency>
 
         <dependency>
-          <groupId>commons-lang</groupId>
-          <artifactId>commons-lang</artifactId>
-          <version>2.6</version>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
         </dependency>
 
         <dependency>
-          <groupId>org.codehaus.jackson</groupId>
-          <artifactId>jackson-mapper-asl</artifactId>
-          <version>1.7.1</version>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.7.1</version>
         </dependency>
 
         <!-- LOGGING DEPENDENCIES - LOG4J -->
         <dependency>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-log4j12</artifactId>
-          <version>1.5.8</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.8</version>
         </dependency>
 
         <dependency>
-          <groupId>log4j</groupId>
-          <artifactId>log4j</artifactId>
-          <version>1.2.16</version>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
         </dependency>
 
         <dependency>
@@ -116,6 +108,13 @@
             <artifactId>junit</artifactId>
             <version>4.10</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- CKEDITOR DEPENDENCY -->
+        <dependency>
+            <groupId>com.ckeditor</groupId>
+            <artifactId>ckeditor-java-core</artifactId>
+            <version>${ckeditor.version}</version>
         </dependency>
 
         <!-- JETTY DEPENDENCIES FOR TESTING -->
@@ -127,24 +126,24 @@
         </dependency>
 
         <dependency>
-          <groupId>org.mortbay.jetty</groupId>
-          <artifactId>jetty</artifactId>
-          <version>${jetty.version}</version>
-          <scope>provided</scope>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty</artifactId>
+            <version>${jetty.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
-          <groupId>org.mortbay.jetty</groupId>
-          <artifactId>jetty-util</artifactId>
-          <version>${jetty.version}</version>
-          <scope>provided</scope>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>${jetty.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
-          <groupId>org.mortbay.jetty</groupId>
-          <artifactId>jetty-management</artifactId>
-          <version>${jetty.version}</version>
-          <scope>provided</scope>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-management</artifactId>
+            <version>${jetty.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
@@ -227,12 +226,12 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.0-SNAPSHOT</version>
                 <configuration>
-                  <!-- http port -->
-                  <port>9090</port>
-                  <!-- application path always starts with /-->
-                  <path>/</path>
-                  <!-- if you want to use test dependencies rather than only runtime -->
-                  <useTestClasspath>false</useTestClasspath>
+                    <!-- http port -->
+                    <port>9090</port>
+                    <!-- application path always starts with / -->
+                    <path>/</path>
+                    <!-- if you want to use test dependencies rather than only runtime -->
+                    <useTestClasspath>false</useTestClasspath>
                 </configuration>
             </plugin>
         </plugins>
@@ -250,45 +249,46 @@
             </snapshots>
         </repository>
         <repository>
-             <id>apache.snapshots</id>
-             <url>http://repository.apache.org/content/groups/snapshots-group/</url>
-             <releases>
-               <enabled>false</enabled>
-             </releases>
-             <snapshots>
-               <enabled>true</enabled>
-             </snapshots>
-       </repository>
+            <id>apache.snapshots</id>
+            <url>http://repository.apache.org/content/groups/snapshots-group/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-          <id>apache.snapshots</id>
-          <name>Apache Snapshots</name>
-          <url>http://repository.apache.org/content/groups/snapshots-group/</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
+            <id>apache.snapshots</id>
+            <name>Apache Snapshots</name>
+            <url>http://repository.apache.org/content/groups/snapshots-group/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </pluginRepository>
-  </pluginRepositories>
+    </pluginRepositories>
 
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.7</version>
-      </plugin>
-    </plugins>
-  </reporting>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>3.0.5.RELEASE</spring.version>
-    <wicket.version>1.4.17</wicket.version>
-    <jetty.version>6.1.26</jetty.version>
-    <jetty.version.new>7.6.3.v20120416</jetty.version.new>
-  </properties>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
+        </plugins>
+    </reporting>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>3.0.5.RELEASE</spring.version>
+        <wicket.version>1.4.17</wicket.version>
+        <jetty.version>6.1.26</jetty.version>
+        <jetty.version.new>7.6.3.v20120416</jetty.version.new>
+        <ckeditor.version>3.5.3</ckeditor.version>
+    </properties>
 
-    </project>
+</project>
