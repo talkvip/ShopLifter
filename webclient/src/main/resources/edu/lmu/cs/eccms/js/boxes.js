@@ -1,3 +1,10 @@
+/**
+ * Provides dynamic div drawing functionality for the customer web editor.
+ * @author Andrew Won and Dr. John Dionisio
+ *
+ * Based on original div drawing app available at:
+ * https://github.com/dondi/bazaar
+ */
 var idCounter = 0,
     Boxes = {
     /**

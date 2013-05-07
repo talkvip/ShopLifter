@@ -1,31 +1,9 @@
 /**
  * Javascript handler for both EditPage.html and Editor.html
+ *
+ * @author Andrew Won
  */
 (function () {
-/*
-    $("#generateReportsLink").bind('mouseup', function () {
-        //window.location.href = generateReportsPage;
-
-        $.ajax({
-            type: editId ? "PUT" : "POST",
-            url: '/relay?s=items' + (editId ? "/" + editId : ""),
-            data: JSON.stringify(jObject),
-            contentType: "application/json",
-            dataType: "json",
-            success : function(data, textStatus, request) {
-                console.log(request.getResponseHeader('Location'));
-            }
-        });
-    });
-
-    $.getJSON(
-        "/relay?s=items?q=",
-        {},
-        function (array, textStatus, jqXHR) {
-            loadArrayToTable(array);
-        }
-    );
-*/
     var CkEditor = {
             turnOn: function () {
                 var ids = [],
@@ -49,8 +27,18 @@
                 }
             },
             turnOff: function () {
+                var ids = [];
+                $(".inactive-drawing-area").find("div").each(function(){ ids.push(this.id); });
+                for (var i = 0; i < ids.length; i++) {
+                    if (CKEDITOR.instances[ids[i]]) {
+                        CKEDITOR.instances[ids[i]].destroy();
+                    }
+                }
                 $('.inactive-box')
                     .attr('contenteditable', 'false');
+                for (i in CKEDITOR.instances) {
+
+                }
             }
         };
 
