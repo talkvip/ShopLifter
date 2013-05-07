@@ -3,12 +3,12 @@ $(document).ready(function(){
         editId,
         stringBuild,
 
-        tableCellFromIdAndContents = function (id, content) {
+        tableCellFromIdAndContents = function (id, contents) {
                 return "<td id=\"" + id + "\">" + contents + "</td>\n";
             },
 
         tableRowToolsFromId = function (id) {
-                return "<span style=\"float:right\"><img id=\"edit" + id + "\" class=\"edit\" "
+                return "<span style=\"float:right\"><img id=\"edit" + id + "\" class=\"edit\" " +
                     "src=\"/resources/edu.lmu.cs.eccms.Inventory/img/edit_icon.png\" " +
                     "alt=\"Edit Icon\"/><img id=\"trash" + id + "\" class=\"trash\"" +
                     "src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" " +
