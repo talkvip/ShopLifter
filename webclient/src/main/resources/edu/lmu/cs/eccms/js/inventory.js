@@ -2,26 +2,35 @@ $(document).ready(function(){
     var tableColumns = ["sku", "name", "price", "quantity", "description"],
         editId,
         stringBuild,
+
+        tableCellFromIdAndContents = function (id, content) {
+                return "<td id=\"" + id + "\">" + contents + "</td>\n";
+            },
+
+        tableRowToolsFromId = function (id) {
+                return "<span style=\"float:right\"><img id=\"edit" + id + "\" class=\"edit\" "
+                    "src=\"/resources/edu.lmu.cs.eccms.Inventory/img/edit_icon.png\" " +
+                    "alt=\"Edit Icon\"/><img id=\"trash" + id + "\" class=\"trash\"" +
+                    "src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" " +
+                    "alt=\"Delete Icon\"/></span>" + "</td>\n</tr>\n";
+            },
+
         loadArrayToTable = function (arr) {
                 for (i = 0; i < arr.length; i++) {
                     stringBuild = "<tr id=\"" + arr[i].id + "\">\n";
                     for (j = 0; j < tableColumns.length; j++) {
-                        stringBuild += "<td id=\"" + tableColumns[j] + arr[i].id + "\">" + arr[i][tableColumns[j]] + "</td>\n"
+                        stringBuild += tableCellFromIdAndContents(tableColumns[j] + arr[i].id,
+                                arr[i][tableColumns[j]]);
                     }
-                    stringBuild += "<span style=\"float:right\">" +
-                        "<img id=\"edit" + arr[i].id +
-                        "\" class=\"edit\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/edit_icon.png\" alt=\"Edit Icon\"/>" +
-                        "<img id=\"trash" + arr[i].id +
-                        "\" class=\"trash\" src=\"/resources/edu.lmu.cs.eccms.Inventory/img/trash_can.png\" alt=\"Delete Icon\"/></span>" + "</td>\n" +
-                        "</tr>\n"
+                    stringBuild = stringBuild.substr(0, stringBuild.length - 6);
+                    stringBuild += tableRowToolsFromId(arr[i].id);
                     $("#inv-table > tbody:last").after(stringBuild);
+
                     $('.edit').on('click', function() {
                         var currentId = parseInt($(this).attr('id').substr(4));
-                        $('#sku').val($('#sku' + currentId).text());
-                        $('#name').val($('#name' + currentId).text());
-                        $('#price').val($('#price' + currentId).text());
-                        $('#quantity').val($('#quantity' + currentId).text());
-                        $('#description').val($('#description' + currentId).text());
+                        for (j = 0; j < tableColumns.length; j++) {
+                            $('#' + tableColumns[j]).val($('#' + tableColumns[j] + currentId).text());
+                        }
                         editId = currentId;
                         $('#dialog-form').dialog('open');
                     });

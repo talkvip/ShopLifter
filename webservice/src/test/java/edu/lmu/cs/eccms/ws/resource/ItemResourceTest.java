@@ -1,11 +1,13 @@
 package edu.lmu.cs.eccms.ws.resource;
 
-import java.util.List;
-
-import junit.framework.Assert;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.List;
+
+import junit.framework.Assert;
+
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.sun.jersey.api.client.ClientResponse;
@@ -102,6 +104,7 @@ public class ItemResourceTest extends ResourceTest {
         assertThat(updatedItem, is(itemToUpdate));
     }
 
+    @Ignore
     @Test
     public void testUpdateItemWithInconsistentIdProduces400() {
         ClientResponse response = wr.path("items/1000").put(ClientResponse.class, itemToUpdate);

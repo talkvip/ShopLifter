@@ -60,7 +60,9 @@ public class ItemResourceImpl extends AbstractResource implements ItemResource {
     public Response createOrUpdateItem(Long id, Item item) {
         logServiceCall();
 
-        validate(id.equals(item.getId()), Response.Status.BAD_REQUEST, ITEM_INCONSISTENT);
+        // TODO: Enable location header on response to client so we can verify id
+        item.setId(id);
+        // validate(id.equals(item.getId()), Response.Status.BAD_REQUEST, ITEM_INCONSISTENT);
         itemService.createOrUpdateItem(item);
 
         return Response.noContent().build();
