@@ -16,17 +16,23 @@ button {
   display: block;
 }
 
-#draw_off {
+#toolbar {
   float: left;
+}
+
+button {
+  width: 110px;
+  margin-top: 10px;
+}
+
+#draw_off {
   margin-left: 1%;
 }
 
 #draw_on {
-  float: left;
   margin-left: 1%;
 }
 
 #save {
-  float: right;
   margin-right: 10%;
 }
