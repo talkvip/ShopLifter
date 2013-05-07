@@ -103,11 +103,10 @@ $(document).ready(function(){
                 bValid = bValid && notNull(name, 'Name');
                 bValid = bValid && notNull(sku, 'SKU');
                 bValid = bValid && notNull(price, 'Price');
-                bValid = bValid && notNull(price, 'Quantity');
+                bValid = bValid && notNull(quantity, 'Quantity');
 
                 bValid = bValid && checkIsNumber(price, 'Price');
                 bValid = bValid && checkIsNumber(quantity, 'Quantity');
-                console.log(editId);
 
                 if (bValid) {
                     var num = false;
@@ -116,9 +115,10 @@ $(document).ready(function(){
                         num = i === 2;
                         jsonString += "\"" + tableColumns[i] + "\":\""+ allFields[i].value + "\",";
                     }
-
                     if (editId) {
-                        jsonString += "\"id\":\"" + editId + "\"";
+                        // TODO: Error when ID is passed along.
+                        //  jsonString += "\"id\":\"" + editId + "\"";
+                        jsonString = jsonString.substr(0, jsonString.length - 1);
                     } else {
                         jsonString = jsonString.substr(0, jsonString.length - 1);
                     }
@@ -134,6 +134,11 @@ $(document).ready(function(){
                             console.log(request.getResponseHeader('Location'));
                         }
                     });
+
+                    // Remove the existing row
+                    if (editId) {
+                        $('#' + editId).remove();
+                    }
                     loadArrayToTable([jObject]);
                     $(this).dialog('close');
                 }
