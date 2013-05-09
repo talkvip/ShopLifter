@@ -50,7 +50,6 @@ public class SiteResourceImpl extends AbstractResource implements SiteResource {
     public Response createOrUpdateEditableSite(Long id, EditableSite site) {
         logServiceCall();
 
-        // TODO: Enable location header on response to client so we can verify id
         site.setId(id);
         // validate(id.equals(site.getId()), Response.Status.BAD_REQUEST, SITE_INCONSISTENT);
         siteService.createOrUpdateEditableSite(site);

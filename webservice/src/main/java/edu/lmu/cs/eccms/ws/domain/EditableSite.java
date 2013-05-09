@@ -19,17 +19,17 @@ public class EditableSite {
 
     private Long id;
     private String name;
-    private Double top;
-    private Double cssleft;
-    private Double height;
-    private Double width;
+    private String top;
+    private String cssleft;
+    private String height;
+    private String width;
     private String data;
 
     public EditableSite() {
         // No-args constructor
     }
 
-    public EditableSite(Long id, String name, Double top, Double cssleft, Double height, Double width, String data) {
+    public EditableSite(Long id, String name, String top, String cssleft, String height, String width, String data) {
         this.id = id;
         this.top = top;
         this.cssleft = cssleft;
@@ -50,35 +50,39 @@ public class EditableSite {
         this.id = id;
     }
 
-    public Double getTop() {
+    @Lob
+    public String getTop() {
         return top;
     }
 
-    public void setTop(Double top) {
+    public void setTop(String top) {
         this.top = top;
     }
 
-    public Double getLeft() {
+    @Lob
+    public String getCssleft() {
         return cssleft;
     }
 
-    public void setLeft(Double cssleft) {
+    public void setCssleft(String cssleft) {
         this.cssleft = cssleft;
     }
 
-    public Double getHeight() {
+    @Lob
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public Double getWidth() {
+    @Lob
+    public String getWidth() {
         return width;
     }
 
-    public void setWidth(Double width) {
+    public void setWidth(String width) {
         this.width = width;
     }
 
