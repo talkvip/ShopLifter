@@ -61,4 +61,10 @@ public class SiteServiceImpl extends AbstractService implements SiteService {
         siteDao.removeEditableSiteById(id);
     }
 
+    @Override
+    public void clearEditableSite() {
+        getLogger().debug("ClearEditableSite");
+        siteDao.clearEditableSite();
+    }
+
 }

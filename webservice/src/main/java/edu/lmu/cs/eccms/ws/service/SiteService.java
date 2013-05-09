@@ -41,4 +41,5 @@ public interface SiteService {
      */
     void removeEditableSiteById(Long id);
 
+    void clearEditableSite();
 }

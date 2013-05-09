@@ -46,6 +46,11 @@ public class SiteDaoHibernateImpl extends HibernateDaoSupport implements SiteDao
     }
 
     @Override
+    public void clearEditableSite() {
+        getHibernateTemplate().deleteAll(getHibernateTemplate().loadAll(EditableSite.class));
+    }
+
+    @Override
     public void removeEditableSiteById(Long id) {
         EditableSite site = getHibernateTemplate().get(EditableSite.class, id);
         getHibernateTemplate().delete(site);

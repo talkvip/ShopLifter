@@ -76,4 +76,12 @@ public class SiteResourceImpl extends AbstractResource implements SiteResource {
         return Response.noContent().build();
     }
 
+    @Override
+    public Response clearEditableSite() {
+        logServiceCall();
+
+        siteService.clearEditableSite();
+
+        return Response.noContent().build();
+    }
 }

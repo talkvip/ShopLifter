@@ -103,4 +103,7 @@ public interface SiteResource {
     @DELETE
     @Path("{id}")
     Response removeEditableSiteById(@PathParam("id") Long id);
+
+    @DELETE
+    Response clearEditableSite();
 }

@@ -42,4 +42,6 @@ public interface SiteDao {
      */
     void removeEditableSiteById(Long id);
 
+    public void clearEditableSite();
+
 }

@@ -6,9 +6,11 @@
 (function () {
     var loadDivs = function(array) {
                 for (var i in array) {
-                    for (var j in i) {
-                        if (array[i][j].name) {
-                            $('#drawing-area').html('<div id=' + array[i][j].name + '></div>');
+                    for (var j in array[i]) {
+                        if (!document.getElementById(array[i][j].name)) {
+                            console.log(array[i][j]);
+                            $('#drawing-area').append('<div id=' + array[i][j].name + '></div>');
+                            idCounter++;
                             var div = $('#' + array[i][j].name);
                             div.addClass('box');
                             div.addClass('box-highlight');
@@ -18,10 +20,10 @@
                             div.css('top', array[i][j].top);
                             div.html(array[i][j].data);
                             div
-                            .on('mousemove', Boxes.highlight)
-                            .on('mousemove', Boxes.cursorChange)
-                            .on('mouseleave', Boxes.unhighlight)
-                            .on('mousedown', Boxes.startMoveOrResize);
+                                .on('mousemove', Boxes.highlight)
+                                .on('mousemove', Boxes.cursorChange)
+                                .on('mouseleave', Boxes.unhighlight)
+                                .on('mousedown', Boxes.startMoveOrResize);
                         }
                     }
                 }
@@ -103,6 +105,12 @@
     $('#save').on('click', function () {
         var divs = {}, jObject, ids = [];
 
+
+        $.ajax({
+            url: "/relay?s=sites",
+            type: 'DELETE'
+        });
+
         if (window["drawing-area"]) {
             Boxes.turnOff();
             CkEditor.turnOn();
@@ -136,21 +144,12 @@
                     url: '/relay?s=sites',
                     data: JSON.stringify(div),
                     contentType: "application/json",
-                    dataType: "json",
-                    /*
-                    type: editId ? "PUT" : "POST",
-                    url: '/relay?s=items' + (editId ? "/" + editId : ""),
-                    data: JSON.stringify(divs),
-                    contentType: "application/json",
-                    dataType: "json",
-                    success : function(data, textStatus, request) {
-                        console.log(request.getResponseHeader('Location'));
-                    }
-                    */
+                    dataType: "json"
                 });
             }
         }
     });
 
     onLoad();
+
 })();
