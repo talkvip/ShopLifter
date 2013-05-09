@@ -43,7 +43,6 @@ public interface ServiceResource {
      */
     String SERVICE_OVERSPECIFIED = "service.overspecified";
     String SERVICE_INCONSISTENT = "service.inconsistent";
-    String SERVICE_AWARDED_STATUS_INCORRECT = "service.awarded.status.incorrect";
     String SERVICE_NOT_FOUND = "service.not.found";
     String SERVICE_QUERY_PARAMETERS_MISSING = "service.query.parameters.missing";
 

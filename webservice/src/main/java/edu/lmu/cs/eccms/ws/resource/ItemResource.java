@@ -41,7 +41,6 @@ public interface ItemResource {
      */
     String ITEM_OVERSPECIFIED = "item.overspecified";
     String ITEM_INCONSISTENT = "item.inconsistent";
-    String ITEM_AWARDED_STATUS_INCORRECT = "item.awarded.status.incorrect";
     String ITEM_NOT_FOUND = "item.not.found";
     String ITEM_QUERY_PARAMETERS_MISSING = "item.query.parameters.missing";
 
