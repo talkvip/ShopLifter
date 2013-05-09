@@ -66,7 +66,7 @@ public class SiteDaoHibernateImpl extends HibernateDaoSupport implements SiteDao
         );
 
         if (query != null) {
-            builder.clause("lower(i.description) like lower(:query) or lower(i.name) like lower(:query)", "%" + query + "%");
+            builder.clause("lower(i.name) like lower(:query) or lower(i.data) like lower(:query)", "%" + query + "%");
         }
 
         return builder;

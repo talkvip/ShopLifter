@@ -20,7 +20,7 @@ public class EditableSite {
     private Long id;
     private String name;
     private Double top;
-    private Double left;
+    private Double cssleft;
     private Double height;
     private Double width;
     private String data;
@@ -29,10 +29,10 @@ public class EditableSite {
         // No-args constructor
     }
 
-    public EditableSite(Long id, String name, Double top, Double left, Double height, Double width, String data) {
+    public EditableSite(Long id, String name, Double top, Double cssleft, Double height, Double width, String data) {
         this.id = id;
         this.top = top;
-        this.left = left;
+        this.cssleft = cssleft;
         this.height = height;
         this.width = width;
         this.data = data;
@@ -59,11 +59,11 @@ public class EditableSite {
     }
 
     public Double getLeft() {
-        return left;
+        return cssleft;
     }
 
-    public void setLeft(Double left) {
-        this.left = left;
+    public void setLeft(Double cssleft) {
+        this.cssleft = cssleft;
     }
 
     public Double getHeight() {
