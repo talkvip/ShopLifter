@@ -19,6 +19,7 @@
                 <value>edu.lmu.cs.eccms.ws.domain.Service</value>
                 <value>edu.lmu.cs.eccms.ws.domain.ServiceHistory</value>
                 <value>edu.lmu.cs.eccms.ws.domain.Item</value>
+                <value>edu.lmu.cs.eccms.ws.domain.EditableSite</value>
                 <value>edu.lmu.cs.eccms.ws.domain.ItemHistory</value>
                 <value>edu.lmu.cs.eccms.ws.domain.Dimension</value>
                 <value>edu.lmu.cs.eccms.ws.domain.User</value>
@@ -50,6 +51,12 @@
         <constructor-arg ref="itemService"/>
     </bean>
 
+    <bean id="SiteResource"
+        class="edu.lmu.cs.eccms.ws.resource.SiteResourceImpl">
+        <constructor-arg ref="userDao"/>
+        <constructor-arg ref="siteService"/>
+    </bean>
+
     <bean id="ServiceResource"
         class="edu.lmu.cs.eccms.ws.resource.ServiceResourceImpl">
         <constructor-arg ref="userDao"/>
@@ -61,6 +68,11 @@
         <constructor-arg ref="itemDao"/>
     </bean>
 
+    <bean id="siteService"
+        class="edu.lmu.cs.eccms.ws.service.SiteServiceImpl">
+        <constructor-arg ref="siteDao"/>
+    </bean>
+
     <bean id="serviceService"
         class="edu.lmu.cs.eccms.ws.service.ServiceServiceImpl">
         <constructor-arg ref="serviceDao"/>
@@ -68,6 +80,11 @@
 
     <bean id="userDaoImpl"
         class="edu.lmu.cs.eccms.ws.dao.UserDaoHibernateImpl"
+        autowire="byName"
+    />
+
+    <bean id="siteDaoImpl"
+        class="edu.lmu.cs.eccms.ws.dao.SiteDaoHibernateImpl"
         autowire="byName"
     />
 
@@ -103,6 +120,19 @@
             <list>
                 <value>hibernateInterceptor</value>
                 <value>itemDaoImpl</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="siteDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>edu.lmu.cs.eccms.ws.dao.SiteDao</value>
+        </property>
+
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+                <value>siteDaoImpl</value>
             </list>
         </property>
     </bean>
