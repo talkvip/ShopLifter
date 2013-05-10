@@ -60,7 +60,42 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{744, 478}, {1081, 396}}</string>
+			<string>{{740, 902}, {1081, 396}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>ID</key>
+			<integer>16</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict/>
+			<key>Text</key>
+			<dict>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
+
+\f0\fs144 \cf0 Web Service\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\fs36 \cf0 	
+\f1\fs72 The web service includes an agnostic, RESTful web service with a database-driven (SQL) persistent data store.  The web service was built with the following tools:
+\f0\fs144 \
+
+\fs36 	
+\fs48 Back-End (Server-Side) Development:\
+		\'95  Java						\'95  \
+		\'95  								\'95  \
+		\'95  								\'95  }</string>
+			</dict>
+			<key>TextPlacement</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{740, 478}, {1081, 396}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -74,7 +109,7 @@
 				<key>Text</key>
 				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Verdana;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red64\green64\blue64;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs144 \cf0 Description\
@@ -82,90 +117,7 @@
 
 \fs36 \cf0 	
 \fs72 \cf2 ShopLifter is a 
-\f1 Content Management System web application that can be launched from any major browser\cf3 \
-
-\f0 \cf0 \
-Development:\
-		\'95  							\'95  \
-		\'95  							\'95  }</string>
-			</dict>
-			<key>TextPlacement</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>Bounds</key>
-			<string>{{1325, 1147}, {500, 396}}</string>
-			<key>Class</key>
-			<string>ShapedGraphic</string>
-			<key>ID</key>
-			<integer>14</integer>
-			<key>Shape</key>
-			<string>Rectangle</string>
-			<key>Style</key>
-			<dict/>
-			<key>Text</key>
-			<dict>
-				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
-
-\f0\fs144 \cf0 Tools\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-
-\fs36 \cf0 	Back-End (Server-Side) Development:\
-		\'95  Java						\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-\
-	Front-End (Client-Side) Development:\
-		\'95  JavaScript				\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  }</string>
-			</dict>
-			<key>TextPlacement</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>Bounds</key>
-			<string>{{744, 1144}, {500, 396}}</string>
-			<key>Class</key>
-			<string>ShapedGraphic</string>
-			<key>ID</key>
-			<integer>13</integer>
-			<key>Shape</key>
-			<string>Rectangle</string>
-			<key>Style</key>
-			<dict/>
-			<key>Text</key>
-			<dict>
-				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
-
-\f0\fs144 \cf0 Tools\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-
-\fs36 \cf0 	Back-End (Server-Side) Development:\
-		\'95  Java						\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-\
-	Front-End (Client-Side) Development:\
-		\'95  JavaScript				\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  \
-		\'95  							\'95  }</string>
+\f1 Content Management System (CMS) web application that can be launched from any major browser.  ShopLifter is separated into a web service and a web client.}</string>
 			</dict>
 			<key>TextPlacement</key>
 			<integer>0</integer>
@@ -550,7 +502,7 @@ Professor Robert (B.J.) Johnson}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-05-10 17:15:25 +0000</string>
+	<string>2013-05-10 18:00:06 +0000</string>
 	<key>Modifier</key>
 	<string>Andrew Won</string>
 	<key>NotesVisible</key>
@@ -641,7 +593,7 @@ Professor Robert (B.J.) Johnson}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{-3, 66}, {1009, 775}}</string>
+		<string>{{-19, 96}, {1009, 775}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -655,15 +607,15 @@ Professor Robert (B.J.) Johnson}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{186, 396}, {1748, 1272}}</string>
+		<string>{{-472, -437}, {3496, 2544}}</string>
 		<key>Zoom</key>
-		<real>0.5</real>
+		<real>0.25</real>
 		<key>ZoomValues</key>
 		<array>
 			<array>
 				<string>Canvas 1</string>
-				<real>0.5</real>
 				<real>0.25</real>
+				<real>0.5</real>
 			</array>
 		</array>
 	</dict>
