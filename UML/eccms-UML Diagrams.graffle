@@ -26,7 +26,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-03-21 15:04:33 +0000</string>
+	<string>2013-05-10 16:38:42 +0000</string>
 	<key>Modifier</key>
 	<string>Andrew Won</string>
 	<key>NotesVisible</key>
@@ -1837,8 +1837,8 @@ unitsSold : Integer}</string>
 					<integer>42</integer>
 					<key>Points</key>
 					<array>
-						<string>{357.93278712352372, 414.40278614628545}</string>
-						<string>{513.77909596761106, 338.10753937843276}</string>
+						<string>{357.93278712343067, 414.40278614624026}</string>
+						<string>{513.77909596761106, 338.107539377987}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1870,8 +1870,8 @@ unitsSold : Integer}</string>
 					<integer>41</integer>
 					<key>Points</key>
 					<array>
-						<string>{369.30966802531208, 356.2724148322485}</string>
-						<string>{513.77909596761106, 329.8311907364573}</string>
+						<string>{369.3096680247051, 356.27241483145673}</string>
+						<string>{513.77909596761106, 329.83119073307574}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1903,8 +1903,8 @@ unitsSold : Integer}</string>
 					<integer>40</integer>
 					<key>Points</key>
 					<array>
-						<string>{373.1479683121176, 304.53790394935027}</string>
-						<string>{513.77909596761106, 321.61156953362621}</string>
+						<string>{373.147968312795, 304.53790394801661}</string>
+						<string>{513.77909596761106, 321.61156952855981}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -1936,8 +1936,8 @@ unitsSold : Integer}</string>
 					<integer>39</integer>
 					<key>Points</key>
 					<array>
-						<string>{359.08832172710288, 247.89589322042033}</string>
-						<string>{513.77909596761106, 313.44799181888328}</string>
+						<string>{359.08832172724237, 247.89589322034132}</string>
+						<string>{513.77909596761106, 313.44799181824123}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2055,7 +2055,7 @@ unitsSold : Integer}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{85, 516.42170796897608}, {483, 28}}</string>
+					<string>{{86, 512.42170796897608}, {472, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -2096,8 +2096,8 @@ unitsSold : Integer}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
-\f0\fs24 \cf0 *  Customer indicates a customer of the business implementing the eCommerce site.\
-** User indicates a user of the eCommerce CMS, typically the business owner, or its agent.}</string>
+\f0\fs24 \cf0 *  Customer indicates a customer of the business implementing the ShopLifter site.\
+** User indicates a user of the ShopLifter CMS, typically the business owner, or its agent.}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -2343,8 +2343,8 @@ unitsSold : Integer}</string>
 					<integer>23</integer>
 					<key>Points</key>
 					<array>
-						<string>{141.37347512501975, 102.9824785892996}</string>
-						<string>{271.84892178564064, 146.62251441323778}</string>
+						<string>{141.37347512501975, 102.98247858935818}</string>
+						<string>{271.84892178532277, 146.62251441347308}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2706,7 +2706,7 @@ unitsSold : Integer}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
 
-\f0\b\fs24 \cf0 eCommerce CMS Client}</string>
+\f0\b\fs24 \cf0 ShopLifter CMS Client}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
 					</dict>
@@ -2821,8 +2821,8 @@ unitsSold : Integer}</string>
 					<integer>44</integer>
 					<key>Points</key>
 					<array>
-						<string>{288.30419902965679, 175.87593333930545}</string>
-						<string>{147.44576363820335, 107.1292882028751}</string>
+						<string>{288.30419907322323, 175.87593332172224}</string>
+						<string>{147.44576363820332, 107.12928803276006}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2878,8 +2878,8 @@ unitsSold : Integer}</string>
 					<integer>42</integer>
 					<key>Points</key>
 					<array>
-						<string>{362.73477921529945, 434.24216984228735}</string>
-						<string>{507.51802953084348, 342.07704468446872}</string>
+						<string>{362.7347792148276, 434.24216984214644}</string>
+						<string>{507.51802953084348, 342.07704468223727}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2911,8 +2911,8 @@ unitsSold : Integer}</string>
 					<integer>41</integer>
 					<key>Points</key>
 					<array>
-						<string>{375.84930154567456, 375.84880056076923}</string>
-						<string>{507.51802953084348, 333.56109153027546}</string>
+						<string>{375.84930154139249, 375.84880055827125}</string>
+						<string>{507.51802953084348, 333.56109151637514}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2977,8 +2977,8 @@ unitsSold : Integer}</string>
 					<integer>39</integer>
 					<key>Points</key>
 					<array>
-						<string>{378.15619184183066, 276.86540991387449}</string>
-						<string>{507.51802953084348, 316.59693106933537}</string>
+						<string>{378.15619183663557, 276.86540991704169}</string>
+						<string>{507.51802953084348, 316.59693108602556}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -3385,8 +3385,8 @@ Front-End}</string>
 					<integer>23</integer>
 					<key>Points</key>
 					<array>
-						<string>{147.44576363820335, 99.164265655915372}</string>
-						<string>{269.97077937654171, 122.81821503758766}</string>
+						<string>{147.44576363820335, 99.164265621015034}</string>
+						<string>{269.97077953816381, 122.81821487551268}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -3444,8 +3444,8 @@ Front-End}</string>
 					<integer>13</integer>
 					<key>Points</key>
 					<array>
-						<string>{262.54069619040484, 78.321112708768936}</string>
-						<string>{147.44576363820332, 90.981758107873745}</string>
+						<string>{262.54069633142871, 78.321112940760997}</string>
+						<string>{147.44576363820332, 90.981758811548701}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -7881,7 +7881,7 @@ Request}</string>
 	<key>WindowInfo</key>
 	<dict>
 		<key>CurrentSheet</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
