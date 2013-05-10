@@ -1,25 +1,25 @@
 /**
- * Javascript handler for both EditPage.html and Editor.html
- *
- * @author Andrew Won
+ * Purpose: JavaScript handler for both EditPage.html and Editor.html
+ * Author:  Andrew Won
  */
 (function () {
+        /**
+         * Loads saved divs from web service.
+         */
     var loadDivs = function(array) {
                 for (var i in array) {
                     for (var j in array[i]) {
                         if (!document.getElementById(array[i][j].name)) {
-                            console.log(array[i][j]);
                             $('#drawing-area').append('<div id=' + array[i][j].name + '></div>');
                             idCounter++;
-                            var div = $('#' + array[i][j].name);
-                            div.addClass('box');
-                            div.addClass('box-highlight');
-                            div.css('height', array[i][j].height);
-                            div.css('width', array[i][j].width);
-                            div.css('left', array[i][j].cssleft);
-                            div.css('top', array[i][j].top);
-                            div.html(array[i][j].data);
-                            div
+                            $('#' + array[i][j].name)
+                                .addClass('box')
+                                .addClass('box-highlight')
+                                .css('height', array[i][j].height)
+                                .css('width', array[i][j].width)
+                                .css('left', array[i][j].cssleft)
+                                .css('top', array[i][j].top)
+                                .html(array[i][j].data)
                                 .on('mousemove', Boxes.highlight)
                                 .on('mousemove', Boxes.cursorChange)
                                 .on('mouseleave', Boxes.unhighlight)
@@ -28,6 +28,9 @@
                     }
                 }
             },
+        /**
+         * Retrieves saved data from web service which will be displayed to user.
+         */
         onLoad = function() {
                 $.getJSON(
                     "/relay?s=sites?q=",
@@ -37,6 +40,13 @@
                     }
                 );
             },
+
+        /**
+         * Get the CSS needed by the Editor for a given element ID.
+         * @param id ID of element for which the top, left, width, and height
+         *           are to be retrieved
+         * @returns CSS of requested element in JSON format
+         */
         getDivCss = function (id) {
             var jObject = $('#' + id);
             return {
@@ -46,6 +56,10 @@
                     "height" : jObject.css('height')
                 }
             },
+
+        /**
+         * CKEditor start and stop functionality
+         */
         CkEditor = {
             turnOn : function () {
                 var ids = [], id;
@@ -138,7 +152,6 @@
                 div["name"] = i;
                 div["top"] = divs[i]["top"];
                 div["width"] = divs[i]["width"];
-                console.log(div);
                 $.ajax({
                     type: "POST",
                     url: '/relay?s=sites',
