@@ -1,12 +1,29 @@
+/**
+ * Purpose: Manages client-side functions for Inventory.html.
+ * Author:  Andrew Won
+ */
 $(document).ready(function(){
-    var tableColumns = ["sku", "name", "price", "quantity", "description"],
+    var FORM_HEIGHT = 400,
+        FORM_WIDTH = 350,
+        DELETE_FORM_HEIGHT = 200,
+        tableColumns = ["sku", "name", "price", "quantity", "description"],
         editId,
         stringBuild,
 
+        /**
+         * Creates a new table cell given contents and an ID to assign.
+         * @param id ID of the new given table cell
+         * @param contents Content to populate the new table cell with
+         */
         tableCellFromIdAndContents = function (id, contents) {
                 return "<td id=\"" + id + "\">" + contents + "</td>\n";
             },
 
+        /**
+         * Creates a new set of clickable icons for deleting and editing a table
+         * row.
+         * @param id ID of the row to which the tools will apply
+         */
         tableRowToolsFromId = function (id) {
                 return "<span style=\"float:right\"><img id=\"edit" + id + "\" class=\"edit\" " +
                     "src=\"/resources/edu.lmu.cs.eccms.Inventory/img/edit_icon.png\" " +
@@ -15,6 +32,11 @@ $(document).ready(function(){
                     "alt=\"Delete Icon\"/></span>" + "</td>\n</tr>\n";
             },
 
+        /**
+         * Takes a formatted array and populates the inventory table with the
+         * elements of the array.
+         * @param arr Array to populate the inventory table with
+         */
         loadArrayToTable = function (arr) {
                 for (i = 0; i < arr.length; i++) {
                     stringBuild = "<tr id=\"" + arr[i].id + "\">\n";
@@ -41,6 +63,10 @@ $(document).ready(function(){
                 }
             },
 
+        /**
+         * Performs AJAX call for all inventory items from web service.  Then
+         * passes the JSON array to loadArrayToTable().
+         */
         loadJsonArray = function () {
                 $.getJSON(
                     "/relay?s=items?q=",
@@ -51,8 +77,6 @@ $(document).ready(function(){
                 );
             },
 
-        jsonString = "",
-        jObject,
         sku = $('#sku'),
         name = $('#name'),
         price = $('#price'),
@@ -61,15 +85,23 @@ $(document).ready(function(){
         allFields = $([]).add(name).add(sku).add(price).add(quantity).add(description),
         tips = $('.validateTips'),
 
+        /**
+         * Updates visual feedback on page.
+         */
         updateTips = function(t) {
                 tips
-                    .text( t )
-                    .addClass( "ui-state-highlight" );
+                    .text(t)
+                    .addClass("ui-state-highlight");
                 setTimeout(function() {
-                    tips.removeClass( "ui-state-highlight", 1500 );
-                }, 500 );
+                    tips.removeClass("ui-state-highlight", 1500);
+                }, 500);
             },
 
+        /**
+         * Ensures that a given object is not null.
+         * @param o Object to check if null
+         * @param n Name of object that is being checked; for error message
+         */
         notNull = function(o, n) {
                 if (!(o.val()) || o.val().length === 0) {
                         o.addClass('ui-state-error');
@@ -80,6 +112,11 @@ $(document).ready(function(){
                 }
             },
 
+        /**
+         * Checks if a given object is a number.
+         * @param o Object to check if it is a number
+         * @param n Name of object that is being checked
+         */
         checkIsNumber = function(o, n) {
                 if (isNaN(o.val())) {
                     o.addClass('ui-state-error');
@@ -88,16 +125,34 @@ $(document).ready(function(){
                 } else {
                     return true;
                 }
+            },
+
+        /**
+         * Retrieves all items from displayed inventory table.
+         * @param o Table of all items in visible table
+         * @returns String JSON version of all items in inventory table
+         */
+        getItemsFromTable = function(o) {
+                var jsonString = "{";
+                for (var i = 0; i < o.length; i++) {
+                    jsonString += "\"" + tableColumns[i] + "\":\""+ o[i].value + "\",";
+                }
+                jsonString = jsonString.substr(0, jsonString.length - 1);
+                return jsonString + "}";
             };
 
+    /**
+     * Dialog handler for inventory item editing.
+     */
     $('#dialog-form').dialog({
         autoOpen: false,
-        height: 400,
-        width: 350,
+        height: FORM_HEIGHT,
+        width: FORM_WIDTH,
         modal: true,
         buttons: {
             "Create or Edit an item": function() {
-                var bValid = true;
+                var bValid = true,
+                    jObject;
                 allFields.removeClass('ui-state-error');
 
                 bValid = bValid && notNull(name, 'Name');
@@ -109,30 +164,14 @@ $(document).ready(function(){
                 bValid = bValid && checkIsNumber(quantity, 'Quantity');
 
                 if (bValid) {
-                    var num = false;
-                    jsonString = "{";
-                    for (var i = 0; i < allFields.length; i++) {
-                        num = i === 2;
-                        jsonString += "\"" + tableColumns[i] + "\":\""+ allFields[i].value + "\",";
-                    }
-                    if (editId) {
-                        // TODO: Error when ID is passed along.
-                        //  jsonString += "\"id\":\"" + editId + "\"";
-                        jsonString = jsonString.substr(0, jsonString.length - 1);
-                    } else {
-                        jsonString = jsonString.substr(0, jsonString.length - 1);
-                    }
-                    jsonString += "}";
+                    var jsonString = getItemsFromTable(allFields);
                     jObject = $.parseJSON(jsonString);
                     $.ajax({
                         type: editId ? "PUT" : "POST",
                         url: '/relay?s=items' + (editId ? "/" + editId : ""),
                         data: JSON.stringify(jObject),
                         contentType: "application/json",
-                        dataType: "json",
-                        success : function(data, textStatus, request) {
-                            console.log(request.getResponseHeader('Location'));
-                        }
+                        dataType: "json"
                     });
 
                     // Remove the existing row
@@ -153,10 +192,13 @@ $(document).ready(function(){
             }
         });
 
+    /**
+     * Dialog handler for delete item verification prompt.
+     */
     $('#dialog-delete').dialog({
         autoOpen: false,
-        height: 200,
-        width: 350,
+        height: DELETE_FORM_HEIGHT,
+        width: FORM_WIDTH,
         modal: true,
         buttons: {
             "Yes": function() {
@@ -176,6 +218,8 @@ $(document).ready(function(){
             }
         });
 
+    // When the page loads, automatically load the items in the web service to
+    // the table.
     loadJsonArray();
 
     $("#create").on('click', function() {
