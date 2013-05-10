@@ -1,3 +1,7 @@
+/**
+ * Purpose: Provides functionality to the main menu on the Index.html page.
+ * Author:  Andrew Won
+ */
 (function () {
     var manageSitePage = "editpage",
         manageInventoryPage = "inventory",
@@ -12,8 +16,4 @@
     $("#generateReportsLink").bind('mouseup', function () {
         window.location.href = generateReportsPage;
     });
-
-
-
-
 })();
