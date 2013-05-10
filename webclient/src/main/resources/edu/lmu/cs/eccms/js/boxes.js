@@ -1,6 +1,6 @@
 /**
- * Provides dynamic div drawing functionality for the customer web editor.
- * @author Andrew Won and Dr. John Dionisio
+ * Purpose: Provides dynamic div drawing functionality for the customer web editor.
+ * Author:  Andrew Won and Dr. John Dionisio
  *
  * Based on original div drawing app available at:
  * https://github.com/dondi/bazaar
@@ -254,58 +254,7 @@ var idCounter = 0,
                     right: parseInt(jThis.css('left')) + originalSize.width,
                     bottom: parseInt(jThis.css('top')) + originalSize.height
                 };
-
-        // Change cursor for top left corner
-        if ((originalLocation.left - 15 < event.pageX) &&
-            (event.pageX < originalLocation.left + 15) &&
-            (originalLocation.top - 15 < event.pageY) &&
-            (event.pageY < originalLocation.top + 15)){
-            $(this).css("cursor", "nw-resize");
-        }
-        // Change cursor for bottom left corner
-        else if ((originalLocation.left - 15 < event.pageX) &&
-            (event.pageX < originalLocation.left + 15) &&
-            (originalLocation.bottom - 15 < event.pageY) &&
-            (event.pageY < originalLocation.bottom + 15)){
-            $(this).css("cursor", "sw-resize");
-        }
-        // Change cursor for top right corner
-        else if((originalLocation.right - 15 < event.pageX) &&
-            (event.pageX < originalLocation.right + 15) &&
-            (originalLocation.top - 15 < event.pageY) &&
-            (event.pageY < originalLocation.top + 15)){
-            $(this).css("cursor", "ne-resize");
-        }
-        // Change cursor for bottom right corner
-        else if((originalLocation.right - 15 < event.pageX) &&
-            (event.pageX < originalLocation.right + 15) &&
-            (originalLocation.bottom - 15 < event.pageY) &&
-            (event.pageY < originalLocation.bottom + 15)){
-            $(this).css("cursor", "se-resize");
-        }
-        // Change cursor for left side
-        else if((originalLocation.left - 15 < event.pageX) &&
-            (event.pageX < originalLocation.left + 15)){
-            $(this).css("cursor", "w-resize");
-        }
-        // Change cursor for right side
-        else if((originalLocation.right - 15 < event.pageX) &&
-            (event.pageX < originalLocation.right + 15)){
-            $(this).css("cursor", "e-resize");
-        }
-        // Change cursor for top side
-        else if((originalLocation.top - 15 < event.pageY) &&
-            (event.pageY < originalLocation.top + 15)){
-            $(this).css("cursor", "n-resize");
-        }
-        // Change cursor for bottom side
-        else if((originalLocation.bottom - 15 < event.pageY) &&
-            (event.pageY < originalLocation.bottom + 15)){
-            $(this).css("cursor", "s-resize");
-        }
-        else{
-            $(this).css("cursor", "move");
-        }
+        $(this).css("cursor", "move");
     },
 
     /**
