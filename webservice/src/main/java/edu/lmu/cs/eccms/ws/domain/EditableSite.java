@@ -13,6 +13,8 @@ import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.google.common.base.Objects;
+
 @Entity
 @XmlRootElement
 public class EditableSite {
@@ -102,5 +104,18 @@ public class EditableSite {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", this.id)
+                .add("name", this.name)
+                .add("top", this.top)
+                .add("cssleft", this.cssleft)
+                .add("width", this.width)
+                .add("height", this.height)
+                .add("data", this.data)
+                .toString();
     }
 }
